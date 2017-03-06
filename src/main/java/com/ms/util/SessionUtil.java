@@ -103,13 +103,6 @@ public class SessionUtil{
 		return (String)getSession().getAttribute(pageUrl);
 	}
 	
-	/**
-	 * @return
-	 */
-	private static ServletContext getServletContext(){
-		return getSession().getServletContext();
-	}
-	
 	
 
 
