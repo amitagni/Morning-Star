@@ -44,6 +44,7 @@ public class LoginController {
 	public ModelAndView loginPage(@ModelAttribute("login") @Validated Login login, BindingResult bindingResult, Model model,HttpServletRequest request) {
 		if (request.getMethod().equalsIgnoreCase(RequestMethod.GET.name())) {
 			login = new Login();
+			System.out.println();
 			return new ModelAndView("login", "login", login);
 		}else{
 			login = new Login();
