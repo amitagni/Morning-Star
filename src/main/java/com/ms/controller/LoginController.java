@@ -23,7 +23,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.ms.bean.Login;
 
 /**
- * @author Manu
+ * @author Amit Agnihotri
  *
  */
 @Controller
