@@ -1,11 +1,4 @@
-/*******************************************************************************
-* Copyright (c) 2016 PWC Corporation and others.
-* All rights reserved. This program and the accompanying materials
-* are made available under the terms of the PWC License v1.0
-*
-* Contributors:
-* PWC - initial API and implementation
-*******************************************************************************/
+
 package com.ms.controller;
 
 import javax.servlet.http.HttpServletRequest;
@@ -28,7 +21,7 @@ import com.ms.bean.Login;
  */
 @Controller
 @Scope("request")
-public class LoginController {
+public class AdmissionController {
 
 
 
@@ -40,7 +33,7 @@ public class LoginController {
 	 * @param request
 	 * @return
 	 */
-	@RequestMapping(value = "/login", method = { RequestMethod.POST, RequestMethod.GET })
+	@RequestMapping(value = "/admission", method = { RequestMethod.POST, RequestMethod.GET })
 	public ModelAndView loginPage(@ModelAttribute("login") @Validated Login login, BindingResult bindingResult, Model model,HttpServletRequest request) {
 		if (request.getMethod().equalsIgnoreCase(RequestMethod.GET.name())) {
 			login = new Login();
