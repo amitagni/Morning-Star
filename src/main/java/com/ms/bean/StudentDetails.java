@@ -15,11 +15,13 @@ public class StudentDetails {
 	private String fatherName;
 	private String motherName;
 	private byte studentClass;
+	private byte section;
+	private byte house;
 	private String category;
-	private String lastClass;
-	private String lastSchool;
-	private String lastClassResult;
+	private String religion;
+	private String caste;
 	private String gender;
+	private String nationality;
 	/**
 	 * @return the firstName
 	 */
@@ -105,42 +107,6 @@ public class StudentDetails {
 		this.category = category;
 	}
 	/**
-	 * @return the lastClass
-	 */
-	public String getLastClass() {
-		return lastClass;
-	}
-	/**
-	 * @param lastClass the lastClass to set
-	 */
-	public void setLastClass(String lastClass) {
-		this.lastClass = lastClass;
-	}
-	/**
-	 * @return the lastSchool
-	 */
-	public String getLastSchool() {
-		return lastSchool;
-	}
-	/**
-	 * @param lastSchool the lastSchool to set
-	 */
-	public void setLastSchool(String lastSchool) {
-		this.lastSchool = lastSchool;
-	}
-	/**
-	 * @return the lastClassResult
-	 */
-	public String getLastClassResult() {
-		return lastClassResult;
-	}
-	/**
-	 * @param lastClassResult the lastClassResult to set
-	 */
-	public void setLastClassResult(String lastClassResult) {
-		this.lastClassResult = lastClassResult;
-	}
-	/**
 	 * @return the gender
 	 */
 	public String getGender() {
@@ -151,6 +117,66 @@ public class StudentDetails {
 	 */
 	public void setGender(String gender) {
 		this.gender = gender;
+	}
+	/**
+	 * @return the religion
+	 */
+	public String getReligion() {
+		return religion;
+	}
+	/**
+	 * @param religion the religion to set
+	 */
+	public void setReligion(String religion) {
+		this.religion = religion;
+	}
+	/**
+	 * @return the caste
+	 */
+	public String getCaste() {
+		return caste;
+	}
+	/**
+	 * @param caste the caste to set
+	 */
+	public void setCaste(String caste) {
+		this.caste = caste;
+	}
+	/**
+	 * @return the section
+	 */
+	public byte getSection() {
+		return section;
+	}
+	/**
+	 * @param section the section to set
+	 */
+	public void setSection(byte section) {
+		this.section = section;
+	}
+	/**
+	 * @return the house
+	 */
+	public byte getHouse() {
+		return house;
+	}
+	/**
+	 * @param house the house to set
+	 */
+	public void setHouse(byte house) {
+		this.house = house;
+	}
+	/**
+	 * @return the nationality
+	 */
+	public String getNationality() {
+		return nationality;
+	}
+	/**
+	 * @param nationality the nationality to set
+	 */
+	public void setNationality(String nationality) {
+		this.nationality = nationality;
 	}
 	
 

@@ -7,33 +7,31 @@ package com.ms.enums;
  * @author Amit.Agnihotri
  *
  */
-public enum StudentClass {
+public enum Section {
+	
 
-	PRE_NUR((byte)1,"Pre. Nur."),
-	NUR((byte)2,"Nur."),
-	KG((byte)3,"K.G"),
-	I((byte)4,"Ist");
+	A ((byte)1,"A"),
+	B((byte)2,"B"),
+	C((byte)3,"C");
+	
 	
 	private Byte code;
 	private String name;
 	
-	/**
-	 * 
-	 */
-	private StudentClass(byte code, String name) {
+	private Section(Byte code,String name) {
 		this.code = code;
 		this.name = name;
 	}
+
 	
 	public static Byte findCodeByName(String  name){
-		for(StudentClass studentClass : StudentClass.values()){
-			if(studentClass.name.equals(name)){
-				return studentClass.code;
+		for(Section section : Section.values()){
+			if(section.name.equals(name)){
+				return section.code;
 			}
 		}
 		return null;
 	}
-
 	/**
 	 * @return the code
 	 */
@@ -61,4 +59,8 @@ public enum StudentClass {
 	public void setName(String name) {
 		this.name = name;
 	}
+	
+	
+
+
 }

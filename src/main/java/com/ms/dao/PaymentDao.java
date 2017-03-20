@@ -3,21 +3,23 @@
  */
 package com.ms.dao;
 
-/**
- * @author Amit.Agnihotri
- *
- */
-
-import com.ms.entity.User;
+import com.ms.entity.Payment;
 
 
 
-public class PaymentDao extends GenericDao<Integer, User> {
+public class PaymentDao extends GenericDao<Integer, Payment> {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	public void save(Payment payment) {
+		if (payment.getId() == null) {
+			persist(payment);
+		} else {
+			merge(payment);
+		}
 
+	}
 	
 }

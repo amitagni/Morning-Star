@@ -27,7 +27,7 @@
 
 	<context:component-scan
 		base-package="com.ms,com.ms.interceptor,net.codejava.spring,com.ms.controller,com.ms.service,com.ms.dao,com.ms.util,com.ms.domain,com.ms.dto" />
-
+                     
 	<context:property-placeholder location="classpath:application.properties"></context:property-placeholder>
 
 
@@ -68,14 +68,14 @@
 		<property name="jpaVendorAdapter">
 			<bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
 				<property name="database" value="MYSQL" />
-				<property name="showSql" value="false" />
+				<property name="showSql" value="true" />
 			</bean>
 		</property>
 		<property name="jpaProperties">
 			<props>
-				<!-- <prop key="hibernate.hbm2ddl.auto">update</prop> -->
-				<!-- <prop key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</prop> -->
-				<!-- <prop key="hibernate.dialect">com.pwc.dao.CustomeDialect</prop> -->
+				<!--  <prop key="hibernate.hbm2ddl.auto">update</prop> -->
+				<!--  <prop key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</prop>-->
+				<prop key="hibernate.dialect">com.ms.dao.CustomeDialect</prop> 
 			</props>
 		</property>
 	</bean>
@@ -87,7 +87,7 @@
 		<property name="jpaVendorAdapter">
 			<bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
 				<property name="database" value="MYSQL" />
-				<property name="showSql" value="false" />
+				<property name="showSql" value="true" />
 			</bean>
 		</property>
 		<!-- <property name="jpaProperties">
@@ -167,5 +167,24 @@
 		<property name="defaultEncoding" value="UTF-8" />
 	</bean>
 
+	<bean id="studentRegDao" class="com.ms.dao.StudentRegDao">
+		<property name="entityManagerFactory" ref="entityManagerFactory" />
+	</bean>
+	
+	<bean id="studentInfoDao" class="com.ms.dao.StudentInfoDao">
+		<property name="entityManagerFactory" ref="entityManagerFactory" />
+	</bean>
+	
+	<bean id="studentContactInfoDao" class="com.ms.dao.StudentContactInfoDao">
+		<property name="entityManagerFactory" ref="entityManagerFactory" />
+	</bean>
+	
+	<bean id="paymentDao" class="com.ms.dao.PaymentDao">
+		<property name="entityManagerFactory" ref="entityManagerFactory" />
+	</bean>
+	
+	<bean id="feeStructureDao" class="com.ms.dao.FeeStructureDao">
+		<property name="entityManagerFactory" ref="entityManagerFactory" />
+	</bean>
 
 </beans>

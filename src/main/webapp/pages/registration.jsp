@@ -84,7 +84,7 @@
                            <div class="col s12 m3">
                               <label for="crole">Class to which Admission is sought*</label>
                               <form:select class="error browser-default" path="" >
-                                <form:options items="${registrationFormBean.studentClassList}" itemValue="matrixValue"  itemLabel="matrixName"  />
+                                <form:options items="${registrationFormBean.studentClassList}" itemValue="code"  itemLabel="name"  />
                               </form:select>
                               
                            </div>
@@ -103,37 +103,37 @@
                            <div class="col s12 m3">
                               <label for="crole">Category *</label>
                               <form:select class="error browser-default" path="" >
-                                <form:options items="${registrationFormBean.categoryList}" itemValue="matrixValue"  itemLabel="matrixName"  />
+                                <form:options items="${registrationFormBean.categoryList}" itemValue="code"  itemLabel="name"  />
                               </form:select>
                            </div>
                            <div class="input-field col s12 m3">
                               <label for="address1" class="">Last School Attended</label>
-                              <form:input path="studentDetails.lastSchool"  type="text" />
+                              <form:input path="lastSchool"  type="text" />
                               <div class="errorTxt1"></div>
                            </div>
                            <div class="input-field col s12 m3">
                               <label for="address1" class="">Last Class Attended</label>
-                              <form:input path="studentDetails.lastClass" type="text" />
+                              <form:input path="lastClass" type="text" />
                               <div class="errorTxt1"></div>
                            </div>
                            <div class="input-field col s12 m3">
                               <label for="address1" class="">Result of the last class</label>
-                              <form:input path="studentDetails.lastClassResult"  type="text" />
+                              <form:input path="lastClassResult"  type="text" />
                               <div class="errorTxt1"></div>
                            </div>
                            <div class="input-field col s12 m3">
                               <label for="address1" class="">Name Of Institution (Last Attended)</label>
-                              <form:input path="studentDetails.lastSchool" type="text" />
+                              <form:input path="lastSchool" type="text" />
                               <div class="errorTxt1"></div>
                            </div>
                            <div class="col s12 m3">
                               <label for="genter_select">Gender *</label>
                               <p>
-                                 <form:radiobutton path="gender"  data-error=".errorTxt8" value="M" />
+                              	 <form:radiobutton path="studentDetails.gender"  value="M" />
                                  <label for="gender_male">Male</label>
                               </p>
                               <p>
-                                 <form:radiobutton path="gender"  value="F" />
+                                 <form:radiobutton path="studentDetails.gender"  value="F" />
                                  <label for="gender_female">Female</label>
                               </p>
                               

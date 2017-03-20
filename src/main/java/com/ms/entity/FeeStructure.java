@@ -7,9 +7,11 @@ import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -17,6 +19,8 @@ import javax.persistence.TemporalType;
  * @author Amit.Agnihotri
  *
  */
+@Entity
+@Table(name = "fee_structure")
 public class FeeStructure extends BaseEntity<Integer> implements Serializable{
 	
 	/**
@@ -39,6 +43,9 @@ public class FeeStructure extends BaseEntity<Integer> implements Serializable{
 	@Column(name = "class")
 	private Byte className;
 	
+	
+	@Column(name = "amount")
+	private String amount;
 	
 	@Column(name = "session")
 	private Byte sessionName;
@@ -147,4 +154,20 @@ public class FeeStructure extends BaseEntity<Integer> implements Serializable{
 	public void setCreatedAt(Date createdAt) {
 		this.createdAt = createdAt;
 	}
+
+	/**
+	 * @return the amount
+	 */
+	public String getAmount() {
+		return amount;
+	}
+
+	/**
+	 * @param amount the amount to set
+	 */
+	public void setAmount(String amount) {
+		this.amount = amount;
+	}
+
+
 }

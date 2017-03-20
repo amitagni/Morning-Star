@@ -11,7 +11,7 @@ public enum FeeFreqType {
 	ANUALLY ((byte)1,"Anually"),
 	HALFYEARLY((byte)2,"Half Yearly"),
 	QUARTERLY((byte)3,"Quarterly"),
-	MONTHLY ((byte)1,"Monthly");
+	MONTHLY ((byte)4,"Monthly");
 	
 	
 	private Byte code;

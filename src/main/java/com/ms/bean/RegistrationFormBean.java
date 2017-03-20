@@ -19,6 +19,9 @@ public class RegistrationFormBean extends FormBean{
 	private String formNum;
 	private String dateOfIssue;
 	private String regNum;
+	private String lastClass;
+	private String lastSchool;
+	private String lastClassResult;
 	private StudentDetails studentDetails;
 	private ContactDetails contactDetails;
 	private List<StudentClass> studentClassList;
@@ -122,6 +125,42 @@ public class RegistrationFormBean extends FormBean{
 	 */
 	public void setStateList(List<State> stateList) {
 		this.stateList = stateList;
+	}
+	/**
+	 * @return the lastClass
+	 */
+	public String getLastClass() {
+		return lastClass;
+	}
+	/**
+	 * @param lastClass the lastClass to set
+	 */
+	public void setLastClass(String lastClass) {
+		this.lastClass = lastClass;
+	}
+	/**
+	 * @return the lastSchool
+	 */
+	public String getLastSchool() {
+		return lastSchool;
+	}
+	/**
+	 * @param lastSchool the lastSchool to set
+	 */
+	public void setLastSchool(String lastSchool) {
+		this.lastSchool = lastSchool;
+	}
+	/**
+	 * @return the lastClassResult
+	 */
+	public String getLastClassResult() {
+		return lastClassResult;
+	}
+	/**
+	 * @param lastClassResult the lastClassResult to set
+	 */
+	public void setLastClassResult(String lastClassResult) {
+		this.lastClassResult = lastClassResult;
 	}
 
 }

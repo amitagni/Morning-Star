@@ -8,16 +8,26 @@ package com.ms.dao;
  *
  */
 
-import com.ms.entity.User;
+import com.ms.entity.StudentContactInfo;
 
 
 
-public class StudentContactInfoDao extends GenericDao<Integer, User> {
+public class StudentContactInfoDao extends GenericDao<Integer, StudentContactInfo> {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 
-	
+	/**
+	 * @param studentContactInfo
+	 */
+	public void save(StudentContactInfo studentContactInfo) {
+		if (studentContactInfo.getId() == null) {
+			persist(studentContactInfo);
+		} else {
+			merge(studentContactInfo);
+		}
+
+	}
 }

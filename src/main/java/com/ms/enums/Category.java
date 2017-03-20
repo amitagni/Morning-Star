@@ -24,6 +24,15 @@ public enum Category {
 		this.name = name;
 	}
 
+	
+	public static Byte findCodeByName(String  name){
+		for(Category category : Category.values()){
+			if(category.name.equals(name)){
+				return category.code;
+			}
+		}
+		return null;
+	}
 	/**
 	 * @return the code
 	 */

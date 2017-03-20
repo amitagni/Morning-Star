@@ -7,9 +7,11 @@ import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -17,6 +19,8 @@ import javax.persistence.TemporalType;
  * @author Amit.Agnihotri
  *
  */
+@Entity
+@Table(name = "fee_slip")
 public class FeeSlip extends BaseEntity<Integer> implements Serializable{
 	
 	/**
@@ -33,11 +37,14 @@ public class FeeSlip extends BaseEntity<Integer> implements Serializable{
 	@Column(name = "student_id")
 	private Integer studentId;
 	
+	@Column(name = "fee_structure_id")
+	private Integer feeStructureId;
+	
 	@Column(name = "payment_id")
 	private Integer paymentId;
 	
 	@Column(name = "month")
-	private Integer month;
+	private Byte month;
 	
 	@Column(name = "amount")
 	private String amount;
@@ -94,19 +101,7 @@ public class FeeSlip extends BaseEntity<Integer> implements Serializable{
 		this.paymentId = paymentId;
 	}
 
-	/**
-	 * @return the month
-	 */
-	public Integer getMonth() {
-		return month;
-	}
-
-	/**
-	 * @param month the month to set
-	 */
-	public void setMonth(Integer month) {
-		this.month = month;
-	}
+	
 
 	/**
 	 * @return the amount
@@ -162,5 +157,33 @@ public class FeeSlip extends BaseEntity<Integer> implements Serializable{
 	 */
 	public void setCreatedAt(Date createdAt) {
 		this.createdAt = createdAt;
+	}
+
+	/**
+	 * @return the feeStructureId
+	 */
+	public Integer getFeeStructureId() {
+		return feeStructureId;
+	}
+
+	/**
+	 * @param feeStructureId the feeStructureId to set
+	 */
+	public void setFeeStructureId(Integer feeStructureId) {
+		this.feeStructureId = feeStructureId;
+	}
+
+	/**
+	 * @return the month
+	 */
+	public Byte getMonth() {
+		return month;
+	}
+
+	/**
+	 * @param month the month to set
+	 */
+	public void setMonth(Byte month) {
+		this.month = month;
 	}
 }

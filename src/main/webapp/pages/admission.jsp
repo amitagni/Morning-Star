@@ -41,55 +41,56 @@
             <div class="card-panel card-main">
                <h4 class="header2">Student Details</h4>
                <div class="row">
-                  <form class="formValidate" id="formValidate" method="get" action="" novalidate="novalidate">
+                  <form:form  modelAttribute="admissionFormBean"  action="admission.do" method="post" novalidate="novalidate">
                      <div class="row">
                         <div class="col s9">
                            <div class="input-field col s12 m4">
                               <label for="fname" class="">First Name of Scholar</label>
-                              <input id="fname" name="fname" type="text">
+                              <form:input path="studentDetails.firstName" type="text" />
                               <div class="errorTxt1"></div>
                            </div>
                            <div class="input-field col s12 m4">
                               <label for="lname" class="">Last Name Scholar</label>
-                              <input id="lname" type="text">
+                              <form:input path="studentDetails.lastName" type="text" />
                               <div class="errorTxt2"></div>
                            </div>
                            <div class="input-field col s12 m4">
                               <label for="lname" class="">Date of Application</label>
-                              <input type="date" class="datepicker">
+                               <form:input path="applicationDate" type="text" class="datepicker" />
                               <div class="errorTxt2"></div>
                            </div>
                            <div class="input-field col s12 m4">
                               <label for="lname" class="">Mother's Name </label>
-                              <input id="lname" type="text">
+                              <form:input path="studentDetails.motherName" type="text" />
                               <div class="errorTxt2"></div>
                            </div>
                            <div class="input-field col s12 m4">
                               <label for="lname" class="">Father's Name </label>
-                              <input id="lname" type="text">
+                              <form:input path="studentDetails.fatherName" type="text" />
                               <div class="errorTxt2"></div>
                            </div>
                            <div class="col s12 m4">
                               <label for="crole">Class to which Admission is sought*</label>
-                              <select class="error browser-default" id="crole" name="crole">
-                                 <option value="" disabled="" selected="">Choose your Class</option>
-                                 <option value="1">10th</option>
-                                 <option value="2">11th</option>
-                                 <option value="3">12th</option>
-                              </select>
+                               <form:select class="error browser-default" path="" >
+                                <form:options items="${admissionFormBean.studentClassList}" itemValue="code"  itemLabel="name"  />
+                               </form:select>
                               <div class="input-field">
                                  <div class="errorTxt6"></div>
                               </div>
                            </div>
                            <div class="col s12 m4">
                               <label for="crole">Section *</label>
-                              <select class="error browser-default" id="crole" name="crole">
-                                 <option value="" disabled="" selected="">Choose your Section</option>
-                                 <option value="1">A</option>
-                                 <option value="2">B</option>
-                                 <option value="3">C</option>
-                              </select>
+                               <form:select class="error browser-default" path="studentDetails.section" >
+                                <form:options items="${admissionFormBean.sectionList}" itemValue="code"  itemLabel="name"  />
+                              </form:select>
+                             
                            </div>
+                           <div class="input-field col s12 m4">
+                               <form:select class="error browser-default" path="studentDetails.house" >
+                                <form:options items="${admissionFormBean.houseList}" itemValue="code"  itemLabel="name"  />
+                              </form:select>
+                            <label>Images in select</label>
+                          </div>
                            <div class="input-field col s12 m4">
                               <select multiple>
                                  <option value="" disabled selected> chosee subject</option>
@@ -101,66 +102,63 @@
                            </div>
                            <div class="input-field col s12 m4">
                               <label for="password" class="">Date Of Birth*</label>
-                              <input type="date" class="datepicker">
+                              <form:input path="studentDetails.dob" type="text" class="datepicker" />
                               <div class="errorTxt3"></div>
                            </div>
                            <div class="input-field col s12 m4">
                               <label for="date" class=""> since how long residing uttar pradesh</label>
-                              <input type="date" class="datepicker">
+                              <form:input path="timeOfResiding" type="text" class="datepicker" />
                               <div class="errorTxt3"></div>
                            </div>
                            <div class="input-field col s12 m4">
                               <label for="lname" class="">Nationality*</label>
-                              <input id="lname" type="text">
+                               <form:input path="studentDetails.nationality" type="text" />
                               <div class="errorTxt2"></div>
                            </div>
                            <div class="input-field col s12 m4">
                               <label for="lname" class="">Religion*</label>
-                              <input id="lname" type="text">
+                               <form:input path="studentDetails.religion" type="text" />
                               <div class="errorTxt2"></div>
                            </div>
                            <div class="input-field col s12 m4">
                               <label for="lname" class="">Caste*</label>
-                              <input id="lname" type="text">
+                               <form:input path="studentDetails.caste" type="text" />
                               <div class="errorTxt2"></div>
                            </div>
                            <div class="col s12 m4">
                               <label for="crole">Category *</label>
-                              <select class="error browser-default" id="crole" name="crole">
-                                 <option value="" disabled="" selected="">Choose your Category</option>
-                                 <option value="1">General</option>
-                                 <option value="2">SC</option>
-                                 <option value="3">OBC</option>
-                              </select>
+                              <form:select class="error browser-default" path="" >
+                                <form:options items="${admissionFormBean.categoryList}" itemValue="code"  itemLabel="name"  />
+                              </form:select>
                            </div>
                            <div class="input-field col s12 m4">
                               <label for="address1" class="">Last School Attended</label>
-                              <input id="fname" name="addresss1" type="text">
+                              <form:input path="lastSchool" type="text" />
                               <div class="errorTxt1"></div>
                            </div>
                            <div class="input-field col s12 m4">
                               <label for="address1" class="">Last Class Attended</label>
-                              <input id="fname" name="addresss1" type="text">
+                              <form:input path="lastClass" type="text" />
                               <div class="errorTxt1"></div>
                            </div>
                            <div class="input-field col s12 m4">
                               <label for="address1" class="">Result of the last class</label>
-                              <input id="fname" name="addresss1" type="text">
+                               <form:input path="lastClassResult" type="text" />
                               <div class="errorTxt1"></div>
                            </div>
                            <div class="input-field col s12 m4">
                               <label for="address1" class="">Name Of Institution (Last Attended)</label>
-                              <input id="fname" name="addresss1" type="text">
+                               <form:input path="lastSchool" type="text" />
                               <div class="errorTxt1"></div>
                            </div>
                            <div class="col s12 m4">
                               <label for="genter_select">Gender *</label>
-                              <p>
-                                 <input name="cgender" type="radio" id="gender_male" data-error=".errorTxt8">
+                             <p>
+                              	 <form:radiobutton path="studentDetails.gender"  value="M" />
                                  <label for="gender_male">Male</label>
                               </p>
                               <p>
-                                 <input name="cgender" type="radio" id="gender_female" value="f">
+                                 <form:radiobutton path="studentDetails.gender"  value="F" />
                                  <label for="gender_female">Female</label>
                               </p>
                               <div class="input-field">
@@ -185,22 +183,22 @@
                         </div>
                         <div class="input-field col s12 m3">
                            <label for="address1" class="">Address Line1</label>
-                           <input id="fname" name="addresss1" type="text">
+                            <form:input path="contactDetails.address1" type="text" />
                            <div class="errorTxt1"></div>
                         </div>
                         <div class="input-field col s12 m3">
                            <label for="address1" class="">Address Line2</label>
-                           <input id="fname" name="addresss1" type="text">
+                           <form:input path="contactDetails.address2" type="text" />
                            <div class="errorTxt1"></div>
                         </div>
                         <div class="input-field col s12 m3">
                            <label for="address1" class="">Area</label>
-                           <input id="fname" name="addresss1" type="text">
+                            <form:input path="contactDetails.area" type="text" />
                            <div class="errorTxt1"></div>
                         </div>
                         <div class="input-field col s12 m3">
                            <label for="address1" class="">City</label>
-                           <input id="fname" name="addresss1" type="text">
+                           <form:input path="contactDetails.city" type="text" />
                            <div class="errorTxt1"></div>
                         </div>
                         <div class=" col s12 m3">
@@ -214,22 +212,22 @@
                         </div>
                         <div class="input-field col s12 m3">
                            <label for="address1" class="">Pin Code</label>
-                           <input id="fname" name="Pincode" type="text">
+                            <form:input path="contactDetails.pincode" type="text" />
                            <div class="errorTxt1"></div>
                         </div>
                         <div class="input-field col s12 m3">
                            <label for="address1" class="">Phone</label>
-                           <input id="fname" name="addresss1" type="text">
+                            <form:input path="contactDetails.phone" type="text" />
                            <div class="errorTxt1"></div>
                         </div>
                         <div class="input-field col s12 m3">
                            <label for="address1" class="">Mobile No.</label>
-                           <input id="fname" name="addresss1" type="text">
+                           <form:input path="contactDetails.mobile" type="text" />
                            <div class="errorTxt1"></div>
                         </div>
                         <div class="input-field col s12 m3">
                            <label for="address1" class="">Email</label>
-                           <input id="fname" name="addresss1" type="text">
+                            <form:input path="contactDetails.email" type="text" />
                            <div class="errorTxt1"></div>
                         </div>
                         <div class="col s12 m4 ">
@@ -251,10 +249,10 @@
                            </p>
                         </div>
                         <div class="input-field col s12 center-align button-margin">
-                           <button class="btn waves-effect waves-light  submit left" type="submit" name="action">Save For Letter
+                           <button class="btn waves-effect waves-light  submit left"  onclick = "submitForm('admissionFormBean')" >Save For Letter
                            <i class="mdi-content-save right"></i>
                            </button>
-                           <button class="btn waves-effect waves-light  submit center-btn" type="submit" name="action">Submit
+                           <button class="btn waves-effect waves-light  submit center-btn"  onclick = "submitForm('admissionFormBean')" >Submit
                            <i class="mdi-content-send right"></i>
                            </button>
                            <button class="btn waves-effect waves-light right submit" type="submit" name="action">Cancel
@@ -262,7 +260,7 @@
                            </button>
                         </div>
                      </div>
-                  </form>
+                  </form:form>
                </div>
             </div>
          </div>
@@ -283,6 +281,10 @@
              // Translated
          
          });
+         
+         function submitForm(formId){
+       		 $("#"+formId).submit();
+       	 }
           $(document).ready(function() {
          $('select').material_select();
          });
