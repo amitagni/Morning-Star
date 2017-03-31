@@ -14,6 +14,7 @@ public class StudentDetails {
 	private String dob;
 	private String fatherName;
 	private String motherName;
+	private byte studentAdmissionClass;
 	private byte studentClass;
 	private byte section;
 	private byte house;
@@ -177,6 +178,18 @@ public class StudentDetails {
 	 */
 	public void setNationality(String nationality) {
 		this.nationality = nationality;
+	}
+	/**
+	 * @return the studentAdmissionClass
+	 */
+	public byte getStudentAdmissionClass() {
+		return studentAdmissionClass;
+	}
+	/**
+	 * @param studentAdmissionClass the studentAdmissionClass to set
+	 */
+	public void setStudentAdmissionClass(byte studentAdmissionClass) {
+		this.studentAdmissionClass = studentAdmissionClass;
 	}
 	
 

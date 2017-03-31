@@ -13,6 +13,7 @@ public class FeeDTO {
 	private String amount;
 	private String discount;
 	private String paidAmount;
+	private boolean paid;
 	/**
 	 * @return the amount
 	 */
@@ -73,5 +74,17 @@ public class FeeDTO {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-
+	/**
+	 * @return the paid
+	 */
+	public boolean isPaid() {
+		return paid;
+	}
+	/**
+	 * @param paid the paid to set
+	 */
+	public void setPaid(boolean paid) {
+		this.paid = paid;
+	}
+	
 }

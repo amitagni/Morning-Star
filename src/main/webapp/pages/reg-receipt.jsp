@@ -22,11 +22,11 @@
       <div class="valign-wrapper row row_form">
          <div class="col s12 m12 card-margin card-panel valign">
             <ul class="breadcrumb">
-            <li ><a href="reg.html">Registration</a>
+            <li ><a href="javascript:void();">Registration</a>
                </li>
-               <li ><a href="reg-pay.html">Payment</a>
+               <li ><a href="javascript:void();">Payment</a>
                </li>
-               <li class="active_list"><a href="recipt-re.html">Receipt</a>
+               <li><a class="active_list" href="javascript:void();">Receipt</a>
                </li>
             </ul>
          </div>

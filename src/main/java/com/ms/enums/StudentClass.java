@@ -34,6 +34,16 @@ public enum StudentClass {
 		return null;
 	}
 
+	
+	public static String findNameByCode(Byte  code){
+		for(StudentClass studentClass : StudentClass.values()){
+			if(studentClass.code.byteValue() == code.byteValue()){
+				return studentClass.name;
+			}
+		}
+		return null;
+	}
+
 	/**
 	 * @return the code
 	 */

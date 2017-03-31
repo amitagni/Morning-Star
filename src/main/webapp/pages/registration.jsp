@@ -23,11 +23,11 @@
       <div class="valign-wrapper row row_form">
          <div class="col s12 m12 card-margin card-panel valign">
             <ul class="breadcrumb">
-            <li class="active_list"><a href="reg.html">Registration</a>
+            <li class="active_list"><a href="javascript:void();">Registration</a>
                </li>
-               <li ><a href="reg-pay.html">Payment</a>
+               <li ><a href="javascript:void();">Payment</a>
                </li>
-               <li><a href="recipt-re.html">Receipt</a>
+               <li><a href="javascript:void();">Receipt</a>
                </li>
             </ul>
          </div>
@@ -129,11 +129,11 @@
                            <div class="col s12 m3">
                               <label for="genter_select">Gender *</label>
                               <p>
-                              	 <form:radiobutton path="studentDetails.gender"  value="M" />
+                              	 <form:radiobutton path="studentDetails.gender" id="gender_male"  value="M" />
                                  <label for="gender_male">Male</label>
                               </p>
                               <p>
-                                 <form:radiobutton path="studentDetails.gender"  value="F" />
+                                 <form:radiobutton path="studentDetails.gender" id="gender_female" value="F" />
                                  <label for="gender_female">Female</label>
                               </p>
                               
@@ -193,9 +193,16 @@
                            <div class="errorTxt1"></div>
                         </div>
                        
+                         <div class="input-field col s12 m12 center-align button-margin">
+                           		<button class="btn waves-effect waves-light  submit center-btn" type="submit" name="action" onclick = "submitForm('registrationFormBean')" >Submit
+                          			 <i class="mdi-content-send right"></i>
+                          		 </button>
+                          		 <button class="btn waves-effect waves-light  submit" type="submit" name="action">Cancel
+                           			<i class="mdi-navigation-close right"></i>
+                           		</button>
+                          </div>
                         
-                        
-                        <div class="input-field col s12 center-align button-margin">
+                     <!--    <div class="input-field col s12 center-align button-margin">
                            <button class="btn waves-effect waves-light  submit left" onclick = "submitForm('registrationFormBean')" >Save For Letter
                            <i class="mdi-content-save right"></i>
                            </button>
@@ -205,7 +212,7 @@
                            <button class="btn waves-effect waves-light right submit" onclick = "" >Cancel
                            <i class="mdi-navigation-close right"></i>
                            </button>
-                        </div>
+                        </div> -->
                      </div>
                   </form:form>
                </div>

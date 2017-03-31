@@ -1,3 +1,7 @@
+<%@ page contentType="text/html;charset=UTF-8"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
    <head>
@@ -13,38 +17,18 @@
       <link rel="shortcut icon" type="image/png" href="img/login.png" />
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.2/css/materialize.min.css">
    <body class="dashboard-body">
-      <ul id="dropdown1" class="dropdown-content">
-         <li><a href="login.html">Login</a>
-         </li>
-         <li><a href="#!">Profile</a>
-         </li>
-         <li class="divider"></li>
-         <li><a href="#!">Logout</a>
-         </li>
-      </ul>
-      <div class="navbar-fixed">
-         <nav>
-            <div class="nav-wrapper">
-               <a href="#!" class="brand-logo img-logo"><img src="img/add.png">
-               </a><span class="text-logo">Recipt</span>
-               <ul class="right hide-on-med-and-down">
-                  <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Welcome Alok Bajpai<i class="material-icons right">arrow_drop_down</i></a>
-                  </li>
-               </ul>
-            </div>
-         </nav>
-      </div>
+      <%@ include file="../includes/header.jsp"%>
       <div class="container_b">
-      <div class="valign-wrapper row row_form">
+  	  <div class="valign-wrapper row row_form">
          <div class="col s12 m12 card-margin card-panel valign">
             <ul class="breadcrumb">
-            <li ><a href="admission.html">Enrollment</a>
+               <li ><a href="javascript:void();">Enrollment</a>
                </li>
-               <li ><a href="fee.html">Fee Details</a>
+               <li ><a href="javascript:void();">Fee Details</a>
                </li>
-               <li ><a href="payment.html">Payment</a>
+               <li ><a href="javascript:void();">Payment</a>
                </li>
-               <li class="active_list"><a href="recipt.html">Receipt</a>
+               <li class="active_list"><a href="javascript:void();">Receipt</a>
                </li>
             </ul>
          </div>

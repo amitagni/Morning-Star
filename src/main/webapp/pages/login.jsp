@@ -11,7 +11,7 @@
   <title> Login page</title>
   <!-- CORE CSS-->
   <link rel="shortcut icon" type="image/png" href="img/login.png"/>
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.2/css/materialize.min.css">
+   <link rel="stylesheet" href="css/materialize.min.css">
   <link rel="stylesheet" type="text/css" href="css/style.css">
 
 <body class="body">
@@ -19,23 +19,26 @@
 
   <div id="login-page" class="row">
     <div class="col s12 z-depth-6 card-panel">
-      <form class="login-form">
+     <form:form  modelAttribute="login"  action="login.do" method="post"  class="login-form">
         <div class="row">
           <div class="input-field col s12 center">
             <img src="img/login.png" alt="" class="responsive-img valign profile-image-login size-logo">
           </div>
         </div>
+         <c:if test="${not empty message}">
+                <span class="text-center redcolor">${message}</span>
+         </c:if>
         <div class="row margin">
           <div class="input-field col s12">
             <i class="mdi-social-person-outline prefix"></i>
-            <input class="validate" id="email" type="email">
-            <label for="email" data-error="wrong" data-success="right" class="center-align">Email</label>
+             <form:input path="email"  type="text" class="validate" />
+            <label for="email" data-error="wrong"  class="center-align">Email</label>
           </div>
         </div>
         <div class="row margin">
           <div class="input-field col s12">
             <i class="mdi-action-lock-outline prefix"></i>
-            <input id="password" type="password">
+            <form:input path="password" id="password" placeholder="password" type="password"  />
             <label for="password">Password</label>
           </div>
         </div>
@@ -47,7 +50,7 @@
         </div>
         <div class="row">
           <div class="input-field col s12">
-            <a href="dashboard.html" class="btn waves-effect waves-light col s12">Login</a>
+            <a href="javascript:submitForm('login')" class="btn waves-effect waves-light col s12">Login</a>
           </div>
         </div>
         <div class="row">
@@ -56,7 +59,7 @@
           </div>          
         </div>
 
-      </form>
+      </form:form>
     </div>
   </div>
 
@@ -64,7 +67,13 @@
   <!--materialize js-->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.2/js/materialize.min.js"></script>
       
-
+  <script type="text/javascript">
+    	function submitForm(formId){
+       		 $("#"+formId).submit();
+       	}
+    	
+    	
+      </script>
  
 
   

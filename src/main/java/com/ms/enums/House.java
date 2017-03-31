@@ -30,6 +30,15 @@ public enum House {
 		}
 		return null;
 	}
+	
+	public static String findNameByCode(Byte  code){
+		for(House house : House.values()){
+			if(house.code.byteValue() == code.byteValue()){
+				return house.name;
+			}
+		}
+		return null;
+	}
 	/**
 	 * @return the code
 	 */

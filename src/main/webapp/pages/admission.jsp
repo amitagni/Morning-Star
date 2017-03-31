@@ -22,15 +22,13 @@
       <div class="valign-wrapper row row_form">
          <div class="col s12 m12 card-margin card-panel valign">
             <ul class="breadcrumb">
-            <li ><a href="reg.html">Registration</a>
+               <li class="active_list"><a href="javascript:void();">Enrollment</a>
                </li>
-               <li class="active_list"><a href="admission.html">Enrollment</a>
+               <li ><a href="javascript:void();">Fee Details</a>
                </li>
-               <li ><a href="fee.html">Fee Details</a>
+               <li ><a href="javascript:void();">Payment</a>
                </li>
-               <li ><a href="payment.html">Payment</a>
-               </li>
-               <li><a href="#">Receipt</a>
+               <li><a href="javascript:void();">Receipt</a>
                </li>
             </ul>
          </div>
@@ -41,7 +39,7 @@
             <div class="card-panel card-main">
                <h4 class="header2">Student Details</h4>
                <div class="row">
-                  <form:form  modelAttribute="admissionFormBean"  action="admission.do" method="post" novalidate="novalidate">
+                  <form:form  modelAttribute="admissionFormBean"  action="admission.do" method="post" enctype="multipart/form-data" novalidate="novalidate">
                      <div class="row">
                         <div class="col s9">
                            <div class="input-field col s12 m4">
@@ -71,7 +69,7 @@
                            </div>
                            <div class="col s12 m4">
                               <label for="crole">Class to which Admission is sought*</label>
-                               <form:select class="error browser-default" path="" >
+                               <form:select class="error browser-default" path="studentDetails.studentAdmissionClass" >
                                 <form:options items="${admissionFormBean.studentClassList}" itemValue="code"  itemLabel="name"  />
                                </form:select>
                               <div class="input-field">
@@ -127,7 +125,7 @@
                            </div>
                            <div class="col s12 m4">
                               <label for="crole">Category *</label>
-                              <form:select class="error browser-default" path="" >
+                              <form:select class="error browser-default" path="studentDetails.category" >
                                 <form:options items="${admissionFormBean.categoryList}" itemValue="code"  itemLabel="name"  />
                               </form:select>
                            </div>
@@ -153,12 +151,12 @@
                            </div>
                            <div class="col s12 m4">
                               <label for="genter_select">Gender *</label>
-                             <p>
-                              	 <form:radiobutton path="studentDetails.gender"  value="M" />
+                              <p>
+                              	 <form:radiobutton path="studentDetails.gender" id="gender_male"  value="M" />
                                  <label for="gender_male">Male</label>
                               </p>
                               <p>
-                                 <form:radiobutton path="studentDetails.gender"  value="F" />
+                                 <form:radiobutton path="studentDetails.gender" id="gender_female" value="F" />
                                  <label for="gender_female">Female</label>
                               </p>
                               <div class="input-field">
@@ -167,15 +165,17 @@
                            </div>
                         </div>
                         <div class="col s12 m3">
-                           <label for="address1" class="">Attech Photo</label>
+                           <label for="address1" class="">Attach Photo</label>
                            <div class="input-field">
-                              <input type="file" class="dropify" data-default-file="img/u.png" />
+                           		 <form:input type="file" path="studentPhoto"  class="dropify" data-default-file="img/u.png"  />
+                             	 <!-- <input type="file" class="dropify" data-default-file="img/u.png" /> -->
                            </div>
                         </div>
                         <div class=" col s12 m3">
-                           <label for="address1" class="">Attech Transfer/ proof of Date of Birth</label>
+                           <label for="address1" class="">Attach Transfer/ proof of Date of Birth</label>
                            <div class="input-field">
-                              <input type="file" class="dropify" data-default-file="img/u.png" />
+                           		<form:input type="file" path="studentTc" class="dropify" data-default-file="img/u.png"  />
+                               <!--  <input type="file" class="dropify" data-default-file="img/u.png" /> -->
                            </div>
                         </div>
                         <div class="col s12">
@@ -248,7 +248,16 @@
                               <label for="test5">I have carefully read all the detalis of school, and i agree to pay all fees as may be prescribed by the institution form time to time</label>
                            </p>
                         </div>
-                        <div class="input-field col s12 center-align button-margin">
+                        
+                         <div class="input-field col s12 m12 center-align button-margin">
+                           		<button class="btn waves-effect waves-light  submit center-btn" type="submit" name="action" onclick = "submitForm('admissionFormBean')" >Submit
+                          			 <i class="mdi-content-send right"></i>
+                          		 </button>
+                          		 <button class="btn waves-effect waves-light  submit" type="submit" name="action">Cancel
+                           			<i class="mdi-navigation-close right"></i>
+                           		</button>
+                          </div>
+                        <!-- <div class="input-field col s12 center-align button-margin">
                            <button class="btn waves-effect waves-light  submit left"  onclick = "submitForm('admissionFormBean')" >Save For Letter
                            <i class="mdi-content-save right"></i>
                            </button>
@@ -258,7 +267,7 @@
                            <button class="btn waves-effect waves-light right submit" type="submit" name="action">Cancel
                            <i class="mdi-navigation-close right"></i>
                            </button>
-                        </div>
+                        </div> -->
                      </div>
                   </form:form>
                </div>

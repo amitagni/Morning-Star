@@ -13,12 +13,17 @@ import com.ms.enums.Month;
  *
  */
 public class FeeFormBean extends FormBean{
+	private Integer studentId;
+	private Integer feeSummaryId;
 	private Byte selMonth;
 	private List<Month> monthList;
 	private List<FeeDTO> monthlyFeeList;
 	private List<FeeDTO> quarterlyFeeList;
 	private List<FeeDTO> halfyearlyFeeList;
 	private List<FeeDTO> anualFeeList;
+	private String totalAmt;
+	private String totalDiscAmt;
+	private String totalPaidAmt;
 	/**
 	 * @return the monthList
 	 */
@@ -90,6 +95,66 @@ public class FeeFormBean extends FormBean{
 	 */
 	public void setSelMonth(Byte selMonth) {
 		this.selMonth = selMonth;
+	}
+	/**
+	 * @return the studentId
+	 */
+	public Integer getStudentId() {
+		return studentId;
+	}
+	/**
+	 * @param studentId the studentId to set
+	 */
+	public void setStudentId(Integer studentId) {
+		this.studentId = studentId;
+	}
+	/**
+	 * @return the feeSummaryId
+	 */
+	public Integer getFeeSummaryId() {
+		return feeSummaryId;
+	}
+	/**
+	 * @param feeSummaryId the feeSummaryId to set
+	 */
+	public void setFeeSummaryId(Integer feeSummaryId) {
+		this.feeSummaryId = feeSummaryId;
+	}
+	/**
+	 * @return the totalAmt
+	 */
+	public String getTotalAmt() {
+		return totalAmt;
+	}
+	/**
+	 * @param totalAmt the totalAmt to set
+	 */
+	public void setTotalAmt(String totalAmt) {
+		this.totalAmt = totalAmt;
+	}
+	/**
+	 * @return the totalDiscAmt
+	 */
+	public String getTotalDiscAmt() {
+		return totalDiscAmt;
+	}
+	/**
+	 * @param totalDiscAmt the totalDiscAmt to set
+	 */
+	public void setTotalDiscAmt(String totalDiscAmt) {
+		this.totalDiscAmt = totalDiscAmt;
+	}
+	/**
+	 * @return the totalPaidAmt
+	 */
+	public String getTotalPaidAmt() {
+		return totalPaidAmt;
+	}
+	/**
+	 * @param totalPaidAmt the totalPaidAmt to set
+	 */
+	public void setTotalPaidAmt(String totalPaidAmt) {
+		this.totalPaidAmt = totalPaidAmt;
 	}
 	
 

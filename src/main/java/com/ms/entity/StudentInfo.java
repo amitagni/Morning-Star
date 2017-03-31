@@ -69,10 +69,10 @@ public class StudentInfo extends BaseEntity<Integer> implements Serializable{
 	
 	
 	@Column(name = "section")
-	private String section;
+	private Byte section;
 	
 	@Column(name = "house")
-	private String house;
+	private Byte house;
 	
 	@Column(name = "photo")
 	private String photo;
@@ -259,33 +259,7 @@ public class StudentInfo extends BaseEntity<Integer> implements Serializable{
 		this.category = category;
 	}
 
-	/**
-	 * @return the section
-	 */
-	public String getSection() {
-		return section;
-	}
 
-	/**
-	 * @param section the section to set
-	 */
-	public void setSection(String section) {
-		this.section = section;
-	}
-
-	/**
-	 * @return the house
-	 */
-	public String getHouse() {
-		return house;
-	}
-
-	/**
-	 * @param house the house to set
-	 */
-	public void setHouse(String house) {
-		this.house = house;
-	}
 
 	/**
 	 * @return the photo
@@ -425,6 +399,34 @@ public class StudentInfo extends BaseEntity<Integer> implements Serializable{
 	 */
 	public void setCreatedAt(Date createdAt) {
 		this.createdAt = createdAt;
+	}
+
+	/**
+	 * @return the section
+	 */
+	public Byte getSection() {
+		return section;
+	}
+
+	/**
+	 * @param section the section to set
+	 */
+	public void setSection(Byte section) {
+		this.section = section;
+	}
+
+	/**
+	 * @return the house
+	 */
+	public Byte getHouse() {
+		return house;
+	}
+
+	/**
+	 * @param house the house to set
+	 */
+	public void setHouse(Byte house) {
+		this.house = house;
 	}
 
 	

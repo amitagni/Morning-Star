@@ -21,15 +21,13 @@
       <div class="valign-wrapper row row_form">
          <div class="col s12 m12 card-margin card-panel valign">
             <ul class="breadcrumb">
-            <li ><a href="reg.html">Registration</a>
+               <li ><a href="javascript:void();">Enrollment</a>
                </li>
-               <li><a href="admission.html">Enrollment</a>
+               <li ><a href="javascript:void();">Fee Details</a>
                </li>
-               <li ><a href="fee.html">Fee Details</a>
+               <li class="active_list"><a href="javascript:void();">Payment</a>
                </li>
-               <li class="active_list"><a href="payment.html">Payment</a>
-               </li>
-               <li><a href="#">Receipt</a>
+               <li><a href="javascript:void();">Receipt</a>
                </li>
             </ul>
          </div>
@@ -39,12 +37,19 @@
          <div class="col s12 offset-s1 valign">
             <div class="card-panel card-main">
                <div class="row">
-                  <form class="formValidate" id="formValidate" method="get" action="" novalidate="novalidate">
+                  <form:form class="formValidate" modelAttribute="paymentFormBean" method="post" action="fee-payment.do" novalidate="novalidate">
+                  <form:hidden path="feeSlipIds"/>
+                   <form:hidden path="studentId"/>
+                    <form:hidden path="feeSummaryId"/>
+                    <form:hidden path="monthIds"/>
+                     <form:hidden path="quarterlyIds"/>
+                      <form:hidden path="halsyrlyIds"/>
+                       <form:hidden path="anuallyIds"/>
                      <div class="col s4">
                         <h4 class="header2">Payment Details</h4>
                         <div class="input-field ">
                         <label for="address1" class="">TOTAL FEE</label>
-                        <input id="fname" name="addresss1" type="text">
+                        <form:input  path="amount" type="text" />
                         <div class="errorTxt1"></div>
                      </div>
                         <div class="input-field">
@@ -54,67 +59,79 @@
                      <div class="col s12">
                         <h5 class="header2">Select Payment option</h5>
 
-                        <p class="text-center text-light"><i>in case of DD only Following section will appear</i></p>
+                      <!--   <p class="text-center text-light"><i>in case of DD only Following section will appear</i></p>
                      
-                        <div class="col s3"> <input name="payment" type="radio" id="Cheque/dd" data-error=".errorTxt8">
-                                            <label for="Cheque/dd">Cheque/DD</label></div>
-                        <div class="col s3"> <input name="payment" type="radio" id="cash" data-error=".errorTxt8">
+                        -->
+                        <div class="col s3"> <form:radiobutton path="paymentType" id="cash" data-error=".errorTxt8" value ="1" onclick = "showOption(1,this)"/>
                                             <label for="cash">Cash</label></div>
-                        <div class="col s3"> <input name="payment" type="radio" id="bdeposite" data-error=".errorTxt8">
+                        <div class="col s3"> <form:radiobutton path="paymentType" id="Cheque/dd" data-error=".errorTxt8" value ="2" onclick = "showOption(2,this)"/>
+                                            <label for="Cheque/dd">Cheque/DD</label></div>
+                        <div class="col s3"> <form:radiobutton path="paymentType" id="bdeposite"  data-error=".errorTxt8" value ="3" onclick = "showOption(3,this)"/>
                                             <label for="bdeposite">Bank Deposite</label></div>
-                        <div class="col s3"> <input name="payment" id="d/bcard" type="radio"  data-error=".errorTxt8">
-                                            <label for="d/bcard">Debit/Credit Card</label></div>
+                       <%--  <div class="col s3"> <form:radiobutton path="paymentType" id="d/bcard"  data-error=".errorTxt8" onclick = "showOption(4,this)"/>
+                                            <label for="d/bcard">Debit/Credit Card</label></div> --%>
                      </div>
-                     <div class="input-field col s4">
-                        <label for="dd" class="">Cheque/DD No</label>
-                        <input id="dd" name="dd" type="text">
-                        <div class="errorTxt1"></div>
+                     <div id="chkdd" style="display: none">
+	                     <div class="input-field col s4">
+	                        <label for="dd" class="">Cheque/DD No</label>
+	                        <form:input path="" type="text" />
+	                        <div class="errorTxt1"></div>
+	                     </div>
+	                     <div class="input-field col s4">
+	                        <label for="address1" class="">Bank Name</label>
+	                        <form:input path="" type="text" />
+	                        <div class="errorTxt1"></div>
+	                     </div>
+	                     <div class="input-field col s4">
+	                        <label for="address1" class="">Date Issued</label>
+	                          <form:input path="issueDate" type="text" class="datepicker" />
+	                        <div class="errorTxt1"></div>
+	                     </div>
+	                 </div>
+                     
+                      <div id="bdep" style="display: none">
+		                     <div class="input-field col s4">
+		                        <label for="address1" class="">Challan Number</label>
+		                        <form:input path="" type="text" />
+		                        <div class="errorTxt1"></div>
+		                     </div>
+		                     <div class="input-field col s4">
+		                        <label for="address1" class="">Deposit By</label>
+		                        <input id="fname" name="addresss1" type="text">
+		                        <div class="errorTxt1"></div>
+		                     </div>
+		                     <div class="input-field col s4 ">
+		                        <label for="address1" class="">Deposit Date</label>
+		                          <form:input path="depositDate" type="text" class="datepicker" />
+		                        <div class="errorTxt1"></div>
+		                     </div>
                      </div>
-                     <div class="input-field col s4">
-                        <label for="address1" class="">Bank Name</label>
-                        <input id="fname" name="addresss1" type="text">
-                        <div class="errorTxt1"></div>
-                     </div>
-                     <div class="input-field col s4">
-                        <label for="address1" class="">Date Issued</label>
-                          <input type="date" class="datepicker">
-                        <div class="errorTxt1"></div>
-                     </div>
-                     <div class="col s12">
-                        <p class="text-center text-light"><i>in case of bank deposit only following section will appear</i></p>
-                     </div>
-                     <div class="input-field col s4">
-                        <label for="address1" class="">Challan Number</label>
-                        <input id="fname" name="addresss1" type="text">
-                        <div class="errorTxt1"></div>
-                     </div>
-                     <div class="input-field col s4">
-                        <label for="address1" class="">Deposit By</label>
-                        <input id="fname" name="addresss1" type="text">
-                        <div class="errorTxt1"></div>
-                     </div>
-                     <div class="input-field col s4 ">
-                        <label for="address1" class="">Deposit Date</label>
-                          <input type="date" class="datepicker">
-                        <div class="errorTxt1"></div>
-                     </div>
-                     <div class="input-field col s12 center-align button-margin">
-                        <button class="btn waves-effect waves-light  submit left" type="submit" name="action">Save For Letter
+                      <div class="input-field col s12 m12 center-align button-margin">
+                           		<button class="btn waves-effect waves-light  submit center-btn" type="submit" name="action" onclick = "submitForm('paymentFormBean')">Submit
+                          			 <i class="mdi-content-send right"></i>
+                          		 </button>
+                          		 <button class="btn waves-effect waves-light  submit" type="submit" name="action">Cancel
+                           			<i class="mdi-navigation-close right"></i>
+                           		</button>
+                       </div>
+                          
+                    <!--  <div class="input-field col s12 center-align button-margin">
+                        <button class="btn waves-effect waves-light  submit left" onclick = "submitForm('paymentFormBean')">Save For Letter
                         <i class="mdi-content-save right"></i>
                         </button>
-                        <button class="btn waves-effect waves-light  submit center-btn" type="submit" name="action">Submit
+                        <button class="btn waves-effect waves-light  submit center-btn" onclick = "submitForm('paymentFormBean')">Submit
                         <i class="mdi-content-send right"></i>
                         </button>
                         <button class="btn waves-effect waves-light right submit" type="submit" name="action">Cancel
                         <i class="mdi-navigation-close right"></i>
                         </button>
-                     </div>
-                  </form>
+                     </div> -->
+                  </form:form>
                </div>
             </div>
          </div>
       </div>
-      </div>
+      
       <script type="text/javascript" src="js/jquery.min.js"></script>
       <!--materialize js-->
      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.2/js/materialize.min.js"></script>
@@ -132,6 +149,23 @@
              // Translated
          
          });
+         function showOption(type,obj){
+        	 //alert(obj.value)
+        	 if(obj.value == 1){
+        		 document.getElementById("chkdd").style.display = "none";
+        		 document.getElementById("bdep").style.display = "none";
+        	 }else if(obj.value == 2){
+        		 document.getElementById("chkdd").style.display = "block";
+        		 document.getElementById("bdep").style.display = "none";
+        	 }else if(obj.value == 3){
+        		 document.getElementById("chkdd").style.display = "none";
+        		 document.getElementById("bdep").style.display = "block";
+        	 }
+         }
+         
+         function submitForm(formId){
+       		 $("#"+formId).submit();
+       	}
       </script>
    </body>
 </html>

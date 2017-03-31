@@ -48,14 +48,24 @@
 		<property name="suffix" value=".jsp" />
 	</bean>
 
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver" />
 
 	<!-- Configuring interceptors based on URI -->
-<!-- 	<mvc:interceptors>
+ 	<mvc:interceptors>
 		<mvc:interceptor>
-			
+			<mvc:mapping path="/dashboard.do"/>
+			<mvc:mapping path="/registration.do"/>
+			<mvc:mapping path="/reg-payment.do"/>
+			<mvc:mapping path="/reg-receipt.do"/>
+			<mvc:mapping path="/admission.do"/>
+			<mvc:mapping path="/fee.do"/>
+			<mvc:mapping path="/fee-payment.do"/>
+			<mvc:mapping path="/fee-reciept.do"/>
+			<mvc:mapping path="/search.do"/>
+			<bean class="com.ms.interceptor.LoginInterceptor"></bean>
 		</mvc:interceptor> 
-
-	</mvc:interceptors> -->
+	</mvc:interceptors> 
 
 	<bean
 		class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor" />
@@ -166,6 +176,10 @@
 		<property name="basename" value="classpath:message" />
 		<property name="defaultEncoding" value="UTF-8" />
 	</bean>
+	
+	<bean id="userDao" class="com.ms.dao.UserDao">
+		<property name="entityManagerFactory" ref="entityManagerFactory" />
+	</bean>
 
 	<bean id="studentRegDao" class="com.ms.dao.StudentRegDao">
 		<property name="entityManagerFactory" ref="entityManagerFactory" />
@@ -186,5 +200,10 @@
 	<bean id="feeStructureDao" class="com.ms.dao.FeeStructureDao">
 		<property name="entityManagerFactory" ref="entityManagerFactory" />
 	</bean>
-
+	<bean id="feeSlipDao" class="com.ms.dao.FeeSlipDao">
+		<property name="entityManagerFactory" ref="entityManagerFactory" />
+	</bean>
+	<bean id="paidFeeSummaryDao" class="com.ms.dao.PaidFeeSummaryDao">
+		<property name="entityManagerFactory" ref="entityManagerFactory" />
+	</bean>
 </beans>

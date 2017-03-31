@@ -23,7 +23,7 @@
     </div>
     <div class="row">
     <div class="col s12 m3 card-margin">
-      <a href="dashboard.html">
+      <a href="/registration.do">
         <div class="card card-1">
             <div class="card-image">
               <i class="mdi-social-person-add registations"></i>
@@ -33,7 +33,7 @@
         </a>
     </div>
       <div class="col s12 m3 card-margin">
-      <a href="admission.html">
+      <a href="/admission.do">
         <div class="card card-1">
             <div class="card-image">
               <img src="img/ad.png" class="img-card">
@@ -43,17 +43,17 @@
         </a>
     </div>
     <div class="col s12 m3 card-margin">
-      <a href="dashboard.html">
+      <a href="/search.do">
         <div class="card card-1">
             <div class="card-image">
               <img src="img/pro.png" class="img-card">
-              <p class="text-center">Profile</p>
+              <p class="text-center">Search</p>
             </div>
           </div>
         </a>
     </div>
     <div class="col s12 m3 card-margin">
-      <a href="dashboard.html">
+      <a href="javascript:alert('Not implemented yet')">
         <div class="card card-1">
             <div class="card-image">
               <img src="img/fin.png" class="img-card">

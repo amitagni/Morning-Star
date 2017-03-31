@@ -32,6 +32,15 @@ public enum Section {
 		}
 		return null;
 	}
+	
+	public static String findNameByCode(Byte  code){
+		for(Section section : Section.values()){
+			if(section.code.byteValue() == code.byteValue()){
+				return section.name;
+			}
+		}
+		return null;
+	}
 	/**
 	 * @return the code
 	 */

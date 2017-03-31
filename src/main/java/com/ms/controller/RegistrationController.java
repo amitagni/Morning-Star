@@ -13,21 +13,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.ms.bean.ContactDetails;
 import com.ms.bean.PaymentFormBean;
 import com.ms.bean.RegistrationFormBean;
-import com.ms.bean.StudentDetails;
 import com.ms.entity.Payment;
 import com.ms.entity.StudentContactInfo;
 import com.ms.entity.StudentInfo;
 import com.ms.entity.StudentReg;
-import com.ms.enums.Category;
 import com.ms.enums.FeeType;
 import com.ms.enums.StudentClass;
 import com.ms.service.PaymentService;
 import com.ms.service.RegistrationService;
+import com.ms.util.MSConstant;
 import com.ms.util.MSException;
 import com.ms.util.MSUtil;
+import com.ms.util.SessionUtil;
 
 /**
  * @author Amit Agnihotri
@@ -52,6 +51,7 @@ public class RegistrationController {
 	 */
 	@RequestMapping(value = "/registration", method = { RequestMethod.POST, RequestMethod.GET })
 	public ModelAndView registration(@ModelAttribute("registrationFormBean") RegistrationFormBean registrationFormBean, BindingResult bindingResult, Model model,HttpServletRequest request) {
+		SessionUtil.setPage(MSConstant.REGISTRATION);
 		if (request.getMethod().equalsIgnoreCase(RequestMethod.GET.name())) {
 			populateRegistrationFormBean(registrationFormBean);
 			return new ModelAndView("registration", "registrationFormBean", registrationFormBean);
@@ -65,10 +65,12 @@ public class RegistrationController {
 			}
 			
 		}
+		
 	}
 	
 	@RequestMapping(value = "/reg-payment", method = { RequestMethod.POST, RequestMethod.GET })
 	public ModelAndView regPayment(@ModelAttribute("paymentFormBean") PaymentFormBean paymentFormBean, BindingResult bindingResult, Model model,HttpServletRequest request) {
+		SessionUtil.setPage(MSConstant.REGISTRATION);
 		if (request.getMethod().equalsIgnoreCase(RequestMethod.GET.name())) {
 			populatePaymentFormBean(paymentFormBean);
 			return new ModelAndView("reg-payment", "paymentFormBean", paymentFormBean);
@@ -86,6 +88,7 @@ public class RegistrationController {
 	
 	@RequestMapping(value = "/reg-receipt")
 	public ModelAndView regReceipt(Model model,HttpServletRequest request) {
+		SessionUtil.setPage(MSConstant.REGISTRATION);
 		return new ModelAndView("reg-receipt");
 	}
 

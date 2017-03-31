@@ -3,6 +3,7 @@
  */
 package com.ms.util;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -93,7 +94,19 @@ public class MSUtil {
 		 
 	}
 
+	public static String getStudentDocDirectoryPath() {
+		String dataDirPath =SessionUtil.getDeploymentPath();
+		System.out.println("----------dataDirPath----------------"+dataDirPath);
+		String uploadDirPath = dataDirPath + File.separator + MSConstant.UPLOADDIR;
+		System.out.println("----------------------U	pload Path-------------------------------------------"+uploadDirPath);
+		File reportDir = new File(uploadDirPath);
+		if (!reportDir.exists()) {
+			reportDir.mkdir();
+		}
 
+		return uploadDirPath;
+	}
+	
 	/**
 	 * @param studentDetails
 	 */
@@ -104,10 +117,30 @@ public class MSUtil {
 		studentInfo.setDob(studentDetails.getDob());
 		studentInfo.setFatherName(studentDetails.getFatherName());
 		studentInfo.setMotherName(studentDetails.getMotherName());
-		studentInfo.setAdmissionClass(studentDetails.getStudentClass());
-		studentInfo.setCurrentClass(studentDetails.getStudentClass());
+		studentInfo.setAdmissionClass(studentDetails.getStudentAdmissionClass());
+		studentInfo.setCurrentClass(studentDetails.getStudentAdmissionClass());
 		studentInfo.setCategory(Category.findCodeByName(studentDetails.getCategory()));
+		studentInfo.setSection(studentDetails.getSection());
+		studentInfo.setHouse(studentDetails.getHouse());
+		studentInfo.setNationality(studentDetails.getNationality());
+		studentInfo.setReligion(studentDetails.getReligion());
+		studentInfo.setCaste(studentDetails.getCaste());
 		studentInfo.setGender(studentDetails.getGender());
+		studentInfo.setCreatedBy(SessionUtil.getUser().getId());
 		return studentInfo;
+	}
+	
+	/**
+	 * @param value
+	 * @return
+	 */
+	public static boolean isEmpty(String value) {
+		if(value == null)
+			return true;
+		else if(value.trim().equals(MSConstant.BLANK))
+			return true;
+		else
+			return false;
+		
 	}
 }

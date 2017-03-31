@@ -3,7 +3,10 @@
  */
 package com.ms.bean;
 
+import java.io.Serializable;
 import java.util.List;
+
+import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 import com.ms.enums.House;
 import com.ms.enums.Section;
@@ -12,11 +15,18 @@ import com.ms.enums.Section;
  * @author Amit.Agnihotri
  *
  */
-public class AdmissionFormBean extends RegistrationFormBean{
+public class AdmissionFormBean extends RegistrationFormBean implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private Integer studentId;
 	private String applicationDate;
 	private String timeOfResiding;
 	private List<Section> sectionList;
 	private List<House> houseList;
+	private CommonsMultipartFile studentPhoto;
+	private CommonsMultipartFile studentTc;
 	/*private String lastClass;
 	private String lastSchool;
 	private String lastClassResult;
@@ -73,6 +83,42 @@ public class AdmissionFormBean extends RegistrationFormBean{
 	 */
 	public void setHouseList(List<House> houseList) {
 		this.houseList = houseList;
+	}
+	/**
+	 * @return the studentPhoto
+	 */
+	public CommonsMultipartFile getStudentPhoto() {
+		return studentPhoto;
+	}
+	/**
+	 * @param studentPhoto the studentPhoto to set
+	 */
+	public void setStudentPhoto(CommonsMultipartFile studentPhoto) {
+		this.studentPhoto = studentPhoto;
+	}
+	/**
+	 * @return the studentTc
+	 */
+	public CommonsMultipartFile getStudentTc() {
+		return studentTc;
+	}
+	/**
+	 * @param studentTc the studentTc to set
+	 */
+	public void setStudentTc(CommonsMultipartFile studentTc) {
+		this.studentTc = studentTc;
+	}
+	/**
+	 * @return the studentId
+	 */
+	public Integer getStudentId() {
+		return studentId;
+	}
+	/**
+	 * @param studentId the studentId to set
+	 */
+	public void setStudentId(Integer studentId) {
+		this.studentId = studentId;
 	}
 	
 	
