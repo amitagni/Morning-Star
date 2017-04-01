@@ -70,14 +70,14 @@
 	                        </div>
 	
 	                         <div class="input-field col s12 m3">
-	                            <form:input placeholder="Placeholder" id="mfamt_${status.index}" path="monthlyFeeList[${status.index}].amount"  type="text" class="validate" />
+	                            <form:input placeholder="Placeholder" id="mfamt_${status.index}" path="monthlyFeeList[${status.index}].amount"  type="text" readonly="true" class="validate"  />
 	          
 	                         </div>
 	                         <div class="input-field col s12 m3">
 	                            <form:input placeholder="Discount" id="mfdis_${status.index}" path="monthlyFeeList[${status.index}].discount" type="text" class="validate disc" onblur="setPaidAmount('m',this)" />
 	                         </div>
 	                         <div class="input-field col s12 m3">
-	                            <form:input placeholder="Final Amount" id="mfpamt_${status.index}" path="monthlyFeeList[${status.index}].paidAmount" type="text" class="validate" />
+	                            <form:input placeholder="Final Amount" id="mfpamt_${status.index}" path="monthlyFeeList[${status.index}].paidAmount" type="text" readonly="true" class="validate"  />
 	                         </div>
                       </c:forEach>
                        
@@ -431,7 +431,7 @@
         	 var index = id.substring(id.indexOf("_")+1,id.length);
         	 var amt = document.getElementById(type+"famt_"+index).value
         	 var paidAmt = "";
-        	 var discVal = obj.value;
+        	 var discVal = myTrim(obj.value);
         	 if(discVal.indexOf("%")!= -1){
         		 discVal = discVal.substring(0,discVal.indexOf("%"));
         		 discVal = amt*discVal/100;
@@ -453,7 +453,9 @@
         	 document.getElementById("totalPaidAmt").value = totalAmt;
          }
          
-        
+         function myTrim(x) {
+        	    return x.replace(/^\s+|\s+$/gm,'');
+         }
 
         	
       </script>
