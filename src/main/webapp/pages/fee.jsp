@@ -9,12 +9,12 @@
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <title>Fee Details</title>
       <!-- CORE CSS-->
-      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+     
       <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/css/materialize.min.css"> -->
       <link rel="stylesheet" type="text/css" href="css/dropify.min.css">
       <link rel="stylesheet" type="text/css" href="css/style.css">
       <link rel="shortcut icon" type="image/png" href="img/login.png" />
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.2/css/materialize.min.css">
+      <link rel="stylesheet" href="css/materialize.min.css">
    <body class="dashboard-body">
        <%@ include file="../includes/header.jsp"%>
       <div class="container_b">
@@ -44,17 +44,15 @@
             <div class="col s12 m3"><h4 class="header2 text-center">Fee Details</h4></div>
                
                 <div class="input-field col s12 m3">
-               				 <form:select class="error browser-default" path="selMonth" >
+               				<%--  <form:select class="error browser-default" path="selMonth" multiple="multiple" >
                                 <form:options items="${feeFormBean.monthList}" itemValue="code" id="month" itemLabel="name"  />
-                              </form:select>
-                              <!-- <select multiple>
-                                 <option value="" disabled selected> Choose Months</option>
-                                 <option value="1">L.KG</option>
-                                 <option value="2">U.KG</option>
-                                 <option value="3">PG</option>
-                              </select> -->
+                              </form:select> --%>
+                              <form:select  path="selMonth" multiple="multiple" onchange="getSelectedMonth(this);" >
+                                <form:options items="${feeFormBean.monthList}" itemValue="code" id="month" itemLabel="name"  />
+                              </form:select> 
                            </div>
                            </div>
+                           
                <div class="row">
                      <div class="row">
 
@@ -124,47 +122,51 @@
                         <div class="input-field col s12 m3 col-fee">
                            <label class="label-fee">Exam Fee</label>
                         </div>
+                        <div class="col s12 m9">
                          <c:forEach items="${feeFormBean.quarterlyFeeList}" var="feeDto" varStatus="status">
                           	<form:hidden path="quarterlyFeeList[${status.index}].id"  />
 		                        
 		                         <c:choose>
 		                         	<c:when test="${feeDto.paid}">
-				                         <div class="input-field col s12 m2">
-				                            <p class="text-center"><i class="material-icons green-text">done</i>${feeDto.name}</p>
+		                         	<div class="row">
+				                         <div class="input-field col s12 m3">
+				                            <p class="text-center"><img src="img/done.png" class=" green-text font-size-icon">${feeDto.name}</p>
 				                           
 				                         </div>
-				                         <div class="input-field col s12 m2">
-				                            <form:input placeholder="Placeholder" id="qfamt_${status.index}" path="quarterlyFeeList[${status.index}].amount" type="text" class="validate" />
-				          
+				                         <div class="input-field col s12 m3">
+				                            <%-- <form:input placeholder="Placeholder" id="qfamt_${status.index}" path="quarterlyFeeList[${status.index}].amount" type="text" class="validate" />
+				          					 --%><p>${feeDto.amount}</p>
 				                         </div>
-		                         		<div class="input-field col s12 m2">
-			                             	Paid
+		                         		<div class="input-field col s12 m3">
+			                             	<h6 class="green-text paid"><b>Paid</b></h6>
 		                        		 </div>
-				                         <div class="input-field col s12 m2">
-				                            <form:input placeholder="inal Amount"   path="quarterlyFeeList[${status.index}].paidAmount" type="text" class="validate" disabled="true" />
-				          
+				                          
 				                         </div>
 		                         	</c:when>
 		                         	<c:otherwise>
-				                         <div class="input-field col s12 m2">
-				                            <p class="text-center">${feeDto.name}</p>
+		                         	
+		                         	<div class="row">
+				                         <div class="input-field col s12 m3">
+				                            <p class="text-center"><img class=" green-text font-size-icon">${feeDto.name}</p>
 				                           
 				                         </div>
-				                         <div class="input-field col s12 m2">
+				                         <div class="input-field col s12 m3">
 				                            <form:input placeholder="Placeholder" id="qfamt_${status.index}" path="quarterlyFeeList[${status.index}].amount" type="text" class="validate" />
 				          
 				                         </div>
-		                         		 <div class="input-field col s12 m2">
+		                         		 <div class="input-field col s12 m3">
 		                             		<form:input placeholder="Discount" id="qfdis_${status.index}" path="quarterlyFeeList[${status.index}].discount" type="text" class="validate" onblur="setPaidAmount('q',this)" />
 		          
 		                        		 </div>
-				                         <div class="input-field col s12 m2">
-				                            <form:input placeholder="inal Amount" id="qfpamt_${status.index}" path="quarterlyFeeList[${status.index}].paidAmount" type="text" class="validate"/>
+				                         <div class="input-field col s12 m3">
+				                            <form:input placeholder="final Amount" id="qfpamt_${status.index}" path="quarterlyFeeList[${status.index}].paidAmount" type="text" class="validate"/>
 				          
+				                         </div>
 				                         </div>
 		                         	</c:otherwise>
 		                         
 		                         </c:choose>
+		                         
 		                         <!--  <div class="input-field col s12 m2">
                               <p class="text-center"><i class="material-icons green-text">done</i>APR</p>
                          </div>
@@ -178,12 +180,10 @@
                          
                          <div class="input-field col s12 m2">
                          </div> -->
-		                         <div class="col s12 m3 col-fee">
-		                           &nbsp;
-		                        </div>
+		                         
                          </c:forEach>
                       
-                        
+                        </div>
                        <!--  <div class="input-field col s12 m2">
                             <p class="text-center">AUG</p>
                            
@@ -249,7 +249,7 @@
                          <c:forEach items="${feeFormBean.halfyearlyFeeList}" var="feeDto" varStatus="status">
                          	<form:hidden path="halfyearlyFeeList[${status.index}].id"  />
 	                          <div class="input-field col s12 m2">
-	                            <p class="red-done text-center"><i class="material-icons font-size-icon red-text">info_outline</i><span>${feeDto.name} </span></p>
+	                            <p class="red-done text-center"><img src="img/alert.png" class="font-size-icon red-text"><span>${feeDto.name} </span></p>
 	                           
 	                         </div>
 	
@@ -385,10 +385,10 @@
                          </div>
                            <div class="input-field col s12 m12 center-align button-margin">
                            		<button class="btn waves-effect waves-light  submit center-btn" type="submit" name="action">Submit
-                          			 <i class="mdi-content-send right"></i>
+                          			<img src="img/save.png" class="button-img">
                           		 </button>
-                          		 <button class="btn waves-effect waves-light  submit" type="submit" name="action">Cancel
-                           			<i class="mdi-navigation-close right"></i>
+                          		 <button class="btn waves-effect waves-light  submit" type="submit" name="action">Reset
+                           			 <img src="img/cancel.png" class="button-img">
                            		</button>
                           </div>
                      </div>
@@ -400,7 +400,7 @@
       </div>
       </div>
       <script type="text/javascript" src="js/jquery.min.js"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.2/js/materialize.min.js"></script>
+      <script src="js/materialize.min.js"></script>
       
       <script type="text/javascript">
          $('.datepicker').pickadate({
@@ -457,7 +457,9 @@
         	    return x.replace(/^\s+|\s+$/gm,'');
          }
 
-        	
+         function getSelectedMonth(obj){
+        	 console.log($('#main').val())
+         }
       </script>
       <!--materialize js-->
    </body>

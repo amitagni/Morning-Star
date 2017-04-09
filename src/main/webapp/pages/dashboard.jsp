@@ -11,7 +11,7 @@
   <title>Dashboard</title>
   <!-- CORE CSS-->
    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.2/css/materialize.min.css">
+   <link rel="stylesheet" href="css/materialize.min.css">
   <link rel="stylesheet" type="text/css" href="css/style.css">
   <link rel="shortcut icon" type="image/png" href="img/login.png"/>
 <body class="dashboard-body">
@@ -26,7 +26,7 @@
       <a href="/registration.do">
         <div class="card card-1">
             <div class="card-image">
-              <i class="mdi-social-person-add registations"></i>
+              <img src="img/adduser.png" class="img-card">
               <p class="text-center">Registration</p>
             </div>
           </div>
@@ -66,7 +66,7 @@
 
  <script type="text/javascript" src="js/jquery.min.js"></script>
   <!--materialize js-->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.2/js/materialize.min.js"></script>
+  <script src="js/materialize.min.js"></script>
       
 
  

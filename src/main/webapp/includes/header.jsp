@@ -17,7 +17,7 @@
                   <span class="text-center greencolor">${page}</span>
                </span>
                <ul class="right hide-on-med-and-down">
-                  <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Welcome  ${sessionScope.userDTO.name}<i class="material-icons right">arrow_drop_down</i></a>
+                  <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Welcome  ${sessionScope.userDTO.name}<img src="img/d.png" class="dropimg"></a>
                   </li>
                </ul>
             </div>

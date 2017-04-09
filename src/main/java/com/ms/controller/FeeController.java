@@ -189,31 +189,33 @@ public class FeeController {
 		}
 		if(studentInfo != null){
 			List<FeeStructure> feeStructureList = feeService.findFeeForClassAndSession(studentInfo.getCurrentClass(),(byte)1);
-			for (FeeStructure feeStructure : feeStructureList) {
-				FeeDTO feeDTO = new FeeDTO();
-				feeDTO.setId(feeStructure.getId());
-				feeDTO.setName(feeStructure.getAbbrName());
-				feeDTO.setAmount(feeStructure.getAmount());
-				if(feeStructure.getFeeFreqType().byteValue() == FeeFreqType.MONTHLY.getCode()){
-					monthlyFeeList.add(feeDTO);
-				}
-				else if(feeStructure.getFeeFreqType().byteValue() == FeeFreqType.QUARTERLY.getCode()){
-					if(quarterlyPaidFeeList.contains(feeDTO.getId().toString())){
-						feeDTO.setPaid(true);
+			if(feeStructureList != null){
+				for (FeeStructure feeStructure : feeStructureList) {
+					FeeDTO feeDTO = new FeeDTO();
+					feeDTO.setId(feeStructure.getId());
+					feeDTO.setName(feeStructure.getAbbrName());
+					feeDTO.setAmount(feeStructure.getAmount());
+					if(feeStructure.getFeeFreqType().byteValue() == FeeFreqType.MONTHLY.getCode()){
+						monthlyFeeList.add(feeDTO);
 					}
-					quarterlyFeeList.add(feeDTO);
-				}
-				else if(feeStructure.getFeeFreqType().byteValue() == FeeFreqType.HALFYEARLY.getCode()){
-					if(halfYearlyPaidFeeList.contains(feeDTO.getId().toString())){
-						feeDTO.setPaid(true);
+					else if(feeStructure.getFeeFreqType().byteValue() == FeeFreqType.QUARTERLY.getCode()){
+						if(quarterlyPaidFeeList.contains(feeDTO.getId().toString())){
+							feeDTO.setPaid(true);
+						}
+						quarterlyFeeList.add(feeDTO);
 					}
-					halfyearlyFeeList.add(feeDTO);
-				}
-				else if(feeStructure.getFeeFreqType().byteValue() == FeeFreqType.ANUALLY.getCode()){
-					if(anuallyPaidFeeList.contains(feeDTO.getId().toString())){
-						feeDTO.setPaid(true);
+					else if(feeStructure.getFeeFreqType().byteValue() == FeeFreqType.HALFYEARLY.getCode()){
+						if(halfYearlyPaidFeeList.contains(feeDTO.getId().toString())){
+							feeDTO.setPaid(true);
+						}
+						halfyearlyFeeList.add(feeDTO);
 					}
-					anualFeeList.add(feeDTO);
+					else if(feeStructure.getFeeFreqType().byteValue() == FeeFreqType.ANUALLY.getCode()){
+						if(anuallyPaidFeeList.contains(feeDTO.getId().toString())){
+							feeDTO.setPaid(true);
+						}
+						anualFeeList.add(feeDTO);
+					}
 				}
 			}
 			feeFormBean.setMonthlyFeeList(monthlyFeeList);
@@ -258,14 +260,16 @@ public class FeeController {
 		if(feeFormBean.getMonthlyFeeList() != null){
 			for(FeeDTO feeDTO:feeFormBean.getMonthlyFeeList()){
 				if(!MSUtil.isEmpty(feeDTO.getPaidAmount())){
-					FeeSlip feeSlip = new FeeSlip();
-					feeSlip.setStudentId(feeFormBean.getStudentId());
-					feeSlip.setFeeStructureId(feeDTO.getId());
-					feeSlip.setMonth(feeFormBean.getSelMonth());
-					feeSlip.setAmount(feeDTO.getPaidAmount());
-					feeSlip.setDiscount(feeDTO.getDiscount());
-					feeSlip.setCreatedBy(userId);
-					feeSlipList.add(feeSlip);
+					for(Byte selMonth:feeFormBean.getSelMonth()){
+						FeeSlip feeSlip = new FeeSlip();
+						feeSlip.setStudentId(feeFormBean.getStudentId());
+						feeSlip.setFeeStructureId(feeDTO.getId());
+						feeSlip.setMonth(selMonth);
+						feeSlip.setAmount(String.valueOf(Float.parseFloat(feeDTO.getPaidAmount())/feeFormBean.getSelMonth().length));
+						feeSlip.setDiscount(feeDTO.getDiscount());
+						feeSlip.setCreatedBy(userId);
+						feeSlipList.add(feeSlip);
+					}
 				}
 			}
 		}
@@ -275,7 +279,7 @@ public class FeeController {
 					FeeSlip feeSlip = new FeeSlip();
 					feeSlip.setStudentId(feeFormBean.getStudentId());
 					feeSlip.setFeeStructureId(feeDTO.getId());
-					feeSlip.setMonth(feeFormBean.getSelMonth());
+					//feeSlip.setMonth(feeFormBean.getSelMonth());
 					feeSlip.setAmount(feeDTO.getPaidAmount());
 					feeSlip.setDiscount(feeDTO.getDiscount());
 					feeSlip.setCreatedBy(userId);
@@ -291,7 +295,7 @@ public class FeeController {
 					FeeSlip feeSlip = new FeeSlip();
 					feeSlip.setStudentId(feeFormBean.getStudentId());
 					feeSlip.setFeeStructureId(feeDTO.getId());
-					feeSlip.setMonth(feeFormBean.getSelMonth());
+					//feeSlip.setMonth(feeFormBean.getSelMonth());
 					feeSlip.setAmount(feeDTO.getPaidAmount());
 					feeSlip.setDiscount(feeDTO.getDiscount());
 					feeSlip.setCreatedBy(userId);
@@ -307,7 +311,7 @@ public class FeeController {
 					FeeSlip feeSlip = new FeeSlip();
 					feeSlip.setStudentId(feeFormBean.getStudentId());
 					feeSlip.setFeeStructureId(feeDTO.getId());
-					feeSlip.setMonth(feeFormBean.getSelMonth());
+					//feeSlip.setMonth(feeFormBean.getSelMonth());
 					feeSlip.setAmount(feeDTO.getPaidAmount());
 					feeSlip.setDiscount(feeDTO.getDiscount());
 					feeSlip.setCreatedBy(userId);

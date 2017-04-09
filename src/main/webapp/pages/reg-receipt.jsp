@@ -11,11 +11,11 @@
       <title>Recipt Form</title>
       <!-- CORE CSS-->
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-      <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/css/materialize.min.css"> -->
       <link rel="stylesheet" type="text/css" href="css/dropify.min.css">
+      <link rel="stylesheet" type="text/css" media="print" href="css/print.css">
       <link rel="stylesheet" type="text/css" href="css/style.css">
       <link rel="shortcut icon" type="image/png" href="img/login.png" />
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.2/css/materialize.min.css">
+      <link rel="stylesheet" href="css/materialize.min.css">
    <body class="dashboard-body">
      <%@ include file="../includes/header.jsp"%>
       <div class="container_b">
@@ -33,19 +33,39 @@
       </div>
       </div>
       <div class="row_form valign-wrapper">
-         <div class="col s12 m12 offset-s1 valign">
+         <div class="col s12 m12 recipt-width">
             <div class="card-panel card-main">
-               <h1>Please tell us ?
-</h1>
+        
+          <div class="col s12 m12 text-center logo-recipt">
+            <img src="img/login.png" alt="" class="responsive-img valign profile-image-login size-logo center ">
+          </div>
+      
+            <h4 class="text-center"><u>Registration Fee Receipt</u></h4>
+            <br>
+               <h5 class="text-center">Congratulations, Admission process has been
+Successfully Completed. !!!</h5>
+<br>
+<h5 class="text-center">This is notify  that sum of &#8377; <span><b>5000</b></span> has been deposited towards registration fee in cash</h5><BR>
+<h5 class="text-center">Your registration no is -<b>1234567890</b></h5>
+
+<br>
+<h5 class="text-center">Plesase keep this registration safe with you as this will be used further in admission process</h5>
+<div class="input-field col s12 text-center">
+            <button onclick="printme()" class="btn waves-effect waves-light">Print</button>
+          </div>
          </div>
       </div>
       </div>
       <script type="text/javascript" src="js/jquery.min.js"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.2/js/materialize.min.js"></script>
+      <script src="js/materialize.min.js"></script>
       
       <script type="text/javascript">
          
+
+
+function printme() {
+    window.print();
+}
       </script>
-      <!--materialize js-->
    </body>
 </html>

@@ -101,10 +101,10 @@
      
       </div>
       <script type="text/javascript" src="js/jquery.min.js"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.2/js/materialize.min.js"></script>
+      <script src="js/materialize.min.js"></script>
       <script type="text/javascript" src="js/dropify.min.js"></script>
-      <link href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" rel="Stylesheet"></link>
-<script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js" ></script>
+      <link href="css/jquery-ui.css" rel="Stylesheet"></link>
+<script src="js/jquery-ui.js" ></script>
  <script type="text/javascript">
  var stId = -1;
 	function openSelOption(obj){

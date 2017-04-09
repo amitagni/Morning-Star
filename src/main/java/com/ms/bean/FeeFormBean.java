@@ -15,7 +15,7 @@ import com.ms.enums.Month;
 public class FeeFormBean extends FormBean{
 	private Integer studentId;
 	private Integer feeSummaryId;
-	private Byte selMonth;
+	private Byte[] selMonth;
 	private List<Month> monthList;
 	private List<FeeDTO> monthlyFeeList;
 	private List<FeeDTO> quarterlyFeeList;
@@ -84,18 +84,7 @@ public class FeeFormBean extends FormBean{
 	public void setAnualFeeList(List<FeeDTO> anualFeeList) {
 		this.anualFeeList = anualFeeList;
 	}
-	/**
-	 * @return the selMonth
-	 */
-	public Byte getSelMonth() {
-		return selMonth;
-	}
-	/**
-	 * @param selMonth the selMonth to set
-	 */
-	public void setSelMonth(Byte selMonth) {
-		this.selMonth = selMonth;
-	}
+	
 	/**
 	 * @return the studentId
 	 */
@@ -155,6 +144,18 @@ public class FeeFormBean extends FormBean{
 	 */
 	public void setTotalPaidAmt(String totalPaidAmt) {
 		this.totalPaidAmt = totalPaidAmt;
+	}
+	/**
+	 * @return the selMonth
+	 */
+	public Byte[] getSelMonth() {
+		return selMonth;
+	}
+	/**
+	 * @param selMonth the selMonth to set
+	 */
+	public void setSelMonth(Byte[] selMonth) {
+		this.selMonth = selMonth;
 	}
 	
 

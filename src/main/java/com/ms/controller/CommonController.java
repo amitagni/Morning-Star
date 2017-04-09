@@ -72,7 +72,7 @@ public class CommonController {
         	for (StudentInfo studentInfo : studentInfoList) {
         		SearchResultDTO searchResultDTO = new  SearchResultDTO();
         		searchResultDTO.setValue(studentInfo.getId());
-        		searchResultDTO.setLabel(studentInfo.getFirstName());
+        		searchResultDTO.setLabel(studentInfo.getFirstName() +"    "+StudentClass.findNameByCode(studentInfo.getCurrentClass())+" : "+Section.findNameByCode(studentInfo.getSection()));
         		studentList.add(searchResultDTO);
 			}
         }

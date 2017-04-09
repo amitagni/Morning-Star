@@ -18,7 +18,7 @@
    <body class="dashboard-body">
       <%@ include file="../includes/header.jsp"%>
       <div class="container_b">
-      <div class="valign-wrapper row row_form">
+      <div class="valign-wrapper row">
          <div class="col s12 m12 card-margin card-panel valign">
             <ul class="breadcrumb">
                <li ><a href="javascript:void();">Enrollment</a>
@@ -33,7 +33,7 @@
          </div>
       </div>
       </div>
-      <div class="row_form valign-wrapper">
+      <div class="containe-pay">
          <div class="col s12 offset-s1 valign">
             <div class="card-panel card-main">
                <div class="row">

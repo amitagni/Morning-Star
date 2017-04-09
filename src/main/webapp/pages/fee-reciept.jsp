@@ -15,6 +15,7 @@
       <link rel="stylesheet" type="text/css" href="css/dropify.min.css">
       <link rel="stylesheet" type="text/css" href="css/style.css">
       <link rel="shortcut icon" type="image/png" href="img/login.png" />
+       <link rel="stylesheet" type="text/css" media="print" href="css/print.css">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.2/css/materialize.min.css">
    <body class="dashboard-body">
       <%@ include file="../includes/header.jsp"%>
@@ -34,22 +35,308 @@
          </div>
       </div>
       </div>
-      <div class="row_form valign-wrapper">
-         <div class="col s12 m12 offset-s1 valign">
+     <div class="row_form valign-wrapper">
+         <div class="col s12 m12 recipt-width">
             <div class="card-panel card-main">
-               <h4>Congratulations, Admission process has been
-Successfully Completed. !!!</h4>
-<h4>The Unique ID Number for student Arpit Gupta is-</h4>
-<h4>SM-4534</h4>
-<h4>Important Information- Kindly inform this unique ID Number to student and parents and educate them to kindly remember this for future references.</h4>
+        
+          <div class="col s12 m12 text-center logo-recipt">
+            <img src="img/login.png" alt="" class="responsive-img valign profile-image-login size-logo center ">
+          </div>
+      
+            <h3 class="text-center">Fee Receipt</h3>
+            <br>
+               <h5>Congratulations, Admission process has been
+Successfully Completed. !!!</h5>
+<br>
+<div class="row">
+                  <form class="formValidate" id="formValidate" method="get" action="" novalidate="novalidate">
+                  
+                     <div class="row">
+
+                        <!-- <div class="col s12 m12">
+                           <h5> Monthly Fee</h5>
+                        </div> -->
+                        <div class="fee-selction col s12 m12">
+                        <div class="col s12 m3 col-fee">
+                           <label class="label-fee">C.F</label>
+                        </div>
+
+                         <div class="input-field col s12 m3">
+                            <p>1234</p>
+          
+                         </div>
+                         <div class="input-field col s12 m3">
+                             <p>1234</p>
+          
+                         </div>
+                         <div class="input-field col s12 m3">
+                           <p>1234</p>
+          
+                         </div>
+                         <div class="col s12 m3 col-fee">
+                           <label class="label-fee">M.F</label>
+                        </div>
+                        
+                         <div class="input-field col s12 m3">
+                            <p>1234</p>
+          
+                         </div>
+                         <div class="input-field col s12 m3">
+                            <p>1234</p>
+          
+                         </div>
+                         <div class="input-field col s12 m3">
+                           <p>1234</p>
+          
+                         </div>
+                         <div class="col s12 m3 col-fee">
+                           <label class="label-fee">Tution Fee</label>
+                        </div>
+                        
+                         <div class="input-field col s12 m3">
+                           <p>1234</p>
+          
+                         </div>
+                         <div class="input-field col s12 m3">
+                            <p>1234</p>
+          
+                         </div>
+                         <div class="input-field col s12 m3">
+                           <p>1234</p>
+          
+                         </div>
+                         </div>
+                         <!-- <div class="col s12 m12">
+                           <h5>Quarterly Fee</h5>
+                        </div> -->
+                        <div class="fee-selction col s12 m12">
+                        <div class="col s12 m3 col-fee">
+                           <label class="label-fee">Exam Fee</label>
+                        </div>
+                        <div class="input-field col s12 m2">
+                            <p class="text-center">APR</p>
+                           
+                         </div>
+                         <div class="input-field col s12 m2">
+                            <p>1234</p>
+          
+                         </div>
+                         <div class="input-field col s12 m2">
+                           <p>1234</p>
+          
+                         </div>
+                         <div class="input-field col s12 m2">
+                            <p>1234</p>
+          
+                         </div>
+                         <div class="col s12 m3 col-fee">
+                           &nbsp;
+                        </div>
+                        <div class="input-field col s12 m2">
+                            <p class="text-center">AUG</p>
+                           
+                         </div>
+                         <div class="input-field col s12 m2">
+                            <p>1234</p>
+          
+                         </div>
+                         <div class="input-field col s12 m2">
+                            <p>1234</p>
+          
+                         </div>
+                         <div class="input-field col s12 m2">
+                            <p>1234</p>
+          
+                         </div>
+                         <div class="col s12 m3 col-fee">
+                          &nbsp;
+                        </div>
+                        <div class="input-field col s12 m2">
+                            <p class="text-center">SEP</p>
+                           
+                         </div>
+                         <div class="input-field col s12 m2">
+                            <p>1234</p>
+          
+                         </div>
+                         <div class="input-field col s12 m2">
+                            <p>1234</p>
+          
+                         </div>
+                         <div class="input-field col s12 m2">
+                            <p>1234</p>
+          
+                         </div>
+                         <div class="col s12 m3 col-fee">
+                          &nbsp;
+                        </div>
+                         <div class="input-field col s12 m2">
+                            <p class="text-center">OCT</p>
+                           
+                         </div>
+                         <div class="input-field col s12 m2">
+                            <p>1234</p>
+          
+                         </div>
+                         <div class="input-field col s12 m2"><p>1234</p>
+          
+                         </div>
+                         <div class="input-field col s12 m2">
+                            <p>1234</p>
+          
+                         </div>
+                         <!-- <div class="col s12 m12">
+                           <h5>Half yeraly Fee</h5>
+                        </div> -->
+                        </div>
+                        <div class="fee-selction col s12 m12">
+                        <div class="col s12 m3 col-fee">
+                           <label class="label-fee">Annual Function Fee</label>
+                        </div>
+                        
+                          <div class="input-field col s12 m2">
+                            <p class="red-done"><i class="material-icons font-size-icon">info_outline</i><span>DEC </span></p>
+                           
+                         </div>
+
+                         <div class="input-field col s12 m2">
+                            <p>1234</p>
+          
+                         </div>
+                         <div class="input-field col s12 m2">
+                            <p>1234</p>
+          
+                         </div>
+                         <div class="input-field col s12 m2">
+                            <p>1234</p>
+          
+                         </div>
+                          <div class="col m3"> &nbsp;</div>
+                          <div class="input-field col s12 m2">
+                             <p class="green-done"><i class="material-icons font-size-icon">done</i><span>FEB </span></p>
+                           
+                         </div>
+                         <div class="input-field col s12 m2">
+                            <p>1234</p>
+          
+                         </div>
+                         <div class="input-field col s12 m2">
+                            <p>1234</p>
+          
+                         </div>
+                         <div class="input-field col s12 m2">
+                            <p>1234</p>
+          
+                         </div>
+                         </div>
+                         <!-- <div class="col s12 m12">
+                           <h5>Yearly Fee</h5>
+                        </div> -->
+                        <div class="fee-selction col s12 m12">
+                        <div class="col s12 m3 col-fee">
+                           <label class="label-fee">Farewell Fee</label>
+                        </div>
+                        
+                         <div class="input-field col s12 m3">
+                            <p>1234</p>
+          
+                         </div>
+                         <div class="input-field col s12 m3">
+                            <p>1234</p>
+          
+                         </div>
+                         <div class="input-field col s12 m3">
+                           <p>1234</p>
+          
+                         </div>
+                        <div class="col s12 m3 col-fee">
+                           <label class="label-fee">Practical Fee</label>
+                        </div>
+                        
+                         <div class="input-field col s12 m3">
+                            <p>1234</p>
+          
+                         </div>
+                         <div class="input-field col s12 m3">
+                            <p>1234</p>
+          
+                         </div>
+                         <div class="input-field col s12 m3">
+                            <p>1234</p>
+          
+                         </div>
+                         <div class="col s12 m3 col-fee">
+                           <label class="label-fee">T.C Fee</label>
+                        </div>
+                        
+                         <div class="input-field col s12 m3">
+                           <p>1234</p>
+          
+                         </div>
+                         <div class="input-field col s12 m3">
+                           <p>1234</p>
+          
+                         </div>
+                         <div class="input-field col s12 m3">
+                           <p>1234</p>
+          
+                         </div>
+                         <div class="col s12 m3 col-fee">
+                           <label class="label-fee">Miscellaneous</label>
+                        </div>
+                        
+                         <div class="input-field col s12 m3">
+                            <p>1234</p>
+          
+                         </div>
+                         <div class="input-field col s12 m3">
+                            <p>1234</p>
+          
+                         </div>
+                         <div class="input-field col s12 m3">
+                           <p>1234</p>
+          
+                         </div>
+                         </div>
+                          <div class="fee-selction col s12 m12">
+                          <div class="col s12 m3 col-fee">
+                           <label class="label-fee">Total</label>
+                        </div>
+
+                        
+                         <div class="input-field col s12 m3">
+                            <p>1234</p>
+          
+                         </div>
+                         <div class="input-field col s12 m3">
+                          <p>1234</p>
+          
+                         </div>
+                         <div class="input-field col s12 m3">
+                            <p>1234</p>
+          
+                         </div>
+                         </div>
+                          
+                        
+                        </div>
+                     </div>
+                  </form>
+                  <div class="col s12 m12 text-center"> <a onclick="printme()" class="btn waves-effect waves-light center">Print</a></div>
+                  
+               </div>
+           
+          </div>
          </div>
-      </div>
-      </div>
       <script type="text/javascript" src="js/jquery.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.2/js/materialize.min.js"></script>
       
       <script type="text/javascript">
-         
+
+      function printme() {
+          window.print();
+      }
+        
       </script>
       <!--materialize js-->
    </body>

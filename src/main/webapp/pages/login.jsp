@@ -30,14 +30,14 @@
          </c:if>
         <div class="row margin">
           <div class="input-field col s12">
-            <i class="mdi-social-person-outline prefix"></i>
-             <form:input path="email"  type="text" class="validate" />
-            <label for="email" data-error="wrong"  class="center-align">Email</label>
+            <img src="img/user.png" class="prefix icon-img">
+             <form:input path="email"  type="text" class="validate" placeholder="Email"/>
+            <label for="email" data-error="wrong" >Email</label>
           </div>
         </div>
         <div class="row margin">
           <div class="input-field col s12">
-            <i class="mdi-action-lock-outline prefix"></i>
+             <img src="img/password.png" class="prefix icon-img">
             <form:input path="password" id="password" placeholder="password" type="password"  />
             <label for="password">Password</label>
           </div>
@@ -65,7 +65,7 @@
 
  <script type="text/javascript" src="js/jquery.min.js"></script>
   <!--materialize js-->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.2/js/materialize.min.js"></script>
+  <script src="js/materialize.min.js"></script>
       
   <script type="text/javascript">
     	function submitForm(formId){
