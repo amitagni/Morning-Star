@@ -10,8 +10,6 @@
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <title>Registration Form</title>
       <!-- CORE CSS-->
-      
-      
       <link rel="stylesheet" type="text/css" href="css/dropify.min.css">
       <link rel="stylesheet" type="text/css" href="css/style.css">
       <link rel="shortcut icon" type="image/png" href="img/login.png" />
@@ -38,7 +36,7 @@
             <div class="card-panel card-main">
                <h4 class="header2">Student Details</h4>
                <div class="row">
-                  <form:form  modelAttribute="registrationFormBean"  action="registration.do" method="post"  class="formValidate" novalidate="novalidate">
+                  <form:form  modelAttribute="registrationFormBean"  action="registration.do" method="post"   class="formValidate" novalidate="novalidate">
                      <div class="row">
                         
                            <div class="input-field col s12 m3">
@@ -58,27 +56,27 @@
                            </div> --%>
                            <div class="input-field col s12 m3">
                               <label for="sfn" class=""> Student First Name</label>
-                              <form:input path="studentDetails.firstName" id="sfn" type="text" />
-                              <div class="errorTxt2"></div>
+                              <form:input path="studentDetails.firstName" id="sfn" type="text" onkeypress="return onlyAlphabets(event,this);" class="validate" required="required"  />
+                              <div class="errorTxt3"></div>
                            </div>
                            <div class="input-field col s12 m3">
                               <label for="sln" class="">Student Last Name</label>
-                              <form:input path="studentDetails.firstName" id="sln"  type="text" />
+                              <form:input path="studentDetails.firstName" id="sln"  type="text" onkeypress="return onlyAlphabets(event,this);" required="required" />
                               <div class="errorTxt2"></div>
                            </div>
                            <div class="input-field col s12 m3">
                               <label for="dob" class="">Date of Birth</label>
-                              <form:input path="studentDetails.dob" id="dob" class="datepicker" />
+                              <form:input path="studentDetails.dob" id="dob" class="datepicker" required="required" />
                               <div class="errorTxt2"></div>
                            </div>
                            <div class="input-field col s12 m3">
                               <label for="ffname" class="">Father’s Name</label>
-                              <form:input path="studentDetails.fatherName" id="ffname"  type="text" />
+                              <form:input path="studentDetails.fatherName" id="ffname" onkeypress="return onlyAlphabets(event,this);" type="text" required="required"/>
                               <div class="errorTxt2"></div>
                            </div>
                            <div class="input-field col s12 m3">
                               <label for="mn" class="">Mother’s Name</label>
-                              <form:input path="studentDetails.motherName" id="mn" type="text" />
+                              <form:input path="studentDetails.motherName" id="mn" onkeypress="return onlyAlphabets(event,this);" type="text" required="required"/>
                               <div class="errorTxt2"></div>
                            </div>
                            
@@ -87,18 +85,38 @@
                               <form:input path="lastSchool" id="lastSchool" type="text" />
                               <div class="errorTxt1"></div>
                            </div>
-                           <div class="input-field col s12 m3">
-                              <label for="lastClass" class="">Last Class Attended</label>
+                           <div class="col s12 m3">
+                              <%-- <label for="lastClass" class="">Last Class Attended</label>
                               <form:input path="lastClass" type="text" id="lastClass"/>
-                              <div class="errorTxt1"></div>
+                              <div class="errorTxt1"></div> --%>
+                              <label for="lastClass">Last Class Attended</label>
+                          <form:select class="error browser-default" path="lastClass" id="lastClass" >
+                              <option value="" disabled="" selected="">Choose  Last Class</option>
+                              <option value="1">P.G</option>
+                              <option value="2">L.K.G</option>
+                              <option value="3">U.K.G</option>
+                              <option value="4">1st</option>
+                              <option value="5">2nd</option>
+                              <option value="6">3rd</option>
+                              <option value="7">4th</option>
+                              <option value="8">5th</option>
+                              <option value="9">6th</option>
+                              <option value="10">7th</option>
+                              <option value="11">8th</option>
+                              <option value="12">9th</option>
+                              <option value="13">10th</option>
+                              <option value="14">11th </option>
+                            
+                              
+                           </form:select>
                            </div>
                            <div class=" col s12 m3">
                               <%-- <label for="lastClassResult" class="">Result of the last class</label>
                               <form:input path="lastClassResult" id="lastClassResult" type="text" />
                               <div class="errorTxt1"></div> --%>
                               <label for="lastClassResult">Result of the last class *</label>
-                          <form:select class="error browser-default" path="lastClassResult" id="lastClassResult" name="crole">
-                              <option value="" disabled="" selected="">Choose  Result</option>
+                          <form:select class="error browser-default" path="lastClassResult" id="lastClassResult"  selected="1" name="crole">
+                              
                               <option value="1">Pass</option>
                               <option value="2">Fail</option>
                               <option value="3">Awaited</option>
@@ -118,14 +136,14 @@
                               </select>
                               <label>Subject Offered</label>
                            </div>
-                           <div class="col s12 m3">
+                           <div class="col s12 m3 radioRequired">
                               <label for="genter_select">Gender *</label>
                               <p>
-                              	 <form:radiobutton path="studentDetails.gender" id="gender_male"  value="M" />
+                              	 <form:radiobutton path="studentDetails.gender" id="gender_male" name="m"  value="M" />
                                  <label for="gender_male">Male</label>
                               </p>
                               <p>
-                                 <form:radiobutton path="studentDetails.gender" id="gender_female" value="F" />
+                                 <form:radiobutton path="studentDetails.gender" id="gender_female" name="m" value="F"  />
                                  <label for="gender_female">Female</label>
                               </p>
                               
@@ -153,7 +171,7 @@
                         </div>
                         <div class="input-field col s12 m3">
                            <label for="address1" class="">Address Line1</label>
-                           <form:input path="contactDetails.address1" id="address1" type="text" />
+                           <form:input path="contactDetails.address1" id="address1" type="text" required="required" />
                            <div class="errorTxt1"></div>
                         </div>
                         <div class="input-field col s12 m3">
@@ -163,17 +181,17 @@
                         </div>
                         <div class="input-field col s12 m3">
                            <label for="area" class="">Area/Locality/Landmark</label>
-                           <form:input path="contactDetails.area" id="area" type="text" />
+                           <form:input path="contactDetails.area" id="area" type="text" required="required" />
                            <div class="errorTxt1"></div>
                         </div>
                         <div class="input-field col s12 m3">
                            <label for="city" class="">City</label>
-                           <form:input path="contactDetails.city" id="city" type="text" />
+                           <form:input path="contactDetails.city" id="city" type="text" required="required" />
                            <div class="errorTxt1"></div>
                         </div>
                         <div class=" col s12 m3">
                            <label for="crole">States *</label>
-                           <select class="error browser-default" id="crole" name="crole">
+                           <select class="error browser-default" id="crole" name="crole" required="required">
                               <option value="" disabled="" selected="">Choose your State</option>
                               <option value="1">Uttar Pradesh</option>
                               <option value="2">NCR</option>
@@ -182,22 +200,22 @@
                         </div>
                         <div class="input-field col s12 m3">
                            <label for="pin" class="">Pin Code</label>
-                           <form:input path="contactDetails.pincode" id="pin" type="text" />
+                           <form:input path="contactDetails.pincode" id="pin" type="number" required="required" />
                            <div class="errorTxt1"></div>
                         </div>
                         <div class="input-field col s12 m3">
                            <label for="phone" class="">Father's Mobile No.</label>
-                           <form:input path="contactDetails.phone" id="phone"  type="text" />
+                           <form:input path="contactDetails.phone" id="phone"  type="number" required="required" />
                            <div class="errorTxt1"></div>
                         </div>
                         <div class="input-field col s12 m3">
                            <label for="mb" class="">Mother's Mobile No.</label>
-                           <form:input path="contactDetails.mobile" id="mb" type="text" />
+                           <form:input path="contactDetails.mobile" id="mb" type="number"  />
                            <div class="errorTxt1"></div>
                         </div>
                         <div class="input-field col s12 m3">
                            <label for="email" class="">Email</label>
-                           <form:input path="contactDetails.email" id="email"  type="text" />
+                           <form:input path="contactDetails.email" id="email"  type="email" required="required" />
                            <div class="errorTxt1"></div>
                         </div>
                        
@@ -205,9 +223,9 @@
                            		<button class="btn waves-effect waves-light  submit center-btn" type="submit" name="action" onclick = "submitForm('registrationFormBean')" >Submit
                           			<img src="img/save.png" class="button-img">
                           		 </button>
-                          		 <button class="btn waves-effect waves-light  submit" type="submit" name="action">Reset
+                          		 <a class="btn waves-effect waves-light  submit reset" type="submit" name="action">Reset
                            			<img src="img/cancel.png" class="button-img">
-                           		</button>
+                           		</a>
                           </div>
                         
                      <!--    <div class="input-field col s12 center-align button-margin">
@@ -230,7 +248,8 @@
       </div>
       <script type="text/javascript" src="js/jquery.min.js"></script>
       <script src="js/materialize.min.js"></script>
-      
+      <script src="js/jquery.validate.min.js"></script>
+     
       <script type="text/javascript">
          $('.datepicker').pickadate({
         	 closeOnSelect: true,
@@ -249,12 +268,55 @@
          function submitForm(formId){
        		 $("#"+formId).submit();
        	}
-         window.onload = function() {
-        	 var myInput = document.getElementsByClassName('paste');
-        	 myInput.onpaste = function(e) {
-        	   e.preventDefault();
-        	 }
-        	}
+         $('.paste').bind("cut copy paste",function(e) {
+             e.preventDefault();
+         });
+         function onlyAlphabets(e, t) {
+             try {
+                 if (window.event) {
+                     var charCode = window.event.keyCode;
+                 }
+                 else if (e) {
+                     var charCode = e.which;
+                 }
+                 else { return true; }
+                 if ((charCode > 64 && charCode < 91) || (charCode > 96 && charCode < 123))
+                     return true;
+                 else
+                     return false;
+             }
+             catch (err) {
+                 alert(err.Description);
+             }
+         }
+        /*  $.validator.setDefaults({
+        	    errorClass: 'invalid',
+        	    validClass: "valid",
+        	    errorPlacement: function (error, element) {
+        	        $(element)
+        	            .closest("form")
+        	            .find("label[for='" + element.attr("id") + "']")
+        	            .attr('data-error', error.text());
+        	    },
+        	    submitHandler: function (form) {
+        	        console.log('form ok');
+        	       
+        	    }
+        	});
+
+        	$(".formValidate").validate({
+        	    rules: {
+        	        dateField: {
+        	            date: true
+        	        }
+        	    }
+        	
+        	}); */
+        	
+        	 $(".reset").click(function() {
+                 $(this).closest('form').find("input[type=text], textarea,input[type=number], textarea,input[type=email]").val("");
+             });	
+        	
       </script>
       <!--materialize js-->
    </body>

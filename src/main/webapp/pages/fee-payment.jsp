@@ -11,7 +11,7 @@
       <title>Payment</title>
       <!-- CORE CSS-->
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.2/css/materialize.min.css">
+       <link rel="stylesheet" href="css/materialize.min.css">
       <link rel="stylesheet" type="text/css" href="css/dropify.min.css">
       <link rel="stylesheet" type="text/css" href="css/style.css">
       <link rel="shortcut icon" type="image/png" href="img/login.png" />
@@ -74,17 +74,17 @@
                      <div id="chkdd" style="display: none">
 	                     <div class="input-field col s4">
 	                        <label for="dd" class="">Cheque/DD No</label>
-	                        <form:input path="" type="text" />
+	                        <form:input path="" type="text" required="required"/>
 	                        <div class="errorTxt1"></div>
 	                     </div>
 	                     <div class="input-field col s4">
 	                        <label for="address1" class="">Bank Name</label>
-	                        <form:input path="" type="text" />
+	                        <form:input path="" type="text" required="required"/>
 	                        <div class="errorTxt1"></div>
 	                     </div>
 	                     <div class="input-field col s4">
 	                        <label for="address1" class="">Date Issued</label>
-	                          <form:input path="issueDate" type="text" class="datepicker" />
+	                          <form:input path="issueDate" type="text" class="datepicker" required="required"/>
 	                        <div class="errorTxt1"></div>
 	                     </div>
 	                 </div>
@@ -92,26 +92,30 @@
                       <div id="bdep" style="display: none">
 		                     <div class="input-field col s4">
 		                        <label for="address1" class="">Challan Number</label>
-		                        <form:input path="" type="text" />
+		                        <form:input path="" type="text" required="required"/>
 		                        <div class="errorTxt1"></div>
 		                     </div>
 		                     <div class="input-field col s4">
 		                        <label for="address1" class="">Deposit By</label>
-		                        <input id="fname" name="addresss1" type="text">
+		                        <input id="fname" name="addresss1" type="text" required="required">
 		                        <div class="errorTxt1"></div>
 		                     </div>
 		                     <div class="input-field col s4 ">
 		                        <label for="address1" class="">Deposit Date</label>
-		                          <form:input path="depositDate" type="text" class="datepicker" />
+		                          <form:input path="depositDate" type="text" class="datepicker" required="required"/>
 		                        <div class="errorTxt1"></div>
 		                     </div>
                      </div>
+                     <div class="input-field col s12 m4">
+          <textarea id="textarea1" class="materialize-textarea"></textarea>
+          <label for="textarea1">Comment</label>
+        </div>
                       <div class="input-field col s12 m12 center-align button-margin">
                            		<button class="btn waves-effect waves-light  submit center-btn" type="submit" name="action" onclick = "submitForm('paymentFormBean')">Submit
-                          			 <i class="mdi-content-send right"></i>
+                          			<img src="img/save.png" class="button-img">
                           		 </button>
-                          		 <button class="btn waves-effect waves-light  submit" type="submit" name="action">Cancel
-                           			<i class="mdi-navigation-close right"></i>
+                          		 <button class="btn waves-effect waves-light  submit" type="submit" name="action">Back
+                           			<img src="img/cancel.png" class="button-img">
                            		</button>
                        </div>
                           
@@ -134,8 +138,8 @@
       
       <script type="text/javascript" src="js/jquery.min.js"></script>
       <!--materialize js-->
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.2/js/materialize.min.js"></script>
-      
+     <script src="js/materialize.min.js"></script>
+      <script src="js/jquery.validate.min.js"></script>
       <script type="text/javascript" src="js/dropify.min.js"></script>
       <script type="text/javascript">
          $('.datepicker').pickadate({
@@ -166,6 +170,29 @@
          function submitForm(formId){
        		 $("#"+formId).submit();
        	}
+         $.validator.setDefaults({
+      	    errorClass: 'invalid',
+      	    validClass: "valid",
+      	    errorPlacement: function (error, element) {
+      	        $(element)
+      	            .closest("form")
+      	            .find("label[for='" + element.attr("id") + "']")
+      	            .attr('data-error', error.text());
+      	    },
+      	    submitHandler: function (form) {
+      	        console.log('form ok');
+      	       
+      	    }
+      	});
+
+      	$(".formValidate").validate({
+      	    rules: {
+      	        dateField: {
+      	            date: true
+      	        }
+      	    }
+      	
+      	});
       </script>
    </body>
 </html>

@@ -291,7 +291,7 @@
                          <!-- <div class="col s12 m12">
                            <h5>Yearly Fee</h5>
                         </div> -->
-                        <div class="fee-selction col s12 m12">
+                       <%--  <div class="fee-selction col s12 m12">
                        <c:forEach items="${feeFormBean.anualFeeList}" var="feeDto" varStatus="status">
                       	 <form:hidden path="anualFeeList[${status.index}].id"  />
 	                        <div class="col s12 m3 col-fee">
@@ -315,7 +315,7 @@
 	                         </div>
 	                     </c:forEach>    
                          
-                        <!-- <div class="col s12 m3 col-fee">
+                        - <div class="col s12 m3 col-fee">
                            <label class="label-fee">Practical Fee</label>
                         </div>
                         
@@ -362,8 +362,8 @@
                          <div class="input-field col s12 m3">
                             <input placeholder="Final Amount" type="text" class="validate">
           
-                         </div> -->
-                         </div>
+                         </div> 
+                         </div> --%>
                           <div class="fee-selction col s12 m12">
                           <div class="input-field col s12 m3 col-fee">
                            <label class="label-fee">Total</label>
@@ -387,9 +387,9 @@
                            		<button class="btn waves-effect waves-light  submit center-btn" type="submit" name="action">Submit
                           			<img src="img/save.png" class="button-img">
                           		 </button>
-                          		 <button class="btn waves-effect waves-light  submit" type="submit" name="action">Reset
+                          		 <a class="btn waves-effect waves-light  submit reset" type="submit" name="action">Reset
                            			 <img src="img/cancel.png" class="button-img">
-                           		</button>
+                           		</a>
                           </div>
                      </div>
                   
@@ -423,7 +423,9 @@
          		});
          	}
          });
-         
+          $(".reset").click(function() {
+              $(this).closest('form').find("input[type=text], textarea,input[type=number], textarea,input[type=email]").val("");
+          });
          var totalAmt = 0;
          var totaldiscAmt = 0;
          function setPaidAmount(type, obj){

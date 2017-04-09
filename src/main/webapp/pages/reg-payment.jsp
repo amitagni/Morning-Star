@@ -35,12 +35,12 @@
          <div class="col s12 m12">
             <div class="card-panel card-main">
                <div class="row">
-                  <form:form  modelAttribute="paymentFormBean"  action="reg-payment.do" method="post" novalidate="novalidate">
+                  <form:form  modelAttribute="paymentFormBean"  action="reg-payment.do" method="post" class="formValidate" novalidate="novalidate">
                      <div class="col s4">
                         <h4 class="header2">Payment Details</h4>
                         <div class="input-field ">
                         <label for="tfee" class="">TOTAL FEE</label>
-                        <form:input path="amount" type="text" id="tfee"/>
+                        <form:input path="amount" type="text" id="tfee" required="required"/>
                         <div class="errorTxt1"></div>
                      </div>
                         <div class="input-field">
@@ -53,7 +53,7 @@
                        
                      
                         </div>
-                        <div class="col s3 margin-cash"> <input name="payment" type="radio" id="cash" data-error=".errorTxt8">
+                        <div class="col s3 margin-cash"> <input name="payment" type="radio" id="cash" data-error=".errorTxt8" checked="checked">
                         <label for="cash">Cash</label></div>
                         
                      <div class="input-field col s4">
@@ -67,7 +67,7 @@
                         <button class="btn waves-effect waves-light  submit center-btn" type="submit" name="action">Submit
                         <img src="img/save.png" class="button-img">
                         </button>
-                        <button class="btn waves-effect waves-light  submit" type="submit" name="action">Cancel
+                        <button class="btn waves-effect waves-light  submit" type="submit" name="action">Reset
                          <img src="img/cancel.png" class="button-img">
                         </button>
                      </div>
@@ -82,6 +82,7 @@
      <script src="js/materialize.min.js"></script>
       
       <script type="text/javascript" src="js/dropify.min.js"></script>
+       <script src="js/jquery.validate.min.js"></script>
       <script type="text/javascript">
          $('.datepicker').pickadate({
              selectMonths: true, // Creates a dropdown to control month
@@ -94,6 +95,29 @@
              // Translated
          
          });
+         /* $.validator.setDefaults({
+     	    errorClass: 'invalid',
+     	    validClass: "valid",
+     	    errorPlacement: function (error, element) {
+     	        $(element)
+     	            .closest("form")
+     	            .find("label[for='" + element.attr("id") + "']")
+     	            .attr('data-error', error.text());
+     	    },
+     	    submitHandler: function (form) {
+     	        console.log('form ok');
+     	       
+     	    }
+     	});
+
+     	$(".formValidate").validate({
+     	    rules: {
+     	        dateField: {
+     	            date: true
+     	        }
+     	    }
+     	
+     	}); */
       </script>
    </body>
 </html>
