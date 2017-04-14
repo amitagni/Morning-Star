@@ -3,12 +3,15 @@
  */
 package com.ms.dao;
 
+import javax.persistence.Query;
+
 /**
  * @author Amit.Agnihotri
  *
  */
 
 import com.ms.entity.StudentContactInfo;
+import com.ms.entity.StudentInfo;
 
 
 
@@ -29,5 +32,11 @@ public class StudentContactInfoDao extends GenericDao<Integer, StudentContactInf
 			merge(studentContactInfo);
 		}
 
+	}
+	
+	public StudentContactInfo findStudentContactInfoByStudentId(Integer studentId) {
+		Query query = getEntityManager().createQuery("Select st from StudentContactInfo st where st.studentId ="+studentId);
+		StudentContactInfo studentContactInfo = (StudentContactInfo) query.getSingleResult();
+		return studentContactInfo;
 	}
 }

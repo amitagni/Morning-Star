@@ -9,6 +9,7 @@ import javax.persistence.Query;
 
 import com.ms.entity.FeeStructure;
 import com.ms.entity.StudentInfo;
+import com.ms.util.MSException;
 
 /**
  * @author Amit.Agnihotri
@@ -45,6 +46,11 @@ public class StudentInfoDao extends GenericDao<Integer, StudentInfo> {
 			return list;
 		}
 		return null;
+	}
+	public StudentInfo findStudentByRegNum(String regNum) throws Exception {
+		Query query = getEntityManager().createQuery("Select st from StudentInfo st where st.regId ="+regNum);
+		StudentInfo studentInfo = (StudentInfo) query.getSingleResult();
+		return studentInfo;
 	}
 
 	

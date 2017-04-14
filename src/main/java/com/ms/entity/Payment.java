@@ -48,6 +48,9 @@ public class Payment extends BaseEntity<Integer> implements Serializable{
 	@Column(name = "payment_type")
 	private Byte paymentType;
 	
+	@Column(name = "comment")
+	private String comment;
+	
 	@Column(name = "created_by")
 	private Integer createdBy;
 	
@@ -165,5 +168,19 @@ public class Payment extends BaseEntity<Integer> implements Serializable{
 	 */
 	public void setCreatedAt(Date createdAt) {
 		this.createdAt = createdAt;
+	}
+
+	/**
+	 * @return the comment
+	 */
+	public String getComment() {
+		return comment;
+	}
+
+	/**
+	 * @param comment the comment to set
+	 */
+	public void setComment(String comment) {
+		this.comment = comment;
 	}
 }

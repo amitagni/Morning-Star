@@ -27,6 +27,7 @@ public interface MSConstant {
 	 String FEE = "Fee";
 	 String PAYMENT = "Payment";
 	 String UPLOADDIR = "upload_doc";
+	 String PERCENT = "%";
 	 String HTTPPATH = "http://localhost:8080/";
 	 
 }

@@ -107,8 +107,8 @@
 		                     </div>
                      </div>
                      <div class="input-field col s12 m4">
-          <textarea id="textarea1" class="materialize-textarea"></textarea>
-          <label for="textarea1">Comment</label>
+          <form:textarea  path ="comment" class="materialize-textarea" />
+          <label for="comment">Comment</label>
         </div>
                       <div class="input-field col s12 m12 center-align button-margin">
                            		<button class="btn waves-effect waves-light  submit center-btn" type="submit" name="action" onclick = "submitForm('paymentFormBean')">Submit
@@ -179,8 +179,9 @@
       	            .find("label[for='" + element.attr("id") + "']")
       	            .attr('data-error', error.text());
       	    },
-      	    submitHandler: function (form) {
-      	        console.log('form ok');
+      	   	 submitHandler: function (form) {
+      	      console.log('form ok');
+      	    form.submit();
       	       
       	    }
       	});

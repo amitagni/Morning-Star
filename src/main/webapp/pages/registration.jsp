@@ -9,11 +9,11 @@
       <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <title>Registration Form</title>
-      <!-- CORE CSS-->
-      <link rel="stylesheet" type="text/css" href="css/dropify.min.css">
-      <link rel="stylesheet" type="text/css" href="css/style.css">
-      <link rel="shortcut icon" type="image/png" href="img/login.png" />
-      <link rel="stylesheet" href="css/materialize.min.css">
+     
+   <link rel="stylesheet" type="text/css" href="css/dropify.min.css">
+   <link rel="stylesheet" type="text/css" href="css/style.css">
+   <link rel="shortcut icon" type="image/png" href="img/login.png" />
+   <link rel="stylesheet" href="css/materialize.min.css">
    <body class="dashboard-body">
      
      <%@ include file="../includes/header.jsp"%>
@@ -91,7 +91,7 @@
                               <div class="errorTxt1"></div> --%>
                               <label for="lastClass">Last Class Attended</label>
                           <form:select class="error browser-default" path="lastClass" id="lastClass" >
-                              <option value="" disabled="" selected="">Choose  Last Class</option>
+                              <option value="" >Choose  Last Class</option>
                               <option value="1">P.G</option>
                               <option value="2">L.K.G</option>
                               <option value="3">U.K.G</option>
@@ -106,9 +106,7 @@
                               <option value="12">9th</option>
                               <option value="13">10th</option>
                               <option value="14">11th </option>
-                            
-                              
-                           </form:select>
+                          </form:select>
                            </div>
                            <div class=" col s12 m3">
                               <%-- <label for="lastClassResult" class="">Result of the last class</label>
@@ -127,14 +125,11 @@
                               <form:input path="lastSchool" type="text" id="lastSchooln"/>
                               <div class="errorTxt1"></div>
                            </div> --%>
-                           <div class="input-field col s12 m3">
-                              <select multiple>
-                                 <option value="" disabled selected> chosee subject</option>
-                                 <option value="1">Science</option>
-                                 <option value="2">Math's</option>
-                                 <option value="3">Biology</option>
-                              </select>
-                              <label>Subject Offered</label>
+                           <div class="col s12 m3">
+                              <label for="category">Category *</label>
+                              <form:select class="error browser-default" path="" id="category">
+                                <form:options items="${registrationFormBean.categoryList}" itemValue="code"  itemLabel="name"  />
+                              </form:select>
                            </div>
                            <div class="col s12 m3 radioRequired">
                               <label for="genter_select">Gender *</label>
@@ -157,15 +152,17 @@
                               <div class="errorTxt2"></div>
                            </div>
                            
-                           
                           
-                           
-                           <div class="col s12 m3">
-                              <label for="category">Category *</label>
-                              <form:select class="error browser-default" path="" id="category">
-                                <form:options items="${registrationFormBean.categoryList}" itemValue="code"  itemLabel="name"  />
-                              </form:select>
+                           <div class="input-field col s12 m3">
+                              <select multiple>
+                                 <option value="" disabled selected> chosee subject</option>
+                                 <option value="1">Science</option>
+                                 <option value="2">Math's</option>
+                                 <option value="3">Biology</option>
+                              </select>
+                              <label>Subject Offered</label>
                            </div>
+                           
                         <div class="col s12">
                            <h4 class="header2">Contact Details</h4>
                         </div>
@@ -249,7 +246,6 @@
       <script type="text/javascript" src="js/jquery.min.js"></script>
       <script src="js/materialize.min.js"></script>
       <script src="js/jquery.validate.min.js"></script>
-     
       <script type="text/javascript">
          $('.datepicker').pickadate({
         	 closeOnSelect: true,
@@ -289,7 +285,7 @@
                  alert(err.Description);
              }
          }
-        /*  $.validator.setDefaults({
+          $.validator.setDefaults({
         	    errorClass: 'invalid',
         	    validClass: "valid",
         	    errorPlacement: function (error, element) {
@@ -300,6 +296,7 @@
         	    },
         	    submitHandler: function (form) {
         	        console.log('form ok');
+        	        form.submit();
         	       
         	    }
         	});
@@ -311,8 +308,10 @@
         	        }
         	    }
         	
-        	}); */
-        	
+        	}); 
+        	$('input[type=text], textarea,input[type=number], textarea,input[type=email]').bind("cut copy paste",function(e) {
+                e.preventDefault();
+            });
         	 $(".reset").click(function() {
                  $(this).closest('form').find("input[type=text], textarea,input[type=number], textarea,input[type=email]").val("");
              });	

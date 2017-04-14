@@ -27,6 +27,9 @@ public class AdmissionFormBean extends RegistrationFormBean implements Serializa
 	private List<House> houseList;
 	private CommonsMultipartFile studentPhoto;
 	private CommonsMultipartFile studentTc;
+	
+	private String studentPhotoPath;
+	private String  studentTcPath;
 	/*private String lastClass;
 	private String lastSchool;
 	private String lastClassResult;
@@ -119,6 +122,30 @@ public class AdmissionFormBean extends RegistrationFormBean implements Serializa
 	 */
 	public void setStudentId(Integer studentId) {
 		this.studentId = studentId;
+	}
+	/**
+	 * @return the studentPhotoPath
+	 */
+	public String getStudentPhotoPath() {
+		return studentPhotoPath;
+	}
+	/**
+	 * @param studentPhotoPath the studentPhotoPath to set
+	 */
+	public void setStudentPhotoPath(String studentPhotoPath) {
+		this.studentPhotoPath = studentPhotoPath;
+	}
+	/**
+	 * @return the studentTcPath
+	 */
+	public String getStudentTcPath() {
+		return studentTcPath;
+	}
+	/**
+	 * @param studentTcPath the studentTcPath to set
+	 */
+	public void setStudentTcPath(String studentTcPath) {
+		this.studentTcPath = studentTcPath;
 	}
 	
 	

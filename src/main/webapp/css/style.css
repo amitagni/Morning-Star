@@ -420,3 +420,23 @@ font-size: 18px;
     border-bottom: 1px solid #0b5a92 !important;
     box-shadow: 0 1px 0 0 #0b5a92 !important;
 }
+.radio-add{
+	padding-top:30px !important;
+}
+.radio-add>p{
+	    display: inline;
+}
+.radio-add>label{
+	font-size: 15px;
+}
+.h6-p{
+padding-left: 4px;
+    font-size: 18px;
+}
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none !important; 
+  margin: 0; 
+}
+.serach-top{
+    margin-top: 34px;}

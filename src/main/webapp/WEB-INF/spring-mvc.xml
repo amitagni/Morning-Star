@@ -197,6 +197,10 @@
 		<property name="entityManagerFactory" ref="entityManagerFactory" />
 	</bean>
 	
+	<bean id="paymentDescDao" class="com.ms.dao.PaymentDescDao">
+		<property name="entityManagerFactory" ref="entityManagerFactory" />
+	</bean>
+	
 	<bean id="feeStructureDao" class="com.ms.dao.FeeStructureDao">
 		<property name="entityManagerFactory" ref="entityManagerFactory" />
 	</bean>

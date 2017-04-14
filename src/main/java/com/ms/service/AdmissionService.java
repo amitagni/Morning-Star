@@ -63,5 +63,28 @@ public class AdmissionService {
 		}
 	}
 
+	
+	public StudentInfo findStudentByRegNum(String regNum) {
+		StudentInfo studentInfo = null;
+		try {
+			 studentInfo = studentInfoDao.findStudentByRegNum(regNum);
+		} catch (Exception e) {
+			e.printStackTrace();
+			
+		}
+		return studentInfo;
+	}
+	
+	public StudentContactInfo findStudentContactInfoByStudentId(Integer studentId) {
+		StudentContactInfo studentContactInfo = null;
+		try {
+			studentContactInfo = studentContactInfoDao.findStudentContactInfoByStudentId(studentId);
+		} catch (Exception e) {
+			e.printStackTrace();
+			
+		}
+		return studentContactInfo;
+	}
+
 
 }

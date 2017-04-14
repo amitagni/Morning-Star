@@ -4,6 +4,7 @@
 package com.ms.util;
 
 import java.io.File;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,6 +24,7 @@ import com.ms.enums.StudentClass;
  *
  */
 public class MSUtil {
+	private static DecimalFormat  grpdf = new DecimalFormat("####,###,##0.00");
 
 	public static List<Category> populateCategoryList(){
 		List<Category> categorieList = new ArrayList<>();
@@ -142,5 +144,13 @@ public class MSUtil {
 		else
 			return false;
 		
+	}
+	
+	/**
+	 * @param value
+	 * @return
+	 */
+	public static String formatValue(float value){
+		return grpdf.format(value);
 	}
 }

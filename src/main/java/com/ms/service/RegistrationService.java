@@ -3,6 +3,8 @@
  */
 package com.ms.service;
 
+import javax.persistence.NoResultException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -53,6 +55,17 @@ public class RegistrationService {
 		studentContactInfo.setStudentId(studentInfo.getId());
 		studentContactInfoDao.save(studentContactInfo);
 		studentContactInfoDao.flush();
+	}
+	
+	public StudentReg findIdByNumber(String regNumber) throws MSException {
+		 StudentReg studentReg  = null;
+		 try{
+			  studentReg  =  studentRegDao.findIdByNumber(regNumber);
+		 }catch (NoResultException e) {
+			
+		}
+		 return studentReg;
+		
 	}
 
 }

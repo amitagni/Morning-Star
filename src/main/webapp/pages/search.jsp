@@ -33,7 +33,7 @@
    <body class="dashboard-body">
    	 <%@ include file="../includes/header.jsp"%>
 
-     <div class="container_b">
+     <div class="container_b serach-top">
       <div class="valign-wrapper row ">
          <div class="col s12 valign">
             <div class="card-panel search-c">

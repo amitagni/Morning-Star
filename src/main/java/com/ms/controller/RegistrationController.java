@@ -11,6 +11,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ms.bean.PaymentFormBean;
@@ -90,6 +91,20 @@ public class RegistrationController {
 	public ModelAndView regReceipt(Model model,HttpServletRequest request) {
 		SessionUtil.setPage(MSConstant.REGISTRATION);
 		return new ModelAndView("reg-receipt");
+	}
+	
+	@RequestMapping(value = "/fetch-regid")
+	public @ResponseBody Integer getRegistrationId(HttpServletRequest request) {
+		String regNumber = request.getParameter("regNum");
+		int id = -1;
+		try {
+			StudentReg studentReg = registrationService.findIdByNumber(regNumber);
+			if(studentReg != null)
+				id = studentReg.getId();
+		} catch (MSException e) {
+			e.printStackTrace();
+		}
+		return id;
 	}
 
 	

@@ -8,7 +8,7 @@
       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <title>Recipt Form</title>
+      <title>Fee Receipt </title>
       <!-- CORE CSS-->
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
       <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/css/materialize.min.css"> -->
@@ -47,9 +47,10 @@
             <br>
                <h5>Congratulations, Admission process has been
 Successfully Completed. !!!</h5>
+<h6 class="h6-p">your Morning Star ID (MSID) is 123456</h6>
 <br>
 <div class="row">
-                  <form class="formValidate" id="formValidate" method="get" action="" novalidate="novalidate">
+                  <form:form class="formValidate" id="formValidate"  modelAttribute="feeFormBean"  action="fee.do"  novalidate="novalidate">
                   
                      <div class="row">
 
@@ -57,82 +58,91 @@ Successfully Completed. !!!</h5>
                            <h5> Monthly Fee</h5>
                         </div> -->
                         <div class="fee-selction col s12 m12">
-                        <div class="col s12 m3 col-fee">
-                           <label class="label-fee">C.F</label>
-                        </div>
-
-                         <div class="input-field col s12 m3">
-                            <p>1234</p>
-          
-                         </div>
-                         <div class="input-field col s12 m3">
-                             <p>1234</p>
-          
-                         </div>
-                         <div class="input-field col s12 m3">
-                           <p>1234</p>
-          
-                         </div>
-                         <div class="col s12 m3 col-fee">
-                           <label class="label-fee">M.F</label>
-                        </div>
-                        
-                         <div class="input-field col s12 m3">
-                            <p>1234</p>
-          
-                         </div>
-                         <div class="input-field col s12 m3">
-                            <p>1234</p>
-          
-                         </div>
-                         <div class="input-field col s12 m3">
-                           <p>1234</p>
-          
-                         </div>
-                         <div class="col s12 m3 col-fee">
-                           <label class="label-fee">Tution Fee</label>
-                        </div>
-                        
-                         <div class="input-field col s12 m3">
-                           <p>1234</p>
-          
-                         </div>
-                         <div class="input-field col s12 m3">
-                            <p>1234</p>
-          
-                         </div>
-                         <div class="input-field col s12 m3">
-                           <p>1234</p>
-          
-                         </div>
+                          <c:forEach items="${feeFormBean.monthlyFeeList}" var="feeDto" varStatus="status">
+	                        <div class="col s3 m3 col-fee">
+	                           <label class="label-fee">${feeDto.name}</label>
+	                        </div>
+	
+	                         <div class="input-field col s3 m3">
+	                            <p>${feeDto.amount}</p>
+	          
+	                         </div>
+	                         <div class="input-field col s3 m3">
+	                             <p>${feeDto.discount}</p>
+	                         </div>
+	                         <div class="input-field col s3 m3">
+	                           <p>${feeDto.paidAmount}</p>
+	                         </div>
+                         </c:forEach>
+                         
+	                         <!-- <div class="col s12 m3 col-fee">
+	                           <label class="label-fee">M.F</label>
+	                        </div>
+	                        
+	                         <div class="input-field col s12 m3">
+	                            <p>1234</p>
+	          
+	                         </div>
+	                         <div class="input-field col s12 m3">
+	                            <p>1234</p>
+	          
+	                         </div>
+	                         <div class="input-field col s12 m3">
+	                           <p>1234</p>
+	          
+	                         </div>
+	                         <div class="col s12 m3 col-fee">
+	                           <label class="label-fee">Tution Fee</label>
+	                        </div>
+	                        
+	                         <div class="input-field col s12 m3">
+	                           <p>1234</p>
+	          
+	                         </div>
+	                         <div class="input-field col s12 m3">
+	                            <p>1234</p>
+	          
+	                         </div>
+	                         <div class="input-field col s12 m3">
+	                           <p>1234</p>
+	                         </div> -->
+	                         
                          </div>
                          <!-- <div class="col s12 m12">
                            <h5>Quarterly Fee</h5>
                         </div> -->
+                        <c:if test="${feeFormBean.quarterlyFeeList.size() > 0  }">
                         <div class="fee-selction col s12 m12">
-                        <div class="col s12 m3 col-fee">
-                           <label class="label-fee">Exam Fee</label>
-                        </div>
-                        <div class="input-field col s12 m2">
-                            <p class="text-center">APR</p>
-                           
-                         </div>
-                         <div class="input-field col s12 m2">
-                            <p>1234</p>
-          
-                         </div>
-                         <div class="input-field col s12 m2">
-                           <p>1234</p>
-          
-                         </div>
-                         <div class="input-field col s12 m2">
-                            <p>1234</p>
-          
-                         </div>
-                         <div class="col s12 m3 col-fee">
-                           &nbsp;
-                        </div>
-                        <div class="input-field col s12 m2">
+                        	<div class="col s3 m3 col-fee">
+	                           <label class="label-fee">Exam Fee</label>
+	                        </div>
+	                      <c:out value="${feeFormBean.quarterlyFeeList.size() > 0  }"></c:out>
+	                     
+	                         <c:forEach items="${feeFormBean.quarterlyFeeList}" var="feeDto" varStatus="status">
+	                        
+		                        
+		                        <div class="input-field col s2 m2">
+		                            <p class="text-center">${feeDto.name}</p>
+		                           
+		                         </div>
+		                         <div class="input-field col s2 m2">
+		                            <p>${feeDto.amount}</p>
+		          
+		                         </div>
+		                         <div class="input-field col s2 m2">
+		                           <p>${feeDto.discount}</p>
+		          
+		                         </div>
+		                         <div class="input-field col s2 m2">
+		                            <p>${feeDto.paidAmount}</p>
+		                         </div>
+		                          <div class="col s3 m3 col-fee">
+	                        	   &nbsp;
+	                       		 </div>
+		                    </c:forEach>     
+	                    
+                        
+                       <!--  <div class="input-field col s12 m2">
                             <p class="text-center">AUG</p>
                            
                          </div>
@@ -184,17 +194,44 @@ Successfully Completed. !!!</h5>
                          <div class="input-field col s12 m2">
                             <p>1234</p>
           
-                         </div>
+                         </div> -->
                          <!-- <div class="col s12 m12">
                            <h5>Half yeraly Fee</h5>
                         </div> -->
                         </div>
-                        <div class="fee-selction col s12 m12">
-                        <div class="col s12 m3 col-fee">
-                           <label class="label-fee">Annual Function Fee</label>
-                        </div>
+                         </c:if>  
+                        <c:if test="${feeFormBean.halfyearlyFeeList.size() > 0  }">
+                        	<div class="fee-selction col s12 m12">
+	                        <div class="col s3 m3 col-fee">
+	                           <label class="label-fee">Annual Function Fee</label>
+	                        </div>
                         
-                          <div class="input-field col s12 m2">
+	                         <c:forEach items="${feeFormBean.halfyearlyFeeList}" var="feeDto" varStatus="status">
+	                        
+		                        
+		                        <div class="input-field col s2 m2">
+		                            <p class="text-center">${feeDto.name}</p>
+		                           
+		                         </div>
+		                         <div class="input-field col s2 m2">
+		                            <p>${feeDto.amount}</p>
+		          
+		                         </div>
+		                         <div class="input-field col s2 m2">
+		                           <p>${feeDto.discount}</p>
+		          
+		                         </div>
+		                         <div class="input-field col s2 m2">
+		                            <p>${feeDto.paidAmount}</p>
+		                         </div>
+		                          <div class="col s3 m3 col-fee">
+	                        	   &nbsp;
+	                       		 </div>
+		                    </c:forEach> 
+		                   </div>
+                       </c:if>
+                        
+                     <!--      <div class="input-field col s12 m2">
                             <p class="red-done"><i class="material-icons font-size-icon">info_outline</i><span>DEC </span></p>
                            
                          </div>
@@ -227,101 +264,112 @@ Successfully Completed. !!!</h5>
                          <div class="input-field col s12 m2">
                             <p>1234</p>
           
-                         </div>
-                         </div>
+                         </div> -->
+                         
                          <!-- <div class="col s12 m12">
                            <h5>Yearly Fee</h5>
                         </div> -->
-                        <div class="fee-selction col s12 m12">
-                        <div class="col s12 m3 col-fee">
-                           <label class="label-fee">Farewell Fee</label>
-                        </div>
-                        
-                         <div class="input-field col s12 m3">
-                            <p>1234</p>
-          
-                         </div>
-                         <div class="input-field col s12 m3">
-                            <p>1234</p>
-          
-                         </div>
-                         <div class="input-field col s12 m3">
-                           <p>1234</p>
-          
-                         </div>
-                        <div class="col s12 m3 col-fee">
-                           <label class="label-fee">Practical Fee</label>
-                        </div>
-                        
-                         <div class="input-field col s12 m3">
-                            <p>1234</p>
-          
-                         </div>
-                         <div class="input-field col s12 m3">
-                            <p>1234</p>
-          
-                         </div>
-                         <div class="input-field col s12 m3">
-                            <p>1234</p>
-          
-                         </div>
-                         <div class="col s12 m3 col-fee">
-                           <label class="label-fee">T.C Fee</label>
-                        </div>
-                        
-                         <div class="input-field col s12 m3">
-                           <p>1234</p>
-          
-                         </div>
-                         <div class="input-field col s12 m3">
-                           <p>1234</p>
-          
-                         </div>
-                         <div class="input-field col s12 m3">
-                           <p>1234</p>
-          
-                         </div>
-                         <div class="col s12 m3 col-fee">
-                           <label class="label-fee">Miscellaneous</label>
-                        </div>
-                        
-                         <div class="input-field col s12 m3">
-                            <p>1234</p>
-          
-                         </div>
-                         <div class="input-field col s12 m3">
-                            <p>1234</p>
-          
-                         </div>
-                         <div class="input-field col s12 m3">
-                           <p>1234</p>
-          
-                         </div>
-                         </div>
+                        <c:if test="${feeFormBean.anualFeeList.size() > 0  }">
+                       		 <div class="fee-selction col s12 m12">
+                       
+                       
+                       
+	                        <c:forEach items="${feeFormBean.anualFeeList}" var="feeDto" varStatus="status">
+	                       
+		                        <div class="col s3 m3 col-fee">
+		                           <label class="label-fee">${feeDto.name}</label>
+		                        </div>
+		                        
+		                         <div class="input-field col s3 m3">
+		                            <p>${feeDto.amount}</p>
+		          
+		                         </div>
+		                         <div class="input-field col s3 m3">
+		                            <p>${feeDto.discount}</p>
+		          
+		                         </div>
+		                         <div class="input-field col s3 m3">
+		                           <p>${feeDto.paidAmount}</p>
+		          
+		                         </div>
+	                        </c:forEach> 
+		                       <!--   
+		                        <div class="col s12 m3 col-fee">
+		                           <label class="label-fee">Practical Fee</label>
+		                        </div>
+		                        
+		                         <div class="input-field col s12 m3">
+		                            <p>1234</p>
+		          
+		                         </div>
+		                         <div class="input-field col s12 m3">
+		                            <p>1234</p>
+		          
+		                         </div>
+		                         <div class="input-field col s12 m3">
+		                            <p>1234</p>
+		          
+		                         </div>
+		                         <div class="col s12 m3 col-fee">
+		                           <label class="label-fee">T.C Fee</label>
+		                        </div>
+		                        
+		                         <div class="input-field col s12 m3">
+		                           <p>1234</p>
+		          
+		                         </div>
+		                         <div class="input-field col s12 m3">
+		                           <p>1234</p>
+		          
+		                         </div>
+		                         <div class="input-field col s12 m3">
+		                           <p>1234</p>
+		          
+		                         </div>
+		                         <div class="col s12 m3 col-fee">
+		                           <label class="label-fee">Miscellaneous</label>
+		                        </div>
+		                        
+		                         <div class="input-field col s12 m3">
+		                            <p>1234</p>
+		          
+		                         </div>
+		                         <div class="input-field col s12 m3">
+		                            <p>1234</p>
+		          
+		                         </div>
+		                         <div class="input-field col s12 m3">
+		                           <p>1234</p>
+		          
+		                         </div> -->
+                        	 </div>
+                         </c:if>
+                         
                           <div class="fee-selction col s12 m12">
-                          <div class="col s12 m3 col-fee">
+                          <div class="col s3 m3 col-fee">
                            <label class="label-fee">Total</label>
                         </div>
 
                         
-                         <div class="input-field col s12 m3">
-                            <p>1234</p>
+                         <div class="input-field col s3 m3">
+                            <p>${feeFormBean.totalAmt}</p>
           
                          </div>
-                         <div class="input-field col s12 m3">
-                          <p>1234</p>
+                         <div class="input-field col s3 m3">
+                          <p>${feeFormBean.totalDiscAmt}</p>
           
                          </div>
-                         <div class="input-field col s12 m3">
-                            <p>1234</p>
+                         <div class="input-field col s3 m3">
+                            <p>${feeFormBean.totalPaidAmt}</p>
           
                          </div>
                          </div>
                           
                         
                         </div>
-                     </div>
-                  </form>
+                    
+                 	 </form:form>
+                   </div>
                   <div class="col s12 m12 text-center"> <a onclick="printme()" class="btn waves-effect waves-light center">Print</a></div>
                   
                </div>

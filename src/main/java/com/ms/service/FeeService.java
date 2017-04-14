@@ -54,5 +54,8 @@ public class FeeService {
 		return paidFeeSummaryDao.findByStudentId(studentId);
 	}
 	
+	public List<Object> generateFeeSlipData(String paymentId) throws MSException {
+		return  feeSlipDao.generateFeeSlipData(paymentId);
+	}
 	
 }

@@ -4,9 +4,13 @@
 package com.ms.controller;
 
 import java.util.ArrayList;
-import java.util.Collection;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
 import java.util.StringTokenizer;
+import java.util.TreeMap;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -71,7 +75,7 @@ public class FeeController {
 					ids.append(feeSlip.getId()).append(",");
 				}
 				
-				return new ModelAndView("redirect:/fee-payment.do?ids="+ids+"&id="+feeFormBean.getStudentId()+"&s="+feeFormBean.getFeeSummaryId()+"&m="+feeSummaryDTO.getMonthIds()+"&q="+feeSummaryDTO.getQuarterlyIds()+"&h="+feeSummaryDTO.getHalsyrlyIds()+"&a="+feeSummaryDTO.getAnuallyIds()+"&amt="+feeFormBean.getTotalAmt());
+				return new ModelAndView("redirect:/fee-payment.do?ids="+ids+"&id="+feeFormBean.getStudentId()+"&s="+feeFormBean.getFeeSummaryId()+"&m="+feeSummaryDTO.getMonthIds()+"&q="+feeSummaryDTO.getQuarterlyIds()+"&h="+feeSummaryDTO.getHalsyrlyIds()+"&a="+feeSummaryDTO.getAnuallyIds()+"&amt="+feeFormBean.getTotalPaidAmt());
 			} catch (Exception e) {
 				e.printStackTrace();
 				populateFeeFormBean(feeFormBean,String.valueOf(feeFormBean.getStudentId()));
@@ -152,8 +156,71 @@ public class FeeController {
 
 
 	@RequestMapping(value = "/fee-reciept")
-	public ModelAndView regReceipt(Model model,HttpServletRequest request) {
-		SessionUtil.setPage(MSConstant.FEE);
+	public ModelAndView regReceipt(@ModelAttribute("feeFormBean") FeeFormBean feeFormBean, BindingResult bindingResult, Model model,HttpServletRequest request) {
+		 SessionUtil.setPage(MSConstant.FEE);
+		 List<FeeDTO> monthlyFeeList =  new ArrayList<>();
+		 List<FeeDTO> quarterlyFeeList =  new ArrayList<>();
+		 List<FeeDTO> halfyearlyFeeList =  new ArrayList<>();
+		 List<FeeDTO> anualFeeList =  new ArrayList<>();
+		 Map<String,FeeDTO> map = new TreeMap<>();
+		 Set<Byte> monthSet =  new HashSet<>();
+		 float totalAmount = 0;
+		 float totalDiscount = 0;
+		 float totalPaidAmt = 0;
+		try {
+			List<Object> list = feeService.generateFeeSlipData("14");
+			for (Object object : list) {
+				Object[] objectArr= (Object[])object;
+				if(objectArr != null){
+					byte feeFreq = (byte)objectArr[2];
+					FeeDTO feeDTO = new FeeDTO();
+					feeDTO.setName((String)objectArr[3]);
+					feeDTO.setPaidAmount((String)objectArr[0]);
+					feeDTO.setDiscount((String)objectArr[1]);
+					feeDTO.setAmount((String)objectArr[4]);
+					monthSet.add((byte)objectArr[5]);
+					totalAmount = totalAmount + Float.parseFloat(feeDTO.getAmount());
+					totalDiscount = totalDiscount + Float.parseFloat(feeDTO.getDiscount());
+					totalPaidAmt = totalPaidAmt + Float.parseFloat(feeDTO.getPaidAmount());
+					if(feeFreq == FeeFreqType.MONTHLY.getCode().byteValue()){
+						System.out.println("MONTHLY");
+						FeeDTO existingFeeDto = map.get(feeDTO.getName());
+						if(existingFeeDto != null){
+							existingFeeDto.setAmount(String.valueOf(Float.parseFloat(existingFeeDto.getAmount())+Float.parseFloat(feeDTO.getAmount())));
+							existingFeeDto.setDiscount(String.valueOf(Float.parseFloat(existingFeeDto.getDiscount())+Float.parseFloat(feeDTO.getDiscount())));
+							existingFeeDto.setPaidAmount(String.valueOf(Float.parseFloat(existingFeeDto.getPaidAmount())+Float.parseFloat(feeDTO.getPaidAmount())));
+						}else{
+							existingFeeDto = feeDTO;
+							map.put(existingFeeDto.getName(), existingFeeDto);
+						}
+						
+					}else if(feeFreq == FeeFreqType.QUARTERLY.getCode().byteValue()){
+						quarterlyFeeList.add(feeDTO);
+						System.out.println("QUARTERLY");
+					}else if(feeFreq == FeeFreqType.HALFYEARLY.getCode().byteValue()){
+						halfyearlyFeeList.add(feeDTO);
+						System.out.println("HALFYEARLY");
+					}else if(feeFreq == FeeFreqType.ANUALLY.getCode().byteValue()){
+						anualFeeList.add(feeDTO);
+						System.out.println("ANUALLY");
+					}
+				}
+			}
+			for (Entry<String, FeeDTO> entry: map.entrySet()) {
+				monthlyFeeList.add(entry.getValue());
+			}
+			feeFormBean.setMonthlyFeeList(monthlyFeeList);
+			feeFormBean.setQuarterlyFeeList(quarterlyFeeList);
+			feeFormBean.setHalfyearlyFeeList(halfyearlyFeeList);
+			feeFormBean.setAnualFeeList(anualFeeList);
+			Byte[] months = new Byte[monthSet.size()];
+			feeFormBean.setSelMonth(monthSet.toArray(months));
+			feeFormBean.setTotalAmt(MSUtil.formatValue(totalAmount));
+			feeFormBean.setTotalDiscAmt(MSUtil.formatValue(totalDiscount));
+			feeFormBean.setTotalPaidAmt(MSUtil.formatValue(totalPaidAmt));
+		} catch (MSException e) {
+			e.printStackTrace();
+		}
 		return new ModelAndView("fee-reciept");
 	}
 	
@@ -228,6 +295,9 @@ public class FeeController {
 						monthList.add(month);
 			}
 			feeFormBean.setMonthList(monthList);
+			Byte[] selMonth = new Byte[1];
+			selMonth[0] = Month.JUL.getCode();
+ 			feeFormBean.setSelMonth(selMonth);
 		}
 		
 	}
@@ -255,20 +325,32 @@ public class FeeController {
 		StringBuilder quarterlyIds =  new StringBuilder();
 		StringBuilder halsyrlyIds =  new StringBuilder();
 		StringBuilder anuallyIds =  new StringBuilder();
-		monthIds.append(feeFormBean.getSelMonth());
-		monthIds.append(MSConstant.COMMA);
+		
 		if(feeFormBean.getMonthlyFeeList() != null){
 			for(FeeDTO feeDTO:feeFormBean.getMonthlyFeeList()){
 				if(!MSUtil.isEmpty(feeDTO.getPaidAmount())){
+					//BigDecimal totalDiscount = new BigDecimal("0");
+					float totalDiscount = 0;
+					String discountAmt = feeDTO.getDiscount().trim();
+					if(discountAmt.indexOf(MSConstant.PERCENT)!=-1){
+						totalDiscount = (Float.parseFloat(feeDTO.getPaidAmount()) * 100 )/(100 - Float.parseFloat(discountAmt.substring(0, discountAmt.length()-1)));
+					}else{
+						totalDiscount = Float.parseFloat(feeDTO.getDiscount());
+					}
+					totalDiscount = feeFormBean.getSelMonth().length;
 					for(Byte selMonth:feeFormBean.getSelMonth()){
 						FeeSlip feeSlip = new FeeSlip();
 						feeSlip.setStudentId(feeFormBean.getStudentId());
 						feeSlip.setFeeStructureId(feeDTO.getId());
 						feeSlip.setMonth(selMonth);
 						feeSlip.setAmount(String.valueOf(Float.parseFloat(feeDTO.getPaidAmount())/feeFormBean.getSelMonth().length));
-						feeSlip.setDiscount(feeDTO.getDiscount());
+						feeSlip.setDiscount(String.valueOf(totalDiscount/feeFormBean.getSelMonth().length));
+						
 						feeSlip.setCreatedBy(userId);
 						feeSlipList.add(feeSlip);
+						
+						monthIds.append(feeFormBean.getSelMonth());
+						monthIds.append(MSConstant.COMMA);
 					}
 				}
 			}
@@ -349,6 +431,7 @@ public class FeeController {
 		payment.setStudentId(paymentFormBean.getStudentId());
 		payment.setAmount(paymentFormBean.getAmount());
 		payment.setFeeType(FeeType.REGFEES.getCode());
+		payment.setComment(paymentFormBean.getComment());
 		paymentService.save(payment);
 		return payment.getId();
 		

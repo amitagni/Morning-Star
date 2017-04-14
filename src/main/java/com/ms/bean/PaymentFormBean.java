@@ -19,6 +19,7 @@ public class PaymentFormBean extends FormBean{
 	private String issueDate;
 	private String challanNum;
 	private String depositDate;
+	private String comment;
 	
 	private Integer feeSummaryId ;
 	private String monthIds ;
@@ -206,6 +207,18 @@ public class PaymentFormBean extends FormBean{
 	 */
 	public void setPaymentType(Byte paymentType) {
 		this.paymentType = paymentType;
+	}
+	/**
+	 * @return the comment
+	 */
+	public String getComment() {
+		return comment;
+	}
+	/**
+	 * @param comment the comment to set
+	 */
+	public void setComment(String comment) {
+		this.comment = comment;
 	}
 
 	

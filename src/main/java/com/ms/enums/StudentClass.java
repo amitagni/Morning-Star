@@ -12,7 +12,18 @@ public enum StudentClass {
 	PRE_NUR((byte)1,"Pre. Nur."),
 	NUR((byte)2,"Nur."),
 	KG((byte)3,"K.G"),
-	I((byte)4,"Ist");
+	I((byte)4,"Ist"),
+	II((byte)5,"Ist"),
+	III((byte)6,"Ist"),
+	IV((byte)7,"Ist"),
+	V((byte)8,"Ist"),
+	VI((byte)9,"Ist"),
+	VII((byte)10,"Ist"),
+	VIII((byte)11,"Ist"),
+	IX((byte)12,"Ist"),
+	X((byte)13,"Ist"),
+	XI((byte)14,"Ist"),
+	XII((byte)15,"Ist");
 	
 	private Byte code;
 	private String name;

@@ -2,6 +2,9 @@
  nav,button{
 display: none;
 }
+nav{
+	display: none !important;
+}
 .container_b{
    display: none;
 }
