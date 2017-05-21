@@ -33,9 +33,7 @@
       </div>
       </div>
       <div class="row_form valign-wrapper">
-         <div class="col s12 m12 recipt-width" style="
-    width: 100%;
-">
+         <div class="col s12 m12 recipt-width" style="width: 100%;">
             <div class="card-panel card-main">
         
           <div class="col s12 m12 text-center logo-recipt">

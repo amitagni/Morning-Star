@@ -202,7 +202,7 @@
                            
                            <div class="input-field col s12 m4" style="display:none;">
                                <form:select multiple="multiple" path="studentDetails.subjects" >
-                                <option value="" disabled selected> chosee subject</option>
+                                <option value="" disabled selected> choose subject</option>
                                  <option value="1">Science</option>
                                  <option value="2">Math's</option>
                                  <option value="3">Biology</option>

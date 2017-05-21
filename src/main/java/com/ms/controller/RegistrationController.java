@@ -157,18 +157,6 @@ public class RegistrationController {
 	
 
 
-
-
-
-	/**
-	 * @param paymentFormBean
-	 */
-	private void populatePaymentFormBean(PaymentFormBean paymentFormBean) {
-		// TODO Auto-generated method stub
-		
-	}
-
-
 	/**
 	 * @param paymentFormBean
 	 */
@@ -181,6 +169,18 @@ public class RegistrationController {
 		payment.setComment(paymentFormBean.getComment());
 		payment.setCreatedBy(SessionUtil.getUser().getId());
 		paymentService.save(payment);
+		
+	}
+	
+	/**
+	 * @param paymentFormBean
+	 */
+	private void populatePaymentFormBean(PaymentFormBean paymentFormBean) {
+		Payment payment = paymentService.findByStudentId(paymentFormBean.getStudentId(), FeeType.REGFEES.getCode());
+		if(payment != null){
+			paymentFormBean.setAmount(payment.getAmount());
+			paymentFormBean.setComment(payment.getComment());
+		}
 		
 	}
 	
