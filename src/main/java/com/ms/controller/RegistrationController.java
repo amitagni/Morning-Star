@@ -26,6 +26,7 @@ import com.ms.enums.StudentClass;
 import com.ms.service.AdmissionService;
 import com.ms.service.PaymentService;
 import com.ms.service.RegistrationService;
+import com.ms.util.DateUtils;
 import com.ms.util.MSConstant;
 import com.ms.util.MSException;
 import com.ms.util.MSUtil;
@@ -97,11 +98,14 @@ public class RegistrationController {
 	@RequestMapping(value = "/reg-receipt")
 	public ModelAndView regReceipt(Model model,HttpServletRequest request) {
 		SessionUtil.setPage(MSConstant.REGISTRATION);
-		
+		String regDate = DateUtils.convertToStringObject(DateUtils.getCurrentDateTime(),"dd/MM/yyyy");
 		String studentId =  request.getParameter(MSConstant.ID);
 		StudentInfo studentInfo = admissionService.findStudentById(Integer.parseInt(studentId));
 		String amount =  request.getParameter(MSConstant.AMOUNT);
 		model.addAttribute(MSConstant.ID,studentInfo.getRegId());
+		model.addAttribute(MSConstant.NAME,studentInfo.getFirstName() + MSConstant.SPACE + studentInfo.getLastName());
+		model.addAttribute(MSConstant.STUDENTCLASS,StudentClass.findNameByCode(studentInfo.getCurrentClass()));
+		model.addAttribute(MSConstant.DATE,regDate);
 		model.addAttribute(MSConstant.AMOUNT, amount);
 		return new ModelAndView("reg-receipt");
 	}

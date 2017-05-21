@@ -58,7 +58,17 @@
                            </form:select> --%>
                            <form:select  path="selMonth" multiple="multiple">
                            	 <!-- <option value="-1">Select Months</option> -->
-                             <form:options items="${feeFormBean.monthList}" itemValue="code" id="month" itemLabel="name"  />
+                           	 <c:forEach items="${feeFormBean.monthList}" var="feeMonthDto" varStatus="status">
+                           		 <c:choose>
+		                         	<c:when test="${feeMonthDto.paid}">
+                           	 			 <option value="${feeMonthDto.code }" disabled selected>${feeMonthDto.name }</option>
+                           	 		</c:when>
+		                         	<c:otherwise>
+		                         	    <option value="${feeMonthDto.code }">${feeMonthDto.name }</option>
+		                         	</c:otherwise>
+		                         </c:choose>
+                           	 </c:forEach>
+                            <%--  <form:options items="${feeFormBean.monthList}" itemValue="code" id="month" itemLabel="name"  /> --%>
                            </form:select> 
                         </div>
                           <div class="input-field col s12">
@@ -378,55 +388,8 @@
 				               </c:otherwise>
 				             </c:choose>
 	                     </c:forEach>    
-                         <%--
-                        - <div class="col s12 m3 col-fee">
-                           <label class="label-fee">Practical Fee</label>
-                        </div>
                         
-                         <div class="input-field col s12 m3">
-                            <input placeholder="Placeholder" type="text" class="validate">
-          
-                         </div>
-                         <div class="input-field col s12 m3">
-                            <input placeholder="Discount" type="text" class="validate">
-          
-                         </div>
-                         <div class="input-field col s12 m3">
-                            <input placeholder="Final Amount" type="text" class="validate">
-          
-                         </div>
-                         <div class="col s12 m3 col-fee">
-                           <label class="label-fee">T.C Fee</label>
-                        </div>
-                        
-                         <div class="input-field col s12 m3">
-                            <input placeholder="Placeholder" type="text" class="validate">
-          
-                         </div>
-                         <div class="input-field col s12 m3">
-                            <input placeholder="Discount" type="text" class="validate">
-          
-                         </div>
-                         <div class="input-field col s12 m3">
-                            <input placeholder="Final Amount" type="text" class="validate">
-          
-                         </div>
-                         <div class="col s12 m3 col-fee">
-                           <label class="label-fee">Miscellaneous</label>
-                        </div>
-                        
-                         <div class="input-field col s12 m3">
-                            <input placeholder="Placeholder" type="text" class="validate">
-          
-                         </div>
-                         <div class="input-field col s12 m3">
-                            <input placeholder="Discount" type="text" class="validate">
-          
-                         </div>
-                         <div class="input-field col s12 m3">
-                            <input placeholder="Final Amount" type="text" class="validate">
-          
-                         </div>  --%>
+
                          </div>
                          </c:if>
                           <div class="fee-selction col s12 m12">

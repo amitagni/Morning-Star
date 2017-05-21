@@ -171,9 +171,18 @@
 		                    document.getElementById('uid').innerHTML = data.id;
 		                    document.getElementById('stname').innerHTML = data.name;
 		                    document.getElementById('stClass').innerHTML = data.studentClass;
-		                    document.getElementById('section').innerHTML = data.section;
-		                    document.getElementById('house').innerHTML = data.house;
-		                    document.getElementById('fname').innerHTML = data.fatherName;
+		                    if(data.section != null)
+		                    	document.getElementById('section').innerHTML = data.section;
+		                    else
+		                    	document.getElementById('section').innerHTML = "N/A";
+		                    if(data.house != null)
+		                   	  document.getElementById('house').innerHTML = data.house;
+		                    else
+		                    	 document.getElementById('house').innerHTML = "N/A";
+		                    if(data.fatherName != null)
+		                    	document.getElementById('fname').innerHTML = data.fatherName;
+		                    else
+		                    	document.getElementById('fname').innerHTML = "N/A";
 		                    document.getElementById('stImage').src = data.photoPath;
 		                }
 		            });
