@@ -48,7 +48,7 @@
                <h4 class="header2">Student Details</h4>
                </div>
                <div class="col s8 m4 input-field searchtop">
-          <img src="img/search.png" class="serach-img">
+          <i class="material-icons prefix">search</i>
           <form:input type="number" path="regNum" id="autocomplete-input" class="autocomplete" onchange="getRegistrationId(this);" />
           <label for="autocomplete-input">Registration no</label>
           <span id="regId" style="color:red;display:none; text-align: -webkit-center;">Registration number not found</span>
@@ -397,15 +397,7 @@
 					 $("#studentTcPath").val('');
 				}
 			});
-			if (window.history && window.history.pushState) {
-
-			    //window.history.pushState('forward', null, './#forward');
-
-			    $(window).on('popstate', function() {
-			      alert('Back button was pressed.');
-			    });
-
-			  }
+             
              
              // Translated
          

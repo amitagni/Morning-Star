@@ -3,8 +3,6 @@
  */
 package com.ms.service;
 
-import javax.persistence.Query;
-
 /**
  * @author Amit.Agnihotri
  *
@@ -35,5 +33,7 @@ public class PaymentService {
 	public Payment findByStudentId(Integer studentId,Byte feeType) {
 		return paymentDao.findByStudentId(studentId, feeType);
 	}
+
+
 	
 }

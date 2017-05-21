@@ -132,10 +132,6 @@
 	                           <label class="label-fee">${feeDto.name}</label>
 	                        </div>
 	                      <%-- <c:out value="${feeFormBean.quarterlyFeeList.size() > 0  }"></c:out> --%>
-	                     
-	                         
-	                        
-		                        
 		                       
 		                         <div class="input-field col s3 m3">
 		                            <p>${feeDto.amount}</p>

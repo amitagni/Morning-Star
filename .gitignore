@@ -54,3 +54,6 @@ target/classes/com/ms/util/SessionUtil.class
 *.class
 target/classes/com/ms/util/MSConstant.class
 *.class
+/target/
+
+target/m2e-wtp/web-resources/META-INF/maven/MorningStar/MorningStar/pom.properties

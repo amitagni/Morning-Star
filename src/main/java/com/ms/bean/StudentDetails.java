@@ -11,6 +11,8 @@ public class StudentDetails {
 	
 	private Integer id;
 	private Integer regId;
+
+
 	private String firstName;
 	private String lastName;
 	private String dob;
@@ -21,6 +23,11 @@ public class StudentDetails {
 	private byte section;
 	private byte house;
 	private byte category;
+
+
+	//private String category;
+
+
 	private String religion;
 	private String caste;
 	private String gender;
@@ -99,6 +106,8 @@ public class StudentDetails {
 	public void setStudentClass(byte studentClass) {
 		this.studentClass = studentClass;
 	}
+
+
 
 
 	/**
@@ -245,8 +254,5 @@ public class StudentDetails {
 	public void setFatherOccupation(String fatherOccupation) {
 		this.fatherOccupation = fatherOccupation;
 	}
-	
-	
-	
 
 }

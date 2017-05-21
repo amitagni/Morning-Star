@@ -7,7 +7,6 @@ import java.util.List;
 
 import com.ms.dto.FeeDTO;
 import com.ms.dto.FeeMonthsDTO;
-import com.ms.enums.Month;
 
 /**
  * @author Amit.Agnihotri
@@ -30,10 +29,7 @@ public class FeeFormBean extends FormBean{
 	private String studentName;
 	private String studentClass;
 	private String months;
-	/**
-	 * @return the monthList
-	 */
-	
+
 	/**
 	 * @return the monthlyFeeList
 	 */
@@ -209,6 +205,4 @@ public class FeeFormBean extends FormBean{
 	public void setMonths(String months) {
 		this.months = months;
 	}
-	
-
 }

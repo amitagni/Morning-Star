@@ -7,6 +7,7 @@ import java.util.List;
 
 import com.ms.enums.Category;
 import com.ms.enums.Result;
+
 import com.ms.enums.State;
 import com.ms.enums.StudentClass;
 
@@ -21,6 +22,8 @@ public class RegistrationFormBean extends FormBean{
 	private String dateOfIssue;
 	private Integer regNum;
 	private byte lastClass;
+	/*private String regNum;
+	private String lastClass;*/
 	private String lastSchool;
 	private String lastClassResult;
 	private StudentDetails studentDetails;
@@ -29,6 +32,8 @@ public class RegistrationFormBean extends FormBean{
 	private List<Category> categoryList;
 	private List<State> stateList;
 	private List<Result> resultList;
+
+
 	
 	
 	
@@ -56,7 +61,11 @@ public class RegistrationFormBean extends FormBean{
 	public void setDateOfIssue(String dateOfIssue) {
 		this.dateOfIssue = dateOfIssue;
 	}
+
+
+	/**
 	
+
 	/**
 	 * @return the studentDetails
 	 */
@@ -117,7 +126,10 @@ public class RegistrationFormBean extends FormBean{
 	public void setStateList(List<State> stateList) {
 		this.stateList = stateList;
 	}
-	
+
+
+
+
 	/**
 	 * @return the lastSchool
 	 */
@@ -178,5 +190,4 @@ public class RegistrationFormBean extends FormBean{
 	public void setResultList(List<Result> resultList) {
 		this.resultList = resultList;
 	}
-
 }

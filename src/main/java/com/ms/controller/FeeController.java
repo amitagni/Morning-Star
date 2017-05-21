@@ -309,6 +309,13 @@ public class FeeController {
 			feeFormBean.setQuarterlyFeeList(quarterlyFeeList);
 			feeFormBean.setHalfyearlyFeeList(halfyearlyFeeList);
 			feeFormBean.setAnualFeeList(anualFeeList);
+			/*List<Month> monthList = new ArrayList<>();
+			for(Month month:MSUtil.populateMonthList()){
+				if(!monthlyPaidFeeList.contains(month.getCode().toString()))
+						monthList.add(month);
+			}
+			feeFormBean.setMonthList(monthList);*/
+			
 			List<FeeMonthsDTO> monthList = new ArrayList<>();
 			for(Month month:MSUtil.populateMonthList()){
 				FeeMonthsDTO feeMonthsDTO = new FeeMonthsDTO();

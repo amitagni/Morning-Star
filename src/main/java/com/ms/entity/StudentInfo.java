@@ -98,13 +98,16 @@ public class StudentInfo extends BaseEntity<Integer> implements Serializable{
 	@Column(name = "sibling_study")
 	private Byte sibling_study;
 	
+
+
 	@Column(name = "subjects")
 	private String subjects;
 	
 	
 	@Column(name = "father_occupation")
 	private String fatherOccupation;
-	
+
+
 	@Column(name = "created_by")
 	private Integer createdBy;
 	
@@ -436,6 +439,7 @@ public class StudentInfo extends BaseEntity<Integer> implements Serializable{
 		this.house = house;
 	}
 
+
 	/**
 	 * @return the subjects
 	 */
@@ -464,6 +468,5 @@ public class StudentInfo extends BaseEntity<Integer> implements Serializable{
 		this.fatherOccupation = fatherOccupation;
 	}
 
-	
 }
 

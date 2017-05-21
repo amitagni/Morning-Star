@@ -126,6 +126,7 @@ public class ContactDetails {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+
 	/**
 	 * @return the id
 	 */
@@ -138,5 +139,6 @@ public class ContactDetails {
 	public void setId(Integer id) {
 		this.id = id;
 	}
+
 	
 }

@@ -3,10 +3,11 @@
  */
 package com.ms.dao;
 
+
 import javax.persistence.Query;
 
 import com.ms.entity.Payment;
-import com.ms.entity.StudentReg;
+
 
 
 
@@ -25,6 +26,7 @@ public class PaymentDao extends GenericDao<Integer, Payment> {
 
 	}
 	
+
 	public Payment findByStudentId(Integer studentId,Byte feeType) {
 		Query jpaQuery = getEntityManager().createQuery("Select p from Payment p where p.studentId = "+studentId + " and p.feeType = "+feeType);
 		Payment payment = (Payment) jpaQuery.getSingleResult();
@@ -32,4 +34,5 @@ public class PaymentDao extends GenericDao<Integer, Payment> {
 
 	}
 	
+
 }

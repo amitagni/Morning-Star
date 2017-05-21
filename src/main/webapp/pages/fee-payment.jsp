@@ -45,12 +45,19 @@
                      <form:hidden path="quarterlyIds"/>
                       <form:hidden path="halsyrlyIds"/>
                        <form:hidden path="anuallyIds"/>
+<<<<<<< HEAD
                        <form:hidden path="disAmount"/>
+=======
+>>>>>>> origin/master
                      <div class="col s4">
                         <h4 class="header2">Payment Details</h4>
                         <div class="input-field ">
                         <label for="address1" class="">TOTAL FEE</label>
+<<<<<<< HEAD
                         <form:input  path="amount" type="text" readonly="true" />
+=======
+                        <form:input  path="amount" type="text" />
+>>>>>>> origin/master
                         <div class="errorTxt1"></div>
                      </div>
                         <div class="input-field">

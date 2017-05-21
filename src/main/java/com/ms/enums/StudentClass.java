@@ -26,6 +26,7 @@ public enum StudentClass {
 	XI_COMMERCE((byte)15,"XI-Commerce"),
 	XII_SCIENCE((byte)16,"XII-Science"),
 	XII_COMMERCE((byte)17,"XII-Commerce");
+
 	
 	private Byte code;
 	private String name;

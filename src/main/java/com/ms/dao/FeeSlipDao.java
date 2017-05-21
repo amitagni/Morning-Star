@@ -35,7 +35,11 @@ public class FeeSlipDao extends GenericDao<Integer, FeeSlip> {
 	
 	@SuppressWarnings("unchecked")
 	public List<Object> generateFeeSlipData(String paymentId) throws MSException {
+
 		Query jpaQuery = getEntityManager().createNativeQuery("select fs.amount,fs.discount,f_st.fee_freq_type,f_st.abbr_name,fs.month,py.student_id from fee_slip fs,fee_structure f_st,payment py where fs.fee_structure_id = f_st.id && py.id = fs.payment_id && py.id = "+paymentId);
+
+		//Query jpaQuery = getEntityManager().createNativeQuery("select fs.amount,fs.discount,fst.fee_freq_type,fst.abbr_name,fst.amount,fs.month from fee_slip fs,fee_structure fst,payment py where fs.fee_structure_id = fst.id && py.id = fs.payment_id && py.id = "+paymentId);
+
 		List<Object> list = jpaQuery.getResultList();
 		return list;
 	}

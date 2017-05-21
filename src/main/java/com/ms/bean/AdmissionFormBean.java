@@ -8,14 +8,13 @@ import java.util.List;
 
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
-import com.ms.enums.Category;
 import com.ms.enums.House;
 import com.ms.enums.Nationality;
 import com.ms.enums.Religion;
 import com.ms.enums.Section;
-import com.ms.enums.State;
-import com.ms.enums.StudentClass;
 import com.ms.util.MSConstant;
+
+
 
 /**
  * @author Amit.Agnihotri
@@ -27,7 +26,7 @@ public class AdmissionFormBean extends RegistrationFormBean implements Serializa
 	 */
 	private static final long serialVersionUID = 1L;
 	private Integer studentId;
-	
+
 	private String applicationDate;
 	private String timeOfResiding;
 
@@ -44,6 +43,19 @@ public class AdmissionFormBean extends RegistrationFormBean implements Serializa
 	private List<Nationality> nationalityList;
 	private List<Section> sectionList;
 	private List<House> houseList;
+
+
+	/*private String lastClass;
+	private String lastSchool;
+	private String lastClassResult;
+	
+	private StudentDetails studentDetails;
+	private ContactDetails contactDetails;
+	private List<StudentClass> studentClassList;
+	private List<Category> categoryList;
+	private List<State> stateList;*/
+
+
 	/**
 	 * @return the applicationDate
 	 */

@@ -36,7 +36,10 @@ public class StudentReg extends BaseEntity<Integer> implements Serializable{
 	@Column(name = "form_num")
 	private String formNumber;
 
-	
+
+	@Column(name = "reg_num")
+	private String regNumber;
+
 	@Column(name = "reg_date")
 	private String regDate;
 	
@@ -72,7 +75,23 @@ public class StudentReg extends BaseEntity<Integer> implements Serializable{
 		this.formNumber = formNumber;
 	}
 
-	
+
+
+	/**
+	 * @return the regNumber
+	 */
+	public String getRegNumber() {
+		return regNumber;
+	}
+
+	/**
+	 * @param regNumber the regNumber to set
+	 */
+	public void setRegNumber(String regNumber) {
+		this.regNumber = regNumber;
+	}
+
+
 	/**
 	 * @return the regDate
 	 */

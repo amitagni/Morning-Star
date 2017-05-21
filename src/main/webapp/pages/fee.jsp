@@ -57,20 +57,8 @@
                              <form:options items="${feeFormBean.monthList}" itemValue="code" id="month" itemLabel="name"  />
                            </form:select> --%>
                            <form:select  path="selMonth" multiple="multiple">
-                           <!-- 	 <option value="-1" disabled selected>Select Months</option>
-                           	 <option value="-1">Select Months2</option>
-                           	 <option value="-1">Select Months3</option> -->
-                           	 <c:forEach items="${feeFormBean.monthList}" var="feeMonthDto" varStatus="status">
-                           		 <c:choose>
-		                         	<c:when test="${feeMonthDto.paid}">
-                           	 			 <option value="${feeMonthDto.code }" disabled selected>${feeMonthDto.name }</option>
-                           	 		</c:when>
-		                         	<c:otherwise>
-		                         	    <option value="${feeMonthDto.code }">${feeMonthDto.name }</option>
-		                         	</c:otherwise>
-		                         </c:choose>
-                           	 </c:forEach>
-                            <%--  <form:options items="${feeFormBean.monthList}" itemValue="code" id="month" itemLabel="name"  /> --%>
+                           	 <!-- <option value="-1">Select Months</option> -->
+                             <form:options items="${feeFormBean.monthList}" itemValue="code" id="month" itemLabel="name"  />
                            </form:select> 
                         </div>
                           <div class="input-field col s12">

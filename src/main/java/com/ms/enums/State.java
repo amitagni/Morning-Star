@@ -8,11 +8,13 @@ package com.ms.enums;
  *
  */
 public enum State {
+
 	
 	UTTARPRADESH ((byte)1,"Uttar Pradesh"),
 	HARYANA((byte)2,"Haryana"),
 	MADHYAPRADESH((byte)2,"Madhya Pradesh"),
 	BIHAR((byte)3,"Bihar");
+	
 	/**
 	 * 
 	 */
@@ -71,5 +73,4 @@ public enum State {
 	public void setName(String name) {
 		this.name = name;
 	}
-
 }
