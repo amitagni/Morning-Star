@@ -16,7 +16,7 @@
       <link rel="stylesheet" type="text/css" href="css/style.css">
       <link rel="shortcut icon" type="image/png" href="img/login.png" />
        <link rel="stylesheet" type="text/css" media="print" href="css/print.css">
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.2/css/materialize.min.css">
+      <link rel="stylesheet" href="css/materialize.min.css">
 	  <style>
 	 hr{
 		 color: #000;
