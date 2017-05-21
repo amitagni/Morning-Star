@@ -1,7 +1,7 @@
 package com.ms.util;
 
 /**
- * @author Om Yadav 
+ * @author Amit Agnihotri
  * PwcException- General purpose exception class
  */
 public class MSException extends java.lang.Exception {

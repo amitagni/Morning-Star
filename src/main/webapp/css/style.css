@@ -79,7 +79,7 @@ nav{
 }
 .dropdown-content li>a, .dropdown-content li>span {
     font-size: 1.2rem;
-    color: rgb(11, 90, 146);
+    color: rgb(11, 90, 146) !important;
     display: block;
     padding: 1rem 1rem;
 }
@@ -342,3 +342,119 @@ label {
     width: 94%;
     margin-left: 2.5em;
 }
+.green-text{
+
+}
+.font-size-icon{
+	vertical-align: text-top;
+    height: 15px;
+    margin-right: 5px;
+}
+.icon-img{
+  height: 30px;
+    width: 30px !important;
+    top: 12px;
+}
+.button-img{
+      vertical-align: inherit;
+    height: 20px;
+    margin-left: 10px;
+}
+.recipt-width{
+  width: 100% !important;
+}
+.logo-recipt{
+  display: none;
+}
+[type="radio"]:checked+label:after {
+    border-radius: 50%;
+    border: 2px solid #0b5a92 !important;
+    background-color: #0b5a92 !important;
+    z-index: 0;
+    -webkit-transform: scale(1.02);
+    -moz-transform: scale(1.02);
+    -ms-transform: scale(1.02);
+    -o-transform: scale(1.02);
+    transform: scale(1.02);
+}
+.dropimg{
+height: 14px;
+    vertical-align: middle;
+    margin-left: 18px;}
+    .picker__day.picker__day--today.picker__day--selected {
+    color: #fff !important;
+}
+.main_cantainer{
+	width: 94%;
+    margin: 0 auto;
+    
+}
+.label-fee{
+    font-size: 18px;
+
+    position: relative;
+}
+.col-fee{
+        margin-top: 22px;
+}
+.fee-selction{
+       box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
+    padding: 2em !important;
+    margin: 2em 0em 0em 0em;
+}
+.searchtop{
+	top:10px;
+}
+.paid{
+font-size: 18px;
+    font-weight: 500;
+   
+    margin-top: 9px;}
+    .containe-pay{
+    width:94%;
+    margin:0 auto;
+    }
+   label .error{top: 47px;
+    color: red !important;}
+   textarea.materialize-textarea:focus:not([readonly]) {
+    border-bottom: 1px solid #0b5a92 !important;
+    box-shadow: 0 1px 0 0 #0b5a92 !important;
+}
+.radio-add{
+	padding-top:30px !important;
+}
+.radio-add>p{
+	    display: inline;
+}
+.radio-add>label{
+	font-size: 15px;
+}
+.h6-p{
+padding-left: 4px;
+    font-size: 18px;
+}
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none !important; 
+  margin: 0; 
+}
+.serach-top{
+    margin-top: 34px;}
+    input[type=text].invalid, input[type=text]:focus.invalid, input[type=password].invalid, input[type=password]:focus.invalid, input[type=email].invalid, input[type=email]:focus.invalid, input[type=url].invalid, input[type=url]:focus.invalid, input[type=time].invalid, input[type=time]:focus.invalid, input[type=date].invalid, input[type=date]:focus.invalid, input[type=datetime-local].invalid, input[type=datetime-local]:focus.invalid, input[type=tel].invalid, input[type=tel]:focus.invalid, input[type=number].invalid, input[type=number]:focus.invalid, input[type=search].invalid, input[type=search]:focus.invalid, textarea.materialize-textarea.invalid, textarea.materialize-textarea:focus.invalid {
+    border-bottom: 1px solid #F44336;
+    box-shadow: 0 1px 0 0 #F44336;
+}
+   .serach-img{ position: absolute;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    margin-left: -37px;
+    margin-top: 13px;
+    height: 26px;
+}
+input[type=text]:disabled, input[type=text][readonly="readonly"], input[type=password]:disabled, input[type=password][readonly="readonly"], input[type=email]:disabled, input[type=email][readonly="readonly"], input[type=url]:disabled, input[type=url][readonly="readonly"], input[type=time]:disabled, input[type=time][readonly="readonly"], input[type=date]:disabled, input[type=date][readonly="readonly"], input[type=datetime-local]:disabled, input[type=datetime-local][readonly="readonly"], input[type=tel]:disabled, input[type=tel][readonly="readonly"], input[type=number]:disabled, input[type=number][readonly="readonly"], input[type=search]:disabled, input[type=search][readonly="readonly"], textarea.materialize-textarea:disabled, textarea.materialize-textarea[readonly="readonly"] {
+    color: rgb(0, 0, 0) !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.26);
+}
+.date{ display: inline;}

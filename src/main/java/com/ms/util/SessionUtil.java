@@ -10,7 +10,6 @@ import javax.servlet.http.HttpSession;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
-
 import com.ms.dto.UserDTO;
 
 
@@ -19,8 +18,10 @@ public class SessionUtil{
 	
 	private static final String usrDTO = "userDTO";
 	private static final String msg = "validationmessage";
+	private static final String page = "";
 	private static final String pageUrl = "url";
 	private static String deploymentPath = null;
+	private static Byte currentSchoolSesseion ;
 
 	
 	/**
@@ -103,13 +104,6 @@ public class SessionUtil{
 		return (String)getSession().getAttribute(pageUrl);
 	}
 	
-	/**
-	 * @return
-	 */
-	private static ServletContext getServletContext(){
-		return getSession().getServletContext();
-	}
-	
 	
 
 
@@ -162,7 +156,44 @@ public class SessionUtil{
 	public static Map<Integer,String> getClientMap(String userId){
 		return (Map<Integer, String>) getSession().getAttribute(userId+"_clientMap");
 	}
+
+
+	/**
+	 * @param url
+	 */
+	public static void setPage(String page){
+		getSession().setAttribute(MSConstant.PAGE, page);
+	}
 	
 	
+	/**
+	 * @return
+	 */
+	public static String getPage(){
+		return (String)getSession().getAttribute(page);
+	}
+	
+	/**
+	 * @return
+	 */
+	private static ServletContext getServletContext(){
+		return getSession().getServletContext();
+	}
+
+
+	/**
+	 * @return the currentSchoolSesseion
+	 */
+	public static Byte getCurrentSchoolSesseion() {
+		return (Byte)getServletContext().getAttribute(MSConstant.CURRENTSESSION);
+	}
+
+
+	/**
+	 * @param currentSchoolSesseion the currentSchoolSesseion to set
+	 */
+	public static void setCurrentSchoolSesseion(Byte currentSchoolSesseion) {
+		getServletContext().setAttribute(MSConstant.CURRENTSESSION, currentSchoolSesseion);
+	}
 	
 }

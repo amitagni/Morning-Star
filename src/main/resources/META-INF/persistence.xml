@@ -8,6 +8,13 @@
 	<persistence-unit name="morningstar">
 		<mapping-file>META-INF/ormdef.xml</mapping-file>
 			<class>com.ms.entity.User</class> 
+			<class>com.ms.entity.StudentReg</class> 
+			<class>com.ms.entity.StudentInfo</class> 
+			<class>com.ms.entity.StudentContactInfo</class> 
+			<class>com.ms.entity.FeeSlip</class> 
+			<class>com.ms.entity.FeeStructure</class> 
+			<class>com.ms.entity.Payment</class> 
+			<class>com.ms.entity.PaidFeeSummary</class> 
 		
 		<exclude-unlisted-classes />
 	</persistence-unit>
