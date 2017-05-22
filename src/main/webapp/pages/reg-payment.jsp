@@ -37,11 +37,12 @@
                <div class="row">
                   <form:form  modelAttribute="paymentFormBean"  action="reg-payment.do" method="post" class="formValidate" novalidate="novalidate">
                   <form:hidden path="studentId"/>
+                  <form:hidden path="paymentId"/> 
                      <div class="col s4">
                         <h4 class="header2">Payment Details</h4>
                         <div class="input-field ">
                         <label for="tfee" class="">TOTAL FEE</label>
-                        <form:input path="amount" type="text" id="tfee" required="required"/>
+                        <form:input path="amount" type="text" id="tfee" required="required" onkeypress="return onlyNumbers(event,this);" />
                         <div class="errorTxt1"></div>
                      </div>
                         <div class="input-field">
@@ -67,7 +68,7 @@
                         <button class="btn waves-effect waves-light  submit center-btn" type="submit" name="action">Submit
                         <img src="img/save.png" class="button-img">
                         </button>
-                        <button class="btn waves-effect waves-light  submit" type="submit" name="action">Reset
+                        <button class="btn waves-effect waves-light  submit" type="reset" name="action">Reset
                          <img src="img/cancel.png" class="button-img">
                         </button>
                      </div>
@@ -95,6 +96,26 @@
              // Translated
          
          });
+         
+     	function onlyNumbers(e, t) {
+            try {
+                if (window.event) {
+                    var charCode = window.event.keyCode;
+                }
+                else if (e) {
+                    var charCode = e.which;
+                }
+                else { return true; }
+                console.log("charcode::"+ charCode)
+                if ((charCode > 47 && charCode < 58) || charCode == 37)
+                    return true;
+                else
+                    return false;
+            }
+            catch (err) {
+                alert(err.Description);
+            }
+        }
          /* $.validator.setDefaults({
      	    errorClass: 'invalid',
      	    validClass: "valid",

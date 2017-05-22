@@ -9,6 +9,8 @@ package com.ms.bean;
  */
 public class PaymentFormBean extends FormBean{
 	
+	private Integer paymentId;
+	
 	private String feeSlipIds;
 	private Integer studentId;
 	private String amount;
@@ -26,6 +28,21 @@ public class PaymentFormBean extends FormBean{
 	private String quarterlyIds ;
 	private String halsyrlyIds;
 	private String anuallyIds;
+	
+	
+	
+	/**
+	 * @return the paymentId
+	 */
+	public Integer getPaymentId() {
+		return paymentId;
+	}
+	/**
+	 * @param paymentId the paymentId to set
+	 */
+	public void setPaymentId(Integer paymentId) {
+		this.paymentId = paymentId;
+	}
 	/**
 	 * @return the amount
 	 */
