@@ -28,8 +28,13 @@ public class PaymentDao extends GenericDao<Integer, Payment> {
 	
 
 	public Payment findByStudentId(Integer studentId,Byte feeType) {
+		Payment payment = null;
 		Query jpaQuery = getEntityManager().createQuery("Select p from Payment p where p.studentId = "+studentId + " and p.feeType = "+feeType);
-		Payment payment = (Payment) jpaQuery.getSingleResult();
+		try {
+			payment = (Payment) jpaQuery.getSingleResult();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		return payment;
 
 	}

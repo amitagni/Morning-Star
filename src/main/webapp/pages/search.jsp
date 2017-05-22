@@ -77,7 +77,7 @@
                                  <div class="col s12 m6">
                                     <div class="col s12 m12">
                               <label for="crole">Choose Action</label>
-                              <select class="error browser-default" id="crole" name="crole" onblur="openSelOption(this);">
+                              <select class="error browser-default" id="crole" name="crole" onchange="openSelOption(this);">
                                  <option value="" disabled="" selected="">Choose your Action</option>
                                  <option value="1">Manage Admission Fee</option>
                                  <option value="2">Manage Registration Fee</option>

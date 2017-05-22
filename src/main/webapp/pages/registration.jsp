@@ -139,14 +139,15 @@
                            </div>
                            
                           
-                           <div class="input-field col s12 m3" id="subjectDiv" style="display:none;">
-                              <form:select multiple="multiple" path="studentDetails.subjects" >
-                                 <option value="" disabled selected> chosee subject</option>
-                                 <option value="1">Science</option>
-                                 <option value="2">Math's</option>
-                                 <option value="3">Biology</option>
-                              </form:select>
-                              <label>Subject Offered</label>
+                           <div class="input-field col s12 m3" id="subjectDiv" style="display:block;">
+                            	<label for="subjects">Subject Offered</label>
+	                              <form:select multiple="multiple" path="studentDetails.subjects" id="subjects">
+	                                 <option value="" disabled selected> Choose Subject</option>
+	                                 <option value="1">Science</option>
+	                                 <option value="2">Math's</option>
+	                                 <option value="3">Biology</option>
+	                              </form:select>
+                             
                            </div>
                            
                         <div class="col s12">

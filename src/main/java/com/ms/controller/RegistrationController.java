@@ -162,6 +162,7 @@ public class RegistrationController {
 	 */
 	private void savePaymentFormBean(PaymentFormBean paymentFormBean) {
 		Payment payment = new Payment();
+		payment.setId(paymentFormBean.getPaymentId());
 		payment.setStudentId(paymentFormBean.getStudentId());
 		payment.setAmount(paymentFormBean.getAmount());
 		payment.setFeeType(FeeType.REGFEES.getCode());
@@ -177,7 +178,9 @@ public class RegistrationController {
 	 */
 	private void populatePaymentFormBean(PaymentFormBean paymentFormBean) {
 		Payment payment = paymentService.findByStudentId(paymentFormBean.getStudentId(), FeeType.REGFEES.getCode());
+		System.out.println("payment::::"+payment);
 		if(payment != null){
+			paymentFormBean.setPaymentId(payment.getId());
 			paymentFormBean.setAmount(payment.getAmount());
 			paymentFormBean.setComment(payment.getComment());
 		}
