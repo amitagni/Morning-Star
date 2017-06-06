@@ -139,8 +139,8 @@
                            </div>
                            
                           
-                           <div class="input-field col s12 m3" id="subjectDiv" style="display:block;">
-                            	<label for="subjects">Subject Offered</label>
+                           <div class="col s12 m3" id="subjectDiv" style="display:block;">
+                            	 <label for="subjects">Subject Offered</label> 
 	                              <form:select multiple="multiple" path="studentDetails.subjects" id="subjects">
 	                                 <option value="" disabled selected> Choose Subject</option>
 	                                 <option value="1">Science</option>
