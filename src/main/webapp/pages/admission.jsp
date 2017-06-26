@@ -200,14 +200,15 @@
                           
                            
                            
-                           <div class="input-field col s12 m4" style="display:none;">
+                           <div class="col s12 m4" style="display:none;">
+                           <label>Subject Offered</label>
                                <form:select multiple="multiple" path="studentDetails.subjects" >
                                 <option value="" disabled selected> choose subject</option>
                                  <option value="1">Science</option>
                                  <option value="2">Math's</option>
                                  <option value="3">Biology</option>
                               </form:select>
-                              <label>Subject Offered</label>
+                              
                            </div>
                             <div class="col s12 m4 radio-add">
                               <label for="genter_select">Gender *</label>
