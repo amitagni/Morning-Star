@@ -15,7 +15,7 @@
 			<class>com.ms.entity.FeeStructure</class> 
 			<class>com.ms.entity.Payment</class> 
 			<class>com.ms.entity.PaidFeeSummary</class> 
-		
+			<class>com.ms.entity.AbacusRegEntity</class>
 		<exclude-unlisted-classes />
 	</persistence-unit>
 </persistence>

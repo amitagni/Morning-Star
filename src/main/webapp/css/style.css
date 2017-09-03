@@ -1,4 +1,5 @@
-html,
+
+ html,
 body {
     height: 100%;
 }
@@ -6,6 +7,10 @@ body {
     display: table;
     margin: auto;
 }*/
+
+.white{
+ background-color:#fff !important;
+ }
 .body {
     display: table-cell;
     vertical-align: middle;
@@ -439,7 +444,7 @@ input[type=number]::-webkit-outer-spin-button {
   margin: 0; 
 }
 .serach-top{
-    margin-top: 34px;}
+    margin-top: 11px;}
     input[type=text].invalid, input[type=text]:focus.invalid, input[type=password].invalid, input[type=password]:focus.invalid, input[type=email].invalid, input[type=email]:focus.invalid, input[type=url].invalid, input[type=url]:focus.invalid, input[type=time].invalid, input[type=time]:focus.invalid, input[type=date].invalid, input[type=date]:focus.invalid, input[type=datetime-local].invalid, input[type=datetime-local]:focus.invalid, input[type=tel].invalid, input[type=tel]:focus.invalid, input[type=number].invalid, input[type=number]:focus.invalid, input[type=search].invalid, input[type=search]:focus.invalid, textarea.materialize-textarea.invalid, textarea.materialize-textarea:focus.invalid {
     border-bottom: 1px solid #F44336;
     box-shadow: 0 1px 0 0 #F44336;
@@ -457,5 +462,48 @@ input[type=text]:disabled, input[type=text][readonly="readonly"], input[type=pas
     color: rgb(0, 0, 0) !important;
     border-bottom: 1px solid rgba(0, 0, 0, 0.26);
 }
+.schoolhide{
+  visibility: hidden;
+ }
+ .schoolshow{
+  visibility: visible;
+ }
+ td, th {
+    padding: 1px 16px;
+    display: table-cell;
+    text-align: left;
+    vertical-align: middle;
+    border-radius: 2px;
+    border: 1px solid #000;
+}
+.grand-t{    border: 2px solid;
+    font-weight: 900;}
+    
+   .box-print{    border: 1px solid;
+        margin: 0px 0px 10px;}
 .date{ display: inline;}
-    margin-top: 34px;}
+.box-print>div>p{
+font-size: 14px;
+    font-weight: bold;
+
+}
+.box-print>div>p>span{
+font-size: 12px;
+    font-weight: 400;
+}
+.tex-font{    font-family: fantasy;}
+.tex-morning{
+	 margin-top: 53px;
+}
+ #one-r{
+	display:none;
+}
+
+/* #bg-text
+{
+    color:lightgrey;
+    font-size:120px;
+    transform:rotate(300deg);
+    -webkit-transform:rotate(300deg);
+    position: absolute; */
+}

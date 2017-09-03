@@ -25,8 +25,7 @@
 
 
 
-	<context:component-scan
-		base-package="com.ms,com.ms.interceptor,net.codejava.spring,com.ms.controller,com.ms.service,com.ms.dao,com.ms.util,com.ms.domain,com.ms.dto" />
+	<context:component-scan base-package="com.ms,com.ms.interceptor,net.codejava.spring,com.ms.controller,com.ms.service,com.ms.dao,com.ms.util,com.ms.domain,com.ms.dto" />
                      
 	<context:property-placeholder location="classpath:application.properties"></context:property-placeholder>
 

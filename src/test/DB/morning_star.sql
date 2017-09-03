@@ -294,3 +294,29 @@ UNLOCK TABLES;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
 -- Dump completed on 2017-03-31 22:46:48
+
+
+CREATE TABLE `abacusreg` (
+  `id` int(10) NOT NULL,
+  `formnum` varchar(20) DEFAULT NULL,
+  `firstName` varchar(20) DEFAULT NULL,
+  `lastName` varchar(20) DEFAULT NULL,
+  `nickName` varchar(20) DEFAULT NULL,
+  `dateOfBirth` varchar(20) DEFAULT NULL,
+  `fatherName` varchar(20) DEFAULT NULL,
+  `MotherName` varchar(20) DEFAULT NULL,
+  `SchoolName` varchar(20) DEFAULT NULL,
+  `gender` varchar(20) DEFAULT NULL,
+  `feeAmount` varchar(20) DEFAULT NULL,
+  `selMonth` tinyint(4) DEFAULT NULL,
+  `address1` varchar(20) DEFAULT NULL,
+  `address2` varchar(20) DEFAULT NULL,
+  `area` varchar(20) DEFAULT NULL,
+  `city` varchar(20) DEFAULT NULL,
+  `state` varchar(20) DEFAULT NULL,
+  `pincode` varchar(20) DEFAULT NULL,
+  `phone` varchar(20) DEFAULT NULL,
+  `mobile` varchar(20) DEFAULT NULL,
+  `email` varchar(20) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+

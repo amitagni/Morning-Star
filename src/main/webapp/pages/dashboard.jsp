@@ -62,6 +62,16 @@
           </div>
         </a>
     </div>
+    <div class="col s12 m3 card-margin">
+      <a href="javascript:alert('Not implemented yet')">
+        <div class="card card-1">
+            <div class="card-image">
+              <img src="img/fin.png" class="img-card">
+              <p class="text-center">$ Abacusreg</p>
+            </div>
+          </div>
+        </a>
+    </div>
       </div>
 
  <script type="text/javascript" src="js/jquery.min.js"></script>
