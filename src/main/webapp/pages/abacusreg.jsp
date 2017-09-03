@@ -76,13 +76,16 @@
                            </div>
                            
                            
+                            
                              <div class=" col s12 m3">
+                             <label> Select Month</label>
                            <select class="browser-default" id="school" name="crole">
                               
                               <option value="1">Morning Star</option>
                               <option value="2">Others</option>
                            </select>
-                             </div>
+                            
+ 							 </div>
                              <div class="input-field col s12 m3 schoolhide" id="school-input">
                               <label for=lastSchool class=""> School Name</label>
                              <%--  <form:input path="lastSchool" id="lastSchool" type="text" /> --%>
@@ -235,7 +238,7 @@
                </div>
             </div>
          </div>
-      </div>
+    
       <script type="text/javascript" src="js/jquery.min.js"></script>
       <script src="js/materialize.min.js"></script>
       <script src="js/jquery.validate.min.js"></script>
