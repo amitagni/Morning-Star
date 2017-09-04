@@ -30,7 +30,7 @@ public class AbacusRegController {
 	
 	@RequestMapping(value = "/abacusreg", method = { RequestMethod.POST, RequestMethod.GET })  
 	public ModelAndView abacusreg(@ModelAttribute("abacusRegBean") AbacusRegBean abacusRegBean, BindingResult bindingResult, Model model, HttpServletRequest request) {
-		SessionUtil.setPage(MSConstant.REGISTRATION);
+		SessionUtil.setPage(MSConstant.ABACUS);
 		if (request.getMethod().equalsIgnoreCase(RequestMethod.GET.name())) {
 			populateAbacusRegFormBean(abacusRegBean);
 			return new ModelAndView("abacusreg", "abacusRegBean", abacusRegBean);
