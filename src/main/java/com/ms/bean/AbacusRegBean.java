@@ -2,6 +2,8 @@ package com.ms.bean;
 
 import java.util.List;
 
+import com.ms.enums.StudentClass;
+
 
 
 public class AbacusRegBean {
@@ -25,9 +27,18 @@ public class AbacusRegBean {
 	private String city;
 	private String state;
 	private String pincode;
+	private String schoolclass;
+	
+	public List<StudentClass> getStudentClassList() {
+		return studentClassList;
+	}
+	public void setStudentClassList(List<StudentClass> studentClassList) {
+		this.studentClassList = studentClassList;
+	}
 	private String phone;
 	private String mobile;
 	private String email;
+	private List<StudentClass> studentClassList;
 	
 	
 	public int getId() {

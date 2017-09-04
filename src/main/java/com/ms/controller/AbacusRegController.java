@@ -17,6 +17,7 @@ import com.ms.bean.AbacusRegBean;
 import com.ms.bean.RegistrationFormBean;
 import com.ms.service.AbacusRegService;
 import com.ms.util.MSConstant;
+import com.ms.util.MSUtil;
 import com.ms.util.SessionUtil;
 
 @Controller
@@ -52,5 +53,9 @@ public class AbacusRegController {
 		return null;
 	} 
 
-
+	public void populateAbacusRegBean(AbacusRegBean abacusRegBean) {
+		abacusRegBean.setStudentClassList(MSUtil.populateClassList());
+}
+	
+	
 }
