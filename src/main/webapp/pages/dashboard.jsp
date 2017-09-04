@@ -65,9 +65,9 @@
     <div class="col s12 m3 card-margin">
       <a href="javascript:alert('Not implemented yet')">
         <div class="card card-1">
-            <div class="card-image">
-              <img src="img/fin.png" class="img-card">
-              <p class="text-center">$ Abacusreg</p>
+            <div class="card-image " style="padding:10px;">
+              <img src="img/1.jpg" class="img-card">
+              <p class="text-center">Brain &lsquo;N&rsquo; Abacus</p>
             </div>
           </div>
         </a>

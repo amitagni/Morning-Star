@@ -27,7 +27,7 @@ public class AbacusRegController {
 	AbacusRegService abacusRegService;
 	@RequestMapping(value = "/abacusreg", method = { RequestMethod.POST, RequestMethod.GET })  
 	    public ModelAndView abacusreg(@ModelAttribute("abacusreg") AbacusRegBean abacusRegBean, BindingResult bindingResult, Model model,HttpServletRequest request) {  
-		SessionUtil.setPage(MSConstant.REGISTRATION);
+		SessionUtil.setPage(MSConstant.ABACUS);
 		if (request.getMethod().equalsIgnoreCase(RequestMethod.GET.name())) {
 			/*populateRegistrationFormBean(abacusRegBean);*/
 			return new ModelAndView("abacusreg", "registrationFormBean", abacusRegBean);
