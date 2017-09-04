@@ -23,7 +23,7 @@
     </div>
     <div class="row">
     <div class="col s12 m3 card-margin">
-      <a href="/registration.do">
+      <a href="registration.do">
         <div class="card card-1">
             <div class="card-image">
               <img src="img/adduser.png" class="img-card">
@@ -33,7 +33,7 @@
         </a>
     </div>
       <div class="col s12 m3 card-margin">
-      <a href="/admission.do">
+      <a href="admission.do">
         <div class="card card-1">
             <div class="card-image">
               <img src="img/ad.png" class="img-card">
@@ -43,7 +43,7 @@
         </a>
     </div>
     <div class="col s12 m3 card-margin">
-      <a href="/search.do">
+      <a href="search.do">
         <div class="card card-1">
             <div class="card-image">
               <img src="img/pro.png" class="img-card">
@@ -63,11 +63,11 @@
         </a>
     </div>
     <div class="col s12 m3 card-margin">
-      <a href="javascript:alert('Not implemented yet')">
+       <a href="abacusreg.do">
         <div class="card card-1">
-            <div class="card-image " style="padding:10px;">
-              <img src="img/1.jpg" class="img-card">
-              <p class="text-center">Brain &lsquo;N&rsquo; Abacus</p>
+            <div class="card-image">
+              <img src="img/fin.png" class="img-card">
+              <p class="text-center">$ Abacusreg</p>
             </div>
           </div>
         </a>

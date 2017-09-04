@@ -121,7 +121,7 @@
           </div>
          </div>
           <div id="one-r">
-        <div style="    border-bottom: 1px dashed;    margin: 10px 0px 20px;"></div>
+        <div style="border-bottom: 1px dashed;    margin: 10px 0px 20px;"></div>
         <div class="col m9 s9 tex-morning">
          	 <h4 class="tex-font text-center">MORNING STAR CHILDREN'S SR. SEC. ACADEMY</h4>
           </div>
