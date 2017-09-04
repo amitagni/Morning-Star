@@ -10,14 +10,18 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "abacusreg")
+@Table(name = "abacus_reg")
 public class AbacusRegEntity extends BaseEntity<Integer> implements Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "id")
-	private int id;
-	private String formnum;
+	private Integer id;
+	
 	private String firstName;
 	private String lastName;
 	private String nickName;
@@ -42,12 +46,7 @@ public class AbacusRegEntity extends BaseEntity<Integer> implements Serializable
 	public void setId(int id) {
 		this.id = id;
 	}
-	public String getFormnum() {
-		return formnum;
-	}
-	public void setFormnum(String formnum) {
-		this.formnum = formnum;
-	}
+
 	public String getFirstName() {
 		return firstName;
 	}
@@ -164,13 +163,11 @@ public class AbacusRegEntity extends BaseEntity<Integer> implements Serializable
 	}
 	@Override
 	public Integer getId() {
-		// TODO Auto-generated method stub
-		return null;
+		return id;
 	}
 	@Override
 	public void setId(Integer id) {
-		// TODO Auto-generated method stub
-		
+		this.id = id;
 	}
 	
 	

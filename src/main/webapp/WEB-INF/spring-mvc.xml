@@ -209,4 +209,7 @@
 	<bean id="paidFeeSummaryDao" class="com.ms.dao.PaidFeeSummaryDao">
 		<property name="entityManagerFactory" ref="entityManagerFactory" />
 	</bean>
+	<bean id="abacusRegDao" class="com.ms.dao.AbacusRegDao">
+		<property name="entityManagerFactory" ref="entityManagerFactory" />
+	</bean>
 </beans>

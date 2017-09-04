@@ -3,7 +3,7 @@
          </li>
          <li><a href="javascript:alert('Not implemented yet')">Profile</a>
          </li>
-         <li><a href="/dashboard.do">Dashboard</a>
+         <li><a href="dashboard.do">Dashboard</a>
          </li>
          <li class="divider"></li>
          <li><a href="javascript:logout()">Logout</a>

@@ -10,9 +10,5 @@ import org.springframework.web.servlet.ModelAndView;
 @Scope("request")
 public class AbacusregSearchController {
 
-	@RequestMapping(value = "/abacussearch", method = { RequestMethod.POST, RequestMethod.GET })  
-    public ModelAndView abacussearch() {  
-        
-        return new ModelAndView("abacussearch");  
-    }
+	
 }
