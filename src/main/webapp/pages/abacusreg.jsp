@@ -36,7 +36,9 @@
             <div class="card-panel card-main">
                <h4 class="header2">Student Details</h4>
                <div class="row">
-                  <form:form   modelAttribute="abacusRegBean" action="abacusreg.do" method="post"   class="formValidate" novalidate="novalidate">
+                  <form:form   action="abacusreg.do" method="post" modelAttribute="abacusreg"  class="formValidate" novalidate="novalidate">
+
+
                      <div class="row">
                         
                            
@@ -104,7 +106,13 @@
                               </p>
                               
                            </div>
-                           
+                            <div class="col s12 m3">
+                              <label for="crole">Class</label>
+                               <form:select class="error browser-default" path="schoolclass" id="lastClass" >
+                                <form:options items="${abacusRegBean.studentClassList}" itemValue="code" id="crole" itemLabel="name"  />
+                          		</form:select>
+                              <div class="errorTxt2"></div>
+                           </div> 
                            
                           <%-- <form:select class="error browser-default" path="lastClassResult" id="lastClassResult"  selected="1" name="crole">
                               
