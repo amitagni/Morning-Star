@@ -36,9 +36,6 @@
             <div class="card-panel card-main">
                <h4 class="header2">Student Details</h4>
                <div class="row">
-                  <!--<form:form   action="abacusreg.do" method="post" modelAttribute="abacusreg"  class="formValidate" novalidate="novalidate">  -->
-
-
 
                  
 
