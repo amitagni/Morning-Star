@@ -3,6 +3,8 @@
  */
 package com.ms.dao;
 
+import java.util.List;
+
 import javax.persistence.Query;
 
 import com.ms.entity.AbacusRegEntity;
@@ -33,10 +35,17 @@ public class AbacusRegDao extends GenericDao<Integer, AbacusRegEntity> {
 
 	}
 	
-	public StudentReg findIdByNumber(String regNumber) throws MSException {
+	public  StudentReg findIdByNumber(String regNumber) throws MSException {
 		Query jpaQuery = getEntityManager().createQuery("Select r from StudentReg r where r.regNumber = "+regNumber);
 		StudentReg studentReg = (StudentReg) jpaQuery.getSingleResult();
 		return studentReg;
+		
+	}
+	
+	public List<AbacusRegEntity> findStudentByName(String studentName) throws MSException {
+		Query jpaQuery = getEntityManager().createQuery("Select r from AbacusRegEntity r where r.firstName like ('"+studentName+"%')");
+		List<AbacusRegEntity> studentList =  jpaQuery.getResultList();
+		return studentList;
 		
 	}
 

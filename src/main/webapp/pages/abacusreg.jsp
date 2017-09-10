@@ -36,8 +36,13 @@
             <div class="card-panel card-main">
                <h4 class="header2">Student Details</h4>
                <div class="row">
-                  <form:form   action="abacusreg.do" method="post" modelAttribute="abacusreg"  class="formValidate" novalidate="novalidate">
+                  <!--<form:form   action="abacusreg.do" method="post" modelAttribute="abacusreg"  class="formValidate" novalidate="novalidate">  -->
 
+
+
+                 
+
+                  <form:form   modelAttribute="abacusRegBean" action="abacusreg.do" method="post"   class="formValidate" novalidate="novalidate">
 
                      <div class="row">
                         
@@ -83,15 +88,16 @@
                             
                              <div class=" col s12 m3">
                              	<label> Select school</label>
-		                           <select class="browser-default" id="school" name="crole">
+		                           <select class="browser-default" id="school" name="crole" onchange="setSchoolName(this);">
 		                              
 		                              <option value="1">Morning Star</option>
 		                              <option value="2">Others</option>
 		                           </select>
  							 </div>
-                             <div class="input-field col s12 m3 schoolhide" id="school-input">
-                              <label for=lastSchool class=""> School Name</label>
-                              <form:input path="schoolname" id="lastSchool" type="text" /> 
+ 							 <form:hidden path="schoolname" id="lastSchool"  value="Morning Star" />
+                             <div class="input-field col s12 m3" id="school-input" style="display:none">
+                               <label for=lastSchool class=""> School Name</label>
+                               <input id="lastSchool" type="text" />
                               <div class="errorTxt1"></div>
                            </div>
                            <div class="col s12 m3 radioRequired">
@@ -284,7 +290,11 @@
          });
           
          function submitForm(formId){
-       		 $("#"+formId).submit();
+        	 if (confirm("Do you really want to submit? Once submitted you can not make changes.") == true) {
+        		 document.getElementById("schoolname").value  = document.getElementById("lastSchool").value;
+           		 $("#"+formId).submit();
+        	    } 
+        	
        	}
          $('.paste').bind("cut copy paste",function(e) {
              e.preventDefault();
@@ -344,6 +354,17 @@
         		 }else{
         			 $("#subjectDiv").removeAttr("style").hide(); 
         		 }
+        	 }
+        	 
+        	 function setSchoolName(obj){
+        		 if(obj.value == '2'){
+        			 document.getElementById("school-input").style.display = "block";
+        			 document.getElementById("lastSchool").value = "";
+        		 }else{
+        			 document.getElementById("school-input").style.display = "none";
+        			 document.getElementById("lastSchool").value = "Morning Star";
+        		 }
+        		 
         	 }
         	
       </script>

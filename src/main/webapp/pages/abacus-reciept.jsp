@@ -40,15 +40,14 @@
           </div>
           <div class="row box-print">
           <div class="col m6 s6 ">
-          <p>Admission No. <span>515151</span></p>
-          <p>Name :<span>abcsda</span></p>
-          <p>Father's Name :<span>abcsda</span></p>
-          <p>Class :<span>VI</span></p>
+          <p>Name :<span>${abacusReceiptDTO.name}</span></p>
+          <p>Father's Name :<span>${abacusReceiptDTO.fatherName}</span></p>
+          
           </div>
        
           <div class="col m6 s6 ">
-          <p class="right-align">Data:<span>12/31/2016</span></p>
-          <p class="right-align" >Section :<span>A</span></p>
+          <p class="right-align">Date:<span>${abacusReceiptDTO.date}</span></p>
+          <p class="right-align" >Receipt Number :<span>${abacusReceiptDTO.recieptId}</span></p>
           </div>
           </div>
           <div class="col m12 s12">
@@ -62,44 +61,24 @@
 
         <tbody>
           <tr>
-            <td>Tuition Fee</td>
-            <td>1200.00</td>
+            <td>Months</td>
+            <td>${abacusReceiptDTO.months}</td>
             
           </tr>
           <tr>
-            <td>Maintenance Fee</td>
-            
-            <td>1000</td>
+            <td>Amount</td>
+            <td>${abacusReceiptDTO.amount}</td>
           </tr>
-          <tr>
-            <td>Digi. class/Sci/Prac/Comp.</td>
-           
-            <td>15515</td>
-          </tr>
-          <tr>
-            <td>total</td>
-           
-            <td>125</td>
-          </tr>
-          <tr>
-            <td>V>F</td>
-           
-            <td>1515</td>
-            
-          </tr>
-            <tr>
-            <td>Late Fee Rs 40/ per Month  Late Fee</td>
-           
-            <td>40</td>
-            
-          </tr>
-          <tr class="grand-t">
-           
-            <td>Grand Total</td>
-           
-            <td>4000</td>
-            
+          <c:if test="${abacusReceiptDTO.regAmount == 1000  }">
+	          <tr>
+	            <td>Registration Fee</td>
+	            <td>${abacusReceiptDTO.regAmount}</td>
+	          </tr>
+          </c:if>
           
+          <tr class="grand-t">
+            <td>Grand Total</td>
+            <td>${abacusReceiptDTO.totalAmount}</td>
           </tr>
     
         </tbody>
@@ -128,15 +107,15 @@
         
           <div class="row box-print">
           <div class="col m6 s6 ">
-          <p>Admission No. <span>515151</span></p>
-          <p>Name :<span>abcsda</span></p>
-          <p>Father's Name :<span>abcsda</span></p>
-          <p>Class :<span>VI</span></p>
+            <p>Name :<span>${abacusReceiptDTO.name}</span></p>
+          	<p>Father's Name :<span>${abacusReceiptDTO.fatherName}</span></p>
+         
           </div>
        
           <div class="col m6 s6 ">
-          <p class="right-align">Data:<span>12/31/2016</span></p>
-          <p class="right-align" >Section :<span>A</span></p>
+          <p class="right-align">Date:<span>${abacusReceiptDTO.date}</span></p>
+          <p class="right-align" >Receipt Number :<span>${abacusReceiptDTO.recieptId}</span></p>
+          
           </div>
           </div>
           <div class="col m12 s12">
@@ -148,46 +127,26 @@
           </tr>
         </thead>
 
-        <tbody>
+         <tbody>
           <tr>
-            <td>Tuition Fee</td>
-            <td>1200.00</td>
-            
-          </tr>
-          <tr>
-            <td>Maintenance Fee</td>
-            
-            <td>1000</td>
+             <td>Months</td>
+            <td>${abacusReceiptDTO.months}</td>
+           
           </tr>
           <tr>
-            <td>Digi. class/Sci/Prac/Comp.</td>
-           
-            <td>15515</td>
+             <td>Amount</td>
+            <td>${abacusReceiptDTO.amount}</td>
           </tr>
-          <tr>
-            <td>total</td>
-           
-            <td>125</td>
-          </tr>
-          <tr>
-            <td>V>F</td>
-           
-            <td>1515</td>
-            
-          </tr>
-            <tr>
-            <td>Late Fee Rs 40/ per Month  Late Fee</td>
-           
-            <td>40</td>
-            
-          </tr>
-          <tr class="grand-t">
-           
-            <td>Grand Total</td>
-           
-            <td>4000</td>
-            
+          <c:if test="${abacusReceiptDTO.regAmount == 1000  }">
+	          <tr>
+	            <td>Registration Fee</td>
+	            <td>${abacusReceiptDTO.regAmount}</td>
+	          </tr>
+          </c:if>
           
+          <tr class="grand-t">
+            <td>Grand Total</td>
+            <td>${abacusReceiptDTO.totalAmount}</td>
           </tr>
     
         </tbody>

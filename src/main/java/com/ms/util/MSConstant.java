@@ -38,6 +38,7 @@ public interface MSConstant {
 	 String MONTHS = "months" ;
 	 String NOTAVAILABLE = "N/A" ;
 	 String DEFAULTIMAGEPATH = "img/u.png" ;
+	 String  ABACUS= "Registration Brain &lsquo;N&rsquo; Abacus" ;
 
 	 
 }

@@ -3,6 +3,7 @@ package com.ms.bean;
 import java.util.List;
 
 import com.ms.enums.State;
+import com.ms.enums.StudentClass;
 
 public class AbacusRegBean extends FormBean{
 
@@ -29,6 +30,9 @@ public class AbacusRegBean extends FormBean{
 	private String mobile;
 	private String email;
 	private List<State> stateList;
+	private String schoolclass;
+	private List<StudentClass> studentClassList;
+	
 	
 	
 	
@@ -295,5 +299,29 @@ public class AbacusRegBean extends FormBean{
 	 */
 	public void setEmail(String email) {
 		this.email = email;
+	}
+	/**
+	 * @return the schoolclass
+	 */
+	public String getSchoolclass() {
+		return schoolclass;
+	}
+	/**
+	 * @param schoolclass the schoolclass to set
+	 */
+	public void setSchoolclass(String schoolclass) {
+		this.schoolclass = schoolclass;
+	}
+	/**
+	 * @return the studentClassList
+	 */
+	public List<StudentClass> getStudentClassList() {
+		return studentClassList;
+	}
+	/**
+	 * @param studentClassList the studentClassList to set
+	 */
+	public void setStudentClassList(List<StudentClass> studentClassList) {
+		this.studentClassList = studentClassList;
 	}
 }

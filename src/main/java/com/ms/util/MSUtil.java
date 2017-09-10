@@ -7,6 +7,7 @@ import java.io.File;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.StringTokenizer;
 
 import com.ms.bean.ContactDetails;
 import com.ms.bean.StudentDetails;
@@ -191,5 +192,20 @@ public class MSUtil {
 	 */
 	public static String formatValue(float value){
 		return grpdf.format(value);
+	}
+	
+	/**
+	 * @param quaterlyFreq
+	 */
+	public static List<String> tokenizeList(String str) {
+		List<String> retList = new ArrayList<>();
+		if(str != null){
+			StringTokenizer stringTokenizer = new StringTokenizer(str, MSConstant.COMMA);
+			while (stringTokenizer.hasMoreElements()) {
+				retList.add((String) stringTokenizer.nextElement());
+				
+			}
+		}
+		return retList;
 	}
 }

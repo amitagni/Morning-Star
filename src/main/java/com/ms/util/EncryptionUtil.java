@@ -22,5 +22,14 @@ public class EncryptionUtil {
 			throw new MSException(e);
 		}
 	}
+	
+	public static void main(String ar[]){
+		try {
+			System.out.println(md5Encrypt("123456"));
+		} catch (MSException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 
 }

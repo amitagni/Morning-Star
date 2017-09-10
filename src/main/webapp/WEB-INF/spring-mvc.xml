@@ -62,6 +62,10 @@
 			<mvc:mapping path="/fee-payment.do"/>
 			<mvc:mapping path="/fee-reciept.do"/>
 			<mvc:mapping path="/search.do"/>
+			<mvc:mapping path="abacusreg"/>
+			<mvc:mapping path="/abacus-search.do"/>
+			<mvc:mapping path="/abacus-fee.do"/>
+			<mvc:mapping path="/abacus-reciept.do"/>
 			<bean class="com.ms.interceptor.LoginInterceptor"></bean>
 		</mvc:interceptor> 
 	</mvc:interceptors> 
@@ -210,6 +214,9 @@
 		<property name="entityManagerFactory" ref="entityManagerFactory" />
 	</bean>
 	<bean id="abacusRegDao" class="com.ms.dao.AbacusRegDao">
+		<property name="entityManagerFactory" ref="entityManagerFactory" />
+	</bean>
+	<bean id="abacusFeeDao" class="com.ms.dao.AbacusFeeDao">
 		<property name="entityManagerFactory" ref="entityManagerFactory" />
 	</bean>
 </beans>

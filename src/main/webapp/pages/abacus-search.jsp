@@ -55,8 +55,10 @@
             <div class="card-panel search-c">
                <!-- <h4 class="header2">Search</h4> -->
                <div class="row">
-                  <form class="formValidate" id="formValidate" method="get" action="" novalidate="novalidate">
-
+                 <form:form modelAttribute="abacusSearchBean"  action="abacus-fee.do" method="post" novalidate="novalidate" >
+					<form:hidden path="id" />
+					<form:hidden path="regFee" />
+					<form:hidden path="name" />
                     <div class="col s12 m12 l12">
                         <div class="col s12 m4 input-field" style="margin-left: 50px;">
           <img src="img/search.png" class="serach-img">
@@ -81,42 +83,32 @@
                                        </div>
                                     
                                  </div>
-                                 <div class="col s12 m6">
-                                    <div class="input-field col s12 m6" id="multiple">
-            				<%--  <form:select class="error browser-default" path="selMonth" multiple="multiple" >
-                             <form:options items="${feeFormBean.monthList}" itemValue="code" id="month" itemLabel="name"  />
-                           </form:select> --%>
-                          <%--  <form:select  path="selMonth" multiple="multiple">
-                           	 <!-- <option value="-1">Select Months</option> -->
-                           	 <c:forEach items="${feeFormBean.monthList}" var="feeMonthDto" varStatus="status">
-                           		 <c:choose>
-		                         	<c:when test="${feeMonthDto.paid}">
-                           	 			 <option value="${feeMonthDto.code }" disabled selected>${feeMonthDto.name }</option>
-                           	 		</c:when>
-		                         	<c:otherwise>
-		                         	    <option value="${feeMonthDto.code }">${feeMonthDto.name }</option>
-		                         	</c:otherwise>
-		                         </c:choose>
-                           	 </c:forEach>
-                             <form:options items="${feeFormBean.monthList}" itemValue="code" id="month" itemLabel="name"  />
-                           </form:select> 
-                        </div> --%>
-                        
-    <select multiple>
-      <option value="" disabled selected>Choose your option</option>
-      <option value="1">Option 1 </option>
-      <option value="2">Option 2</option>
-      <option value="3">Option 3</option>
-    </select>
-    <label>Materialize Multiple Select</label>
-  
-                                 </div>
+                                 <div class="input-field col s12 m3" id="multiple">
+		            				<%--  <form:select class="error browser-default" path="selMonth" multiple="multiple" >
+		                             <form:options items="${feeFormBean.monthList}" itemValue="code" id="month" itemLabel="name"  />
+		                           </form:select> --%>
+		                           <form:select  path="selMonth" multiple="multiple">
+		                           	 <!-- <option value="-1">Select Months</option> -->
+		                           	 <c:forEach items="${abacusSearchBean.monthList}" var="feeMonthDto" varStatus="status">
+		                           		 <c:choose>
+				                         	<c:when test="${feeMonthDto.paid}">
+		                           	 			 <option value="${feeMonthDto.code }" disabled selected>${feeMonthDto.name }</option>
+		                           	 		</c:when>
+				                         	<c:otherwise>
+				                         	    <option value="${feeMonthDto.code }">${feeMonthDto.name }</option>
+				                         	</c:otherwise>
+				                         </c:choose>
+		                           	 </c:forEach>
+		                            <%--  <form:options items="${feeFormBean.monthList}" itemValue="code" id="month" itemLabel="name"  /> --%>
+		                           </form:select> 
+                        	  </div>
                               <div class="input-field col s6">
-          <input placeholder="Placeholder" id="Fee" type="text" class="validate">
-          <label for="Fee">Fee</label>
-        </div>
-        <div class="input-field col s12 m12 center-align button-margin">
-                           		<button class="btn waves-effect waves-light  submit center-btn" type="submit" name="action" onclick = "submitForm('admissionFormBean')" >Submit
+         
+          				<form:input path="totalAmt" placeholder="Amount" type="number"  class="validate" readonly="true" />
+          					<label for="Fee">Fee</label>
+        			 </div>
+       				 <div class="input-field col s12 m12 center-align button-margin">
+                           		<button class="btn waves-effect waves-light  submit center-btn" type="button" name="action" onclick = "submitForm('abacusSearchBean')" >Submit
                           			<img src="img/save.png" class="button-img">
                           		 </button>
                           		 <a class="btn waves-effect waves-light  submit  reset" type="submit" name="action">Reset
@@ -128,7 +120,7 @@
                     </div>
                     
        
-                  </form>
+                  </form:form>
                </div>
             </div>
          </div>
@@ -162,7 +154,7 @@
 </script>
       <script type="text/javascript">
       
-     
+      	 var kitAmount = document.getElementById('totalAmt').value;
          $('.datepicker').pickadate({
              selectMonths: true, // Creates a dropdown to control month
              selectYears: 15 // Creates a dropdown of 15 years to control year
@@ -182,7 +174,7 @@
 			$("input.autocomplete").autocomplete({source:function(request, response) {
 	            $.ajax({
 	                type: "get",
-	          		url: "fetch-studentlist.do",
+	          		url: "fetch-abacus-studentlist.do",
 	          		cache: false,
 	          		data: {"studentName":request.term},
 	                dataType: "json",
@@ -194,9 +186,11 @@
 	        select: function( event, ui ) {
 	           console.log(ui.item.value)
 	           this.value = ui.item.label;
-	            $.ajax({
+	           document.location.href = "abacus-search.do?id="+ui.item.value
+	           
+	 /*            $.ajax({
 		                type: "get",
-		          		url: "fetch-studentDetail.do",
+		          		url: "fetch-abacus-studentDetail.do",
 		          		cache: false,
 		          		data: {"studentId":ui.item.value},
 		                dataType: "json",
@@ -213,14 +207,14 @@
 		                    if(data.house != null)
 		                   	  document.getElementById('house').innerHTML = data.house;
 		                    else
-		                    	 document.getElementById('house').innerHTML = "N/A";
+		                    	 document.getElementById('house').innerHTML = "N/A"; 
 		                    if(data.fatherName != null)
 		                    	document.getElementById('fname').innerHTML = data.fatherName;
 		                    else
 		                    	document.getElementById('fname').innerHTML = "N/A";
-		                    document.getElementById('stImage').src = data.photoPath;
+		                   // document.getElementById('stImage').src = data.photoPath;
 		                }
-		            });
+		            }); */
 		       return false;
 	          }, 
 	        min_length: 3,
@@ -231,7 +225,35 @@
 	        delay: 300});
          });
           
-        
+          function submitForm(formId){
+        	  var selMonth = $('#selMonth').val();
+         		if(selMonth ==  null){
+         			alert("Please select Months First");
+         		}else{
+         		 	$("#"+formId).submit();
+         		}
+         		// $("#"+formId).submit();
+         }
+   	    $('select').change(function(){
+   	        var newValuesArr = [],
+   	            select = $(this),
+   	            ul = select.prev();
+   	        ul.children('li').toArray().forEach(function (li, i) {
+   	            if ($(li).hasClass('active')) {
+   	                newValuesArr.push(select.children('option').toArray()[i].value);
+   	            }
+   	        });
+   	        select.val(newValuesArr);
+   	        console.log(newValuesArr)
+   	        setTotalAmount(newValuesArr);
+   	    });
+   	    
+   	    function setTotalAmount(months){
+   	    	var amt = kitAmount;
+   	    	console.log(amt);
+   	    	amt =  parseInt(amt) +  parseInt(500*months.length);
+   	    	document.getElementById('totalAmt').value = parseInt(amt);
+   	    }
         
       </script>
       <!--materialize js-->
