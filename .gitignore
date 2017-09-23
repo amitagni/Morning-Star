@@ -6,3 +6,9 @@ target/classes/com/ms/bean/Login.class
 *.class
 target/classes/META-INF/persistence.xml
 /target/
+
+*.classpath
+*.class
+*.class
+*.component
+.settings/org.eclipse.jdt.core.prefs
