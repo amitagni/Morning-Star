@@ -29,12 +29,19 @@
     padding: 15px !important;
     
 }
-      </style>
+#multiple>div>ul {
+    max-height: 200px !important;
+    overflow-y: auto !important;
+    top: 0px !important;
+}      </style>
    <body class="dashboard-body">
    	 <%@ include file="../includes/header.jsp"%>
 	<div class="container_b">
 	      <div class="valign-wrapper row row_form">
-	         <div class="col s12 m12 card-margin card-panel valign">
+	         <div class="col s12 m12 card-margin card-panel valign" style="
+    width: 98%;
+    margin-left: 11px;
+">
 	            <ul class="breadcrumb">
 	               <li ><a href="javascript:void();">Enrollment</a>
 	               </li>
@@ -83,10 +90,13 @@
                                        </div>
                                     
                                  </div>
-                                 <div class="input-field col s12 m3" id="multiple">
+                                   
+                                 <div class="col s12 m3" id="multiple">
+                                 <label >Select Months</label>
 		            				<%--  <form:select class="error browser-default" path="selMonth" multiple="multiple" >
 		                             <form:options items="${feeFormBean.monthList}" itemValue="code" id="month" itemLabel="name"  />
 		                           </form:select> --%>
+		                           
 		                           <form:select  path="selMonth" multiple="multiple">
 		                           	 <!-- <option value="-1">Select Months</option> -->
 		                           	 <c:forEach items="${abacusSearchBean.monthList}" var="feeMonthDto" varStatus="status">
@@ -101,20 +111,32 @@
 		                           	 </c:forEach>
 		                            <%--  <form:options items="${feeFormBean.monthList}" itemValue="code" id="month" itemLabel="name"  /> --%>
 		                           </form:select> 
+		                         
                         	  </div>
+                        	  <c:if test="${abacusSearchBean.regFee == 1 }">
+	                        	  <div class="input-field col s6">
+		          					<form:input path="regAmt" placeholder="Reg Fee" type="number"  class="validate"   />
+		          					<label for="Registration_Fee">Registration Fee</label>
+	        			 		  </div>
+        			 		  </c:if>
                               <div class="input-field col s6">
-         
-          				<form:input path="totalAmt" placeholder="Amount" type="number"  class="validate" readonly="true" />
-          					<label for="Fee">Fee</label>
-        			 </div>
-       				 <div class="input-field col s12 m12 center-align button-margin">
+	          					<form:input path="monthlyAmt" placeholder="Amount" type="number"  class="validate" readonly="true" />
+	          					<label for="Fee">Monthly Fee</label>
+        			 		 </div>
+        			 		 <%-- <div class="input-field col s6">
+	          					<form:input path="totalAmt" placeholder="Amount" type="number"  class="validate" readonly="true" />
+	          					<label for="Total_Fee">Total Fee</label>
+        			 		 </div> --%>
+       				 		<div class="input-field col s12 m12 center-align button-margin" style="
+    margin: 10px 0px 20px 0px;
+">
                            		<button class="btn waves-effect waves-light  submit center-btn" type="button" name="action" onclick = "submitForm('abacusSearchBean')" >Submit
                           			<img src="img/save.png" class="button-img">
                           		 </button>
                           		 <a class="btn waves-effect waves-light  submit  reset" type="submit" name="action">Reset
                            			<img src="img/cancel.png" class="button-img">
                            		</a>
-                          </div>
+                           </div>
                            </div>
                            
                     </div>
@@ -154,7 +176,7 @@
 </script>
       <script type="text/javascript">
       
-      	 var kitAmount = document.getElementById('totalAmt').value;
+      	// var kitAmount = document.getElementById('totalAmt').value;
          $('.datepicker').pickadate({
              selectMonths: true, // Creates a dropdown to control month
              selectYears: 15 // Creates a dropdown of 15 years to control year
@@ -226,14 +248,20 @@
          });
           
           function submitForm(formId){
+        	  
+        	  var id = $('#id').val();
+        	  if(id == 0){
+        		  alert("Please select Student First");
+        	  }else{
         	  var selMonth = $('#selMonth').val();
          		if(selMonth ==  null){
          			alert("Please select Months First");
          		}else{
          		 	$("#"+formId).submit();
          		}
-         		// $("#"+formId).submit();
+          }
          }
+         		// $("#"+formId).submit();
    	    $('select').change(function(){
    	        var newValuesArr = [],
    	            select = $(this),
@@ -248,12 +276,43 @@
    	        setTotalAmount(newValuesArr);
    	    });
    	    
+   	/*  function updateTotalAmount(){
+	        var newValuesArr = [],
+	            select = $(this),
+	            ul = select.prev();
+	        ul.children('li').toArray().forEach(function (li, i) {
+	            if ($(li).hasClass('active')) {
+	                newValuesArr.push(select.children('option').toArray()[i].value);
+	            }
+	        });
+	        select.val(newValuesArr);
+	        console.log(newValuesArr)
+	        setTotalAmount(newValuesArr);
+	    } */
+   	    
    	    function setTotalAmount(months){
-   	    	var amt = kitAmount;
-   	    	console.log(amt);
-   	    	amt =  parseInt(amt) +  parseInt(500*months.length);
-   	    	document.getElementById('totalAmt').value = parseInt(amt);
+   	    	var regAmt = 0;
+   	    	var amt =  0;
+   	    	if(document.getElementById('regAmt')!= null){
+   	    		regAmt = parseInt(document.getElementById('regAmt').value);
+   	    	} 
+   	    	if(months.length > 0){
+   	    	 amt =  parseInt(500*months.length);
+   	    	}
+   	    	document.getElementById('monthlyAmt').value = amt;
+   	    	//document.getElementById('totalAmt').value = parseInt(regAmt) + parseInt(amt);
    	    }
+   	    
+   	  /*  if(document.getElementById('regAmt')!= null){
+    		 document.getElementById('totalAmt').value = document.getElementById('regAmt').value;
+    	}  */
+    	
+    	
+    	$(".reset").click(function() {
+            $(this).closest('form').find("input[type=text], textarea,input[type=number], textarea,input[type=email]").val("");
+        });
+   	 
+   	 
         
       </script>
       <!--materialize js-->

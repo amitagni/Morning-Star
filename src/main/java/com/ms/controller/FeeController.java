@@ -162,12 +162,12 @@ public class FeeController {
 	@RequestMapping(value = "/fee-reciept")
 	public ModelAndView regReceipt(@ModelAttribute("feeFormBean") FeeFormBean feeFormBean, BindingResult bindingResult, Model model,HttpServletRequest request) {
 		 SessionUtil.setPage(MSConstant.FEE);
-		 List<FeeDTO> monthlyFeeList =  new ArrayList<>();
-		 List<FeeDTO> quarterlyFeeList =  new ArrayList<>();
-		 List<FeeDTO> halfyearlyFeeList =  new ArrayList<>();
-		 List<FeeDTO> anualFeeList =  new ArrayList<>();
-		 Map<String,FeeDTO> map = new TreeMap<>();
-		 Set<Byte> monthSet =  new HashSet<>();
+		 List<FeeDTO> monthlyFeeList =  new ArrayList();
+		 List<FeeDTO> quarterlyFeeList =  new ArrayList();
+		 List<FeeDTO> halfyearlyFeeList =  new ArrayList();
+		 List<FeeDTO> anualFeeList =  new ArrayList();
+		 Map<String,FeeDTO> map = new TreeMap();
+		 Set<Byte> monthSet =  new HashSet();
 		 float totalAmount = 0;
 		 float totalDiscount = 0;
 		 float totalPaidAmt = 0;
@@ -178,7 +178,7 @@ public class FeeController {
 			for (Object object : list) {
 				Object[] objectArr= (Object[])object;
 				if(objectArr != null){
-					byte feeFreq = (byte)objectArr[2];
+					byte feeFreq = (Byte)objectArr[2];
 					FeeDTO feeDTO = new FeeDTO();
 					feeDTO.setName((String)objectArr[3]);
 					feeDTO.setPaidAmount((String)objectArr[0]);
@@ -187,7 +187,7 @@ public class FeeController {
 					studentId = (Integer)objectArr[5];
 					//feeDTO.setAmount((String)objectArr[4]);
 					if(objectArr[4]!= null)
-						monthSet.add((byte)objectArr[4]);
+						monthSet.add((Byte)objectArr[4]);
 					//totalAmount = totalAmount + Float.parseFloat(feeDTO.getAmount());
 					totalDiscount = totalDiscount + Float.parseFloat(feeDTO.getDiscount());
 					totalPaidAmt = totalPaidAmt + Float.parseFloat(feeDTO.getPaidAmount());
@@ -248,15 +248,15 @@ public class FeeController {
 	 * @param feeFormBean
 	 */
 	public void populateFeeFormBean(FeeFormBean feeFormBean,String id) {
-		List<FeeDTO> monthlyFeeList =  new ArrayList<>();
-		List<FeeDTO> quarterlyFeeList =  new ArrayList<>();
-		List<FeeDTO> halfyearlyFeeList =  new ArrayList<>();
-		List<FeeDTO> anualFeeList =  new ArrayList<>();
+		List<FeeDTO> monthlyFeeList =  new ArrayList();
+		List<FeeDTO> quarterlyFeeList =  new ArrayList();
+		List<FeeDTO> halfyearlyFeeList =  new ArrayList();
+		List<FeeDTO> anualFeeList =  new ArrayList();
 		
-		List<String> monthlyPaidFeeList =  new ArrayList<>();
-		List<String> quarterlyPaidFeeList =  new ArrayList<>();
-		List<String> halfYearlyPaidFeeList =  new ArrayList<>();
-		List<String> anuallyPaidFeeList =  new ArrayList<>();
+		List<String> monthlyPaidFeeList =  new ArrayList();
+		List<String> quarterlyPaidFeeList =  new ArrayList();
+		List<String> halfYearlyPaidFeeList =  new ArrayList();
+		List<String> anuallyPaidFeeList =  new ArrayList();
 		
 		
 		Integer studentId = Integer.parseInt(id);
@@ -316,7 +316,7 @@ public class FeeController {
 			}
 			feeFormBean.setMonthList(monthList);*/
 			
-			List<FeeMonthsDTO> monthList = new ArrayList<>();
+			List<FeeMonthsDTO> monthList = new ArrayList();
 			for(Month month:MSUtil.populateMonthList()){
 				FeeMonthsDTO feeMonthsDTO = new FeeMonthsDTO();
 				feeMonthsDTO.setCode(month.getCode());
@@ -339,7 +339,7 @@ public class FeeController {
 	 * @param quaterlyFreq
 	 */
 	private List<String> tokenizeList(String str) {
-		List<String> retList = new ArrayList<>();
+		List<String> retList = new ArrayList();
 		StringTokenizer stringTokenizer = new StringTokenizer(str, MSConstant.COMMA);
 		while (stringTokenizer.hasMoreElements()) {
 			retList.add((String) stringTokenizer.nextElement());
@@ -353,7 +353,7 @@ public class FeeController {
 	 */
 	public FeeSummaryDTO saveFeeFormBean(FeeFormBean feeFormBean,Integer userId) {
 		FeeSummaryDTO feeSummaryDTO = new FeeSummaryDTO();
-		List<FeeSlip> feeSlipList = new ArrayList<>();
+		List<FeeSlip> feeSlipList = new ArrayList();
 		StringBuilder monthIds =  new StringBuilder();
 		StringBuilder quarterlyIds =  new StringBuilder();
 		StringBuilder halsyrlyIds =  new StringBuilder();

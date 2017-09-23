@@ -58,7 +58,7 @@ public class AbacusRegController {
 	@RequestMapping(value = "/abacus-search", method = { RequestMethod.POST, RequestMethod.GET })  
     public ModelAndView abacussearch(@ModelAttribute("abacusSearchBean") AbacusSearchBean abacusSearchBean, BindingResult bindingResult, Model model, HttpServletRequest request) {  
 		String id = request.getParameter("id");
-		List<String> monthlyPaidFeeList = new ArrayList<>();
+		List<String> monthlyPaidFeeList = new ArrayList();
 		try {
 			if(id != null){
 				AbacusRegEntity abacusRegEntity = abacusRegService.findId(Integer.parseInt(id));
@@ -72,18 +72,18 @@ public class AbacusRegController {
 				
 				if(abacusFeeList != null && abacusFeeList.size()>0 ){
 					abacusSearchBean.setRegFee((byte) 0);
-					abacusSearchBean.setTotalAmt(0);
+					abacusSearchBean.setRegAmt(0);
 					for (AbacusFee abacusFee : abacusFeeList) {
 						monthlyPaidFeeList.addAll(MSUtil.tokenizeList(abacusFee.getMonths()));
 					}
 				}else{
 					
-					abacusSearchBean.setTotalAmt(1000);
+					abacusSearchBean.setRegAmt(1000);
 					abacusSearchBean.setRegFee((byte) 1);
 				}
 			}
 			
-			List<FeeMonthsDTO> monthList = new ArrayList<>();
+			List<FeeMonthsDTO> monthList = new ArrayList();
 			for(Month month:MSUtil.populateMonthList()){
 				FeeMonthsDTO feeMonthsDTO = new FeeMonthsDTO();
 				feeMonthsDTO.setCode(month.getCode());
@@ -156,13 +156,15 @@ public class AbacusRegController {
 				months.append(',');
 			}
 			abacusReceiptDTO.setMonths(months.substring(0, months.length()-1));
-			if(abacusFee.getRegfee() == 1){
-				abacusReceiptDTO.setRegAmount("1000");
-				abacusReceiptDTO.setAmount(String.valueOf(Integer.parseInt(abacusFee.getAmount())- 1000));
-			}else{
-				abacusReceiptDTO.setAmount(abacusFee.getAmount());
+			
+			int regAmount = 0;
+			if(abacusFee.getRegfee() !=  null && !abacusFee.getRegfee().equals("null")){
+				regAmount = Integer.parseInt(abacusFee.getRegfee());
+				abacusReceiptDTO.setRegAmount(abacusFee.getRegfee());
 			}
-			abacusReceiptDTO.setTotalAmount(abacusFee.getAmount());
+			
+			abacusReceiptDTO.setAmount(abacusFee.getAmount());
+			abacusReceiptDTO.setTotalAmount(String.valueOf(Integer.parseInt(abacusFee.getAmount()) + regAmount));
 		} catch (MSException e) {
 			e.printStackTrace();
 		}
@@ -176,10 +178,10 @@ public class AbacusRegController {
 	private Integer saveAbacusFee(AbacusSearchBean abacusSearchBean) {
 			AbacusFee abacusFee = new AbacusFee();
 			abacusFee.setStudentId(abacusSearchBean.getId());
-			abacusFee.setAmount(abacusSearchBean.getTotalAmt().toString());
+			abacusFee.setAmount(String.valueOf(abacusSearchBean.getMonthlyAmt()));
 			abacusFee.setMonths(abacusSearchBean.getSelMonth());
 			abacusFee.setStatus((byte)1);
-			abacusFee.setRegfee(abacusSearchBean.getRegFee());
+			abacusFee.setRegfee(String.valueOf(abacusSearchBean.getRegAmt()));
 			try {
 				abacusRegService.saveAbacusFee(abacusFee);
 			} catch (MSException e) {
@@ -202,7 +204,11 @@ public class AbacusRegController {
 		abacusRegEntity.setAddress2(abacusRegBean.getAddress2());
 		abacusRegEntity.setArea(abacusRegBean.getArea());
 		abacusRegEntity.setCity(abacusRegBean.getCity());
-		abacusRegEntity.setState(abacusRegBean.getCity());
+		abacusRegEntity.setState(abacusRegBean.getState());
+		abacusRegEntity.setMobile(abacusRegBean.getMobile());
+		abacusRegEntity.setPhone(abacusRegBean.getPhone());
+		abacusRegEntity.setEmail(abacusRegBean.getEmail());
+		abacusRegEntity.setStuentClass(Byte.parseByte(abacusRegBean.getSchoolclass()));
 		try {
 			abacusRegService.saveAbacusRegBean(abacusRegEntity);
 			return abacusRegEntity.getId();

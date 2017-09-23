@@ -69,7 +69,7 @@
             <td>Amount</td>
             <td>${abacusReceiptDTO.amount}</td>
           </tr>
-          <c:if test="${abacusReceiptDTO.regAmount == 1000  }">
+          <c:if test="${not empty abacusReceiptDTO.regAmount}">
 	          <tr>
 	            <td>Registration Fee</td>
 	            <td>${abacusReceiptDTO.regAmount}</td>
@@ -137,7 +137,7 @@
              <td>Amount</td>
             <td>${abacusReceiptDTO.amount}</td>
           </tr>
-          <c:if test="${abacusReceiptDTO.regAmount == 1000  }">
+           <c:if test="${not empty abacusReceiptDTO.regAmount}">
 	          <tr>
 	            <td>Registration Fee</td>
 	            <td>${abacusReceiptDTO.regAmount}</td>

@@ -60,14 +60,14 @@
                              <form:input path="lastName" id="sln"  type="text" onkeypress="return onlyAlphabets(event,this);" required="required" />
                               <div class="errorTxt2"></div>
                            </div>
-                           <div class="input-field col s12 m3">
+                          <%--  <div class="input-field col s12 m3">
                               <label for="sln" class="">Nick Name (Any)</label>
                               <form:input path="nickName" id="sln"  type="text" onkeypress="return onlyAlphabets(event,this);" required="required" /> 
                               <div class="errorTxt2"></div>
-                           </div>
+                           </div> --%>
                            <div class="input-field col s12 m3">
                               <label for="dateOfBirth" class="">Date of Birth</label>
-                              <form:input path="dateOfBirth" id="dateOfBirth" class="datepicker" required="required" /> 
+                              <form:input path="dateOfBirth" id="dateOfBirth" class="datepicker" /> 
                               <div class="errorTxt2"></div>
                            </div>
                            <div class="input-field col s12 m3">
@@ -80,7 +80,13 @@
                               <form:input path="motherName" id="mn" onkeypress="return onlyAlphabets(event,this);" type="text" required="required"/>
                                <div class="errorTxt2"></div>
                            </div>
-                           
+                           <div class="col s12 m3">
+                              <label for="crole">Class</label>
+                               <form:select class="error browser-default" path="schoolclass" id="lastClass" >
+                                <form:options items="${abacusRegBean.studentClassList}" itemValue="code" id="crole" itemLabel="name"  />
+                          		</form:select>
+                              <div class="errorTxt2"></div>
+                           </div>
                            
                             
                              <div class=" col s12 m3">
@@ -91,13 +97,15 @@
 		                              <option value="2">Others</option>
 		                           </select>
  							 </div>
- 							 <form:hidden path="schoolname" id="lastSchool"  value="Morning Star" />
+ 							 <form:hidden path="schoolname"  />
                              <div class="input-field col s12 m3" id="school-input" style="display:none">
+                            
                                <label for=lastSchool class=""> School Name</label>
                                <input id="lastSchool" type="text" />
                               <div class="errorTxt1"></div>
                            </div>
-                           <div class="col s12 m3 radioRequired">
+                           
+                             <div class="col s12 m3 radioRequired">
                               <label for="genter_select">Gender *</label>
                               <p>
                              <form:radiobutton path="gender" id="gender_male" name="m"  value="M" />
@@ -109,13 +117,6 @@
                               </p>
                               
                            </div>
-                            <div class="col s12 m3">
-                              <label for="crole">Class</label>
-                               <form:select class="error browser-default" path="schoolclass" id="lastClass" >
-                                <form:options items="${abacusRegBean.studentClassList}" itemValue="code" id="crole" itemLabel="name"  />
-                          		</form:select>
-                              <div class="errorTxt2"></div>
-                           </div> 
                            
                           <%-- <form:select class="error browser-default" path="lastClassResult" id="lastClassResult"  selected="1" name="crole">
                               
@@ -286,13 +287,11 @@
          $('select').material_select();
          });
           
-         function submitForm(formId){
-        	 if (confirm("Do you really want to submit? Once submitted you can not make changes.") == true) {
-        		 document.getElementById("schoolname").value  = document.getElementById("lastSchool").value;
-           		 $("#"+formId).submit();
-        	    } 
+        /*  function submitForm(formId){
+        	 $("#"+formId).submit();
         	
-       	}
+        	 
+       	} */
          $('.paste').bind("cut copy paste",function(e) {
              e.preventDefault();
          });
@@ -325,7 +324,12 @@
         	    },
         	    submitHandler: function (form) {
         	        console.log('form ok');
-        	        form.submit();
+        	        if (confirm("Do you really want to submit? Once submitted you can not make changes.") == true) {
+               		 	document.getElementById("schoolname").value  = document.getElementById("lastSchool").value;
+               			 form.submit();
+                  		
+               	    } 
+        	       
         	       
         	    }
         	});

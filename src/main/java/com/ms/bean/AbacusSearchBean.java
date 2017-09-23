@@ -13,6 +13,8 @@ public class AbacusSearchBean extends FormBean{
 	private byte regFee;
 	private List<FeeMonthsDTO> monthList;
 	private String selMonth;
+	private Integer regAmt;
+	private Integer monthlyAmt;
 	private Integer totalAmt;
 	/**
 	 * @return the id
@@ -99,6 +101,30 @@ public class AbacusSearchBean extends FormBean{
 	 */
 	public void setRegFee(byte regFee) {
 		this.regFee = regFee;
+	}
+	/**
+	 * @return the regAmt
+	 */
+	public Integer getRegAmt() {
+		return regAmt;
+	}
+	/**
+	 * @param regAmt the regAmt to set
+	 */
+	public void setRegAmt(Integer regAmt) {
+		this.regAmt = regAmt;
+	}
+	/**
+	 * @return the monthlyAmt
+	 */
+	public Integer getMonthlyAmt() {
+		return monthlyAmt;
+	}
+	/**
+	 * @param monthlyAmt the monthlyAmt to set
+	 */
+	public void setMonthlyAmt(Integer monthlyAmt) {
+		this.monthlyAmt = monthlyAmt;
 	}
 	
 	

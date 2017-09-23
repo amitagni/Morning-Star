@@ -42,6 +42,8 @@ public class AbacusRegEntity extends BaseEntity<Integer> implements Serializable
 	private String mobile;
 	private String email;
 	
+	@Column(name = "class")
+	private Byte stuentClass;
 	
 	public void setId(int id) {
 		this.id = id;
@@ -168,6 +170,20 @@ public class AbacusRegEntity extends BaseEntity<Integer> implements Serializable
 	@Override
 	public void setId(Integer id) {
 		this.id = id;
+	}
+
+	/**
+	 * @return the stuentClass
+	 */
+	public Byte getStuentClass() {
+		return stuentClass;
+	}
+
+	/**
+	 * @param stuentClass the stuentClass to set
+	 */
+	public void setStuentClass(Byte stuentClass) {
+		this.stuentClass = stuentClass;
 	}
 	
 	

@@ -36,7 +36,7 @@ public class AbacusFee extends BaseEntity<Integer> implements Serializable {
 	private byte status;
 
 	@Column(name = "regfee")
-	private byte regfee;
+	private String regfee;
 	
 	
 	@Temporal(TemporalType.TIMESTAMP)
@@ -162,7 +162,7 @@ public class AbacusFee extends BaseEntity<Integer> implements Serializable {
 	/**
 	 * @return the regfee
 	 */
-	public byte getRegfee() {
+	public String getRegfee() {
 		return regfee;
 	}
 
@@ -170,8 +170,11 @@ public class AbacusFee extends BaseEntity<Integer> implements Serializable {
 	/**
 	 * @param regfee the regfee to set
 	 */
-	public void setRegfee(byte regfee) {
+	public void setRegfee(String regfee) {
 		this.regfee = regfee;
 	}
+
+
+
 
 }

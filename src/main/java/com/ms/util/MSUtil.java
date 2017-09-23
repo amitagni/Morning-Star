@@ -31,7 +31,7 @@ public class MSUtil {
 	private static DecimalFormat  grpdf = new DecimalFormat("####,###,##0.00");
 
 	public static List<Category> populateCategoryList(){
-		List<Category> categorieList = new ArrayList<>();
+		List<Category> categorieList = new ArrayList();
 		for(Category category:Category.values()){
 			categorieList.add(category);
 		}
@@ -39,7 +39,7 @@ public class MSUtil {
 	}
 	
 	public static List<State> populateStateList(){
-		List<State> stateList = new ArrayList<>();
+		List<State> stateList = new ArrayList();
 		for(State state:State.values()){
 			stateList.add(state);
 		}
@@ -47,7 +47,7 @@ public class MSUtil {
 	}
 	
 	public static List<StudentClass> populateClassList(){
-		List<StudentClass> classList = new ArrayList<>();
+		List<StudentClass> classList = new ArrayList();
 		for(StudentClass stClass:StudentClass.values()){
 			classList.add(stClass);
 		}
@@ -56,7 +56,7 @@ public class MSUtil {
 	}
 	
 	public static List<Section> populateSectionList(){
-		List<Section> sectionList = new ArrayList<>();
+		List<Section> sectionList = new ArrayList();
 		for(Section section:Section.values()){
 			sectionList.add(section);
 		}
@@ -65,7 +65,7 @@ public class MSUtil {
 	
 	
 	public static List<House> populateHouseList(){
-		List<House> houseList = new ArrayList<>();
+		List<House> houseList = new ArrayList();
 		for(House house:House.values()){
 			houseList.add(house);
 		}
@@ -73,7 +73,7 @@ public class MSUtil {
 	}
 	
 	public static List<Month> populateMonthList(){
-		List<Month> monthList = new ArrayList<>();
+		List<Month> monthList = new ArrayList();
 		for(Month month : Month.values()){
 			monthList.add(month);
 		}
@@ -81,7 +81,7 @@ public class MSUtil {
 	}
 	
 	public static List<Result> populateResultList(){
-		List<Result> resultList = new ArrayList<>();
+		List<Result> resultList = new ArrayList();
 		for(Result result : Result.values()){
 			resultList.add(result);
 		}
@@ -89,7 +89,7 @@ public class MSUtil {
 	}
 	
 	public static List<Religion> populateReligionList(){
-		List<Religion> religionList = new ArrayList<>();
+		List<Religion> religionList = new ArrayList();
 		for(Religion religion : Religion.values()){
 			religionList.add(religion);
 		}
@@ -97,7 +97,7 @@ public class MSUtil {
 	}
 	
 	public static List<Nationality> populateNationalityList(){
-		List<Nationality> nationalityList = new ArrayList<>();
+		List<Nationality> nationalityList = new ArrayList();
 		for(Nationality nationality : Nationality.values()){
 			nationalityList.add(nationality);
 		}
@@ -198,7 +198,7 @@ public class MSUtil {
 	 * @param quaterlyFreq
 	 */
 	public static List<String> tokenizeList(String str) {
-		List<String> retList = new ArrayList<>();
+		List<String> retList = new ArrayList();
 		if(str != null){
 			StringTokenizer stringTokenizer = new StringTokenizer(str, MSConstant.COMMA);
 			while (stringTokenizer.hasMoreElements()) {
