@@ -1,6 +1,6 @@
 package com.ms.bean;
 
-public class DaybookBean {
+public class DayBookBean {
 
 	private int id;
 	
