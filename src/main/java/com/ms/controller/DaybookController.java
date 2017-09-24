@@ -26,7 +26,7 @@ public class DaybookController {
 	
 	@RequestMapping(value = "/day-book", method = { RequestMethod.POST, RequestMethod.GET })
 	public ModelAndView fee(@ModelAttribute("dayBookBean") DayBookBean dayBookBean, BindingResult bindingResult, Model model,HttpServletRequest request) {
-		SessionUtil.setPage(MSConstant.FEE);
+		SessionUtil.setPage(MSConstant.DAYBOOK);
 		if (request.getMethod().equalsIgnoreCase(RequestMethod.GET.name())) {
 			
 			
