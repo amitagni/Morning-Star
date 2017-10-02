@@ -487,6 +487,11 @@
          });
           $(".reset").click(function() {
               $(this).closest('form').find("input[type=text], textarea,input[type=number], textarea,input[type=email]").val("");
+        	  //$('#selMonth').each(function(){$(this).removeAttr('selected');});
+        	 // $("#selMonth").multiSelect("clearSelection");
+			$("#selMonth option:selected").prop("selected", false);
+        	  $("#selMonth").multiSelect( 'refresh' );
+            
           });
         
          function setPaidAmount(type, obj){
@@ -503,8 +508,9 @@
         		// alert("No %")
         	 }
         	 if(discVal == ''){
-        		 discVal = 0;
-        		 obj.value = 0;
+        		 //discVal = 0;
+        		 //obj.value = 0;
+        		 return
         	 }
         	 
         	 paidAmt = parseFloat(amt) - parseFloat(discVal);

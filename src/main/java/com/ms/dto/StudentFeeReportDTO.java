@@ -22,6 +22,8 @@ public class StudentFeeReportDTO implements Serializable {
 	private String quterlyPaid;
 	private String halfyearlyPaid;
 	private String anuallyPaid;
+	private String studentClass;
+	private String section;
 	/**
 	 * @return the studentName
 	 */
@@ -117,6 +119,30 @@ public class StudentFeeReportDTO implements Serializable {
 	 */
 	public void setAnuallyPaid(String anuallyPaid) {
 		this.anuallyPaid = anuallyPaid;
+	}
+	/**
+	 * @return the studentClass
+	 */
+	public String getStudentClass() {
+		return studentClass;
+	}
+	/**
+	 * @param studentClass the studentClass to set
+	 */
+	public void setStudentClass(String studentClass) {
+		this.studentClass = studentClass;
+	}
+	/**
+	 * @return the section
+	 */
+	public String getSection() {
+		return section;
+	}
+	/**
+	 * @param section the section to set
+	 */
+	public void setSection(String section) {
+		this.section = section;
 	}
 	
 	

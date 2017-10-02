@@ -9,7 +9,6 @@
 package com.ms.controller;
 
 import java.util.List;
-import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -26,7 +25,10 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.ms.bean.ReportBean;
 import com.ms.dto.StudentFeeReportDTO;
+import com.ms.enums.ReportType;
+import com.ms.enums.StudentClass;
 import com.ms.service.ReportService;
+import com.ms.util.MSUtil;
 
 
 /**
@@ -43,14 +45,29 @@ public class ReportController {
 
 	
 	
-	@RequestMapping(value = "/report", method = {RequestMethod.GET })
-	public ModelAndView loginPage(@ModelAttribute("reportBean") @Validated ReportBean reportBean, BindingResult bindingResult, Model model,HttpServletRequest request) {
-		List<Object> objectList = reportService.fetchAllStudentFeeReport();
-		if(objectList != null){
-			reportBean.setStudentDtoList((List<StudentFeeReportDTO>) objectList.get(0));
-			reportBean.setTotalPaidAmount((String) objectList.get(1));
-			reportBean.setTotalDiscAmount((String) objectList.get(2));
+	@RequestMapping(value = "/report", method = {RequestMethod.POST, RequestMethod.GET  })
+	public ModelAndView report(@ModelAttribute("reportBean") @Validated ReportBean reportBean, BindingResult bindingResult, Model model,HttpServletRequest request) {
+		if (request.getMethod().equalsIgnoreCase(RequestMethod.GET.name())) {
+			reportBean.setReportType( ReportType.STUDENT.getCode().byteValue());
+		}else{
+			List<Object> objectList = null;
+			if(reportBean.getReportType().byteValue() == ReportType.CLASSWISE.getCode().byteValue()){
+				if(reportBean.getSelClass().byteValue() == -1)
+					objectList = reportService.fetchAllStudentFeeReport();
+				else
+				 objectList = reportService.fetchAllStudentFeeReport(String.valueOf(reportBean.getCurrentClass()));
+			}else if(reportBean.getReportType().byteValue() == ReportType.STUDENT.getCode().byteValue()){
+			  objectList = reportService.fetchStudentFeeReport(String.valueOf(reportBean.getStudentId()));
+			}
+			
+			if(objectList != null){
+				reportBean.setStudentDtoList((List<StudentFeeReportDTO>) objectList.get(0));
+				reportBean.setTotalPaidAmount((String) objectList.get(1));
+				reportBean.setTotalDiscAmount((String) objectList.get(2));
+			}
+			
 		}
+		reportBean.setStudentClassList(MSUtil.populateClassList());
 		return new ModelAndView("report", "reportBean", reportBean);
 	}
 	

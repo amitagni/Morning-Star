@@ -113,8 +113,8 @@
                           </div>
                           
                            <div class="input-field col s12 m4">
-                              <label for="dob" class="">Date Of Birth*</label>
-                              <form:input path="studentDetails.dob" type="text" id="dob" class="datepicker" required="required" />
+                              <label for="dob" class="">Date Of Birth</label>
+                              <form:input path="studentDetails.dob" type="text" id="dob" class="datepicker"  />
                               
                            </div>
                            <div class="input-field col s12 m4">
@@ -155,8 +155,8 @@
 	                          </form:select> --%>
 	                          
 	                           <form:select class="error browser-default" path="lastClass" id="lastClass" >
-                                <form:options items="${admissionFormBean.studentClassList}" itemValue="code" id="crole" itemLabel="name"  />
-                          	</form:select>
+                                 <form:options items="${admissionFormBean.studentClassList}" itemValue="code" id="crole" itemLabel="name"  />
+                          	  </form:select>
                            </div>
                           
                            <div class=" col s12 m4">

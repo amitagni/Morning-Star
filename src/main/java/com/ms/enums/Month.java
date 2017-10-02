@@ -9,28 +9,30 @@ package com.ms.enums;
  */
 public enum Month {
 	
-	APR((byte)1,"APRIL"),
-	MAY((byte)2,"MAY"),
-	JUN((byte)3,"JUNE"),
-	JUL((byte)4,"JULY"),
-	AUG((byte)5,"AUGUST"),
-	SEP((byte)6,"SEPTEMBER"),
-	OCT((byte)7,"OCTOBER"),
-	NOV((byte)8,"NOVEMBER"),
-	DEC((byte)9,"DECEMBER"),
-	JAN((byte)10,"JANUARY"),
-	FEB((byte)11,"FEBRUARY"),
-	MAR((byte)12,"MARCH");
+	APR((byte)1,"APRIL","APR"),
+	MAY((byte)2,"MAY","MAY"),
+	JUN((byte)3,"JUNE","JUN"),
+	JUL((byte)4,"JULY","JUL"),
+	AUG((byte)5,"AUGUST","AUG"),
+	SEP((byte)6,"SEPTEMBER","SEP"),
+	OCT((byte)7,"OCTOBER","OCT"),
+	NOV((byte)8,"NOVEMBER","NOV"),
+	DEC((byte)9,"DECEMBER","DEC"),
+	JAN((byte)10,"JANUARY","JAN"),
+	FEB((byte)11,"FEBRUARY","FEB"),
+	MAR((byte)12,"MARCH","MAR");
 	
 	private Byte code;
 	private String name;
+	private String abbr;
 	
 	/**
 	 * 
 	 */
-	private Month(byte code, String name) {
+	private Month(byte code, String name,String abbr) {
 		this.code = code;
 		this.name = name;
+		this.abbr = abbr;
 	}
 
 	
@@ -48,6 +50,15 @@ public enum Month {
 		for(Month month : Month.values()){
 			if(month.code.byteValue() == code.byteValue()){
 				return month.name;
+			}
+		}
+		return null;
+	}
+	
+	public static String findAbbrByCode(Byte  code){
+		for(Month month : Month.values()){
+			if(month.code.byteValue() == code.byteValue()){
+				return month.abbr;
 			}
 		}
 		return null;

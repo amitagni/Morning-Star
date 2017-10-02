@@ -66,7 +66,7 @@
                            </div>
                            <div class="input-field col s12 m3">
                               <label for="dob" class="">Date of Birth</label>
-                              <form:input path="studentDetails.dob" id="dob" class="datepicker" required="required" />
+                              <form:input path="studentDetails.dob" id="dob" class="datepicker" />
                               <div class="errorTxt2"></div>
                            </div>
                            <div class="input-field col s12 m3">
