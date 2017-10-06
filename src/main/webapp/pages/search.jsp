@@ -101,11 +101,21 @@
       </div>
      
       </div>
-      <script type="text/javascript" src="js/jquery.min.js"></script>
+      
+      
+ <!--      <script type="text/javascript" src="js/jquery.min.js"></script>
       <script src="js/materialize.min.js"></script>
       <script type="text/javascript" src="js/dropify.min.js"></script>
       <link href="css/jquery-ui.css" rel="Stylesheet"></link>
-<script src="js/jquery-ui.js" ></script>
+<script src="js/jquery-ui.js" ></script> -->
+
+
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.2/js/materialize.min.js"></script>
+  <script type="text/javascript" src="js/dropify.min.js"></script>
+  <link href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" rel="Stylesheet"></link>
+ <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js" ></script> 
  <script type="text/javascript">
  var stId = -1;
 	function openSelOption(obj){
@@ -126,8 +136,6 @@
 	      
 </script>
       <script type="text/javascript">
-      
-     
          $('.datepicker').pickadate({
              selectMonths: true, // Creates a dropdown to control month
              selectYears: 15 // Creates a dropdown of 15 years to control year
@@ -142,8 +150,11 @@
         
           $(document).ready(function() {
         	$('select').material_select();
-         
-            var fakedata = ['test1','test2','test3','test4','ietsanders'];
+        	/*  var fakedata = ['test1','test2','test3','test4','ietsanders'];
+ 			$("input.autocomplete").autocomplete({source:fakedata});
+         	 }); */
+          
+           var fakedata = ['test1','test2','test3','test4','ietsanders'];
 			$("input.autocomplete").autocomplete({source:function(request, response) {
 	            $.ajax({
 	                type: "get",
@@ -193,7 +204,7 @@
 			cacheLength: 1,
 			scroll: true,
 			highlight: false,
-	        delay: 300});
+	        delay: 300}); 
          });
           
         

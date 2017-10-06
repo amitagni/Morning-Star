@@ -11,7 +11,7 @@
       <title>Report</title>
       <!-- CORE CSS-->
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/css/materialize.min.css">
+      
       <link rel="stylesheet" type="text/css" href="css/dropify.min.css">
       <link rel="stylesheet" type="text/css" href="css/style.css">
       <link rel="shortcut icon" type="image/png" href="img/login.png" />
@@ -125,17 +125,27 @@
                                  </div>
                                  <div class="card-block">
                                     <div class="row" id="batch1">
-                                       <div class="col s3 m3 input-field" style="margin-left: 42px;">
+                                      <div class="col s3 m3 input-field" style="margin-left: 42px;">
                                           <i class="material-icons prefix" style="top: 11px;"> search</i>
-                                          <input type="text" id="autocomplete-input" class="autocomplete ui-autocomplete-input" autocomplete="off"><span role="status" aria-live="polite" class="ui-helper-hidden-accessible"></span>
+                                          <input type="text" id="autocomplete-input" class="autocomplete ui-autocomplete-input" ><span role="status" aria-live="polite" class="ui-helper-hidden-accessible"></span>
                                           <label for="autocomplete-input" class="">Search Account</label>
-                                       </div>
-                                    </div>
-                                    <div class="row">
+                                       </div> 
+                                        
+   <!-- <div class="col s3 m3 input-field" style="margin-left: 42px;">
+        
+          <i class="material-icons prefix">search</i>
+          <input type="text" id="autocomplete-input" class="autocomplete ui-autocomplete-input" ><span role="status" aria-live="polite" class="ui-helper-hidden-accessible"></span>
+                                          <label for="autocomplete-input" class="">Search Account</label>
+        </div> -->
+							      </div>
+							    </div>
+							  </div>
+		                  </div>
+                  <div class="row">
                                        <div class="col s3 m3"  style="line-height: 5.6; float: right;" >
                                           <a class="waves-effect waves-light btn" style="float: right;">Print</a>
                                        </div>
-                                    </div>
+                            </div>
                                     <div class="row">
                                      <c:if test="${not empty reportBean.studentDtoList}">
                                        <table id="Individual">
@@ -218,8 +228,7 @@
                                        </c:if>
                                     </div>
                                  </div>
-                              </div>
-                           </div>
+                             
                            <div id="Batch" class="col s12 m12" >
                               <h5>Class Wise</h5>
                               <br>
@@ -303,48 +312,69 @@
             </div>
          </div>
       </form:form>
-      <script type="text/javascript" src="js/jquery.min.js"></script>
-      <!-- <script src="js/materialize.min.js"></script> -->
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-      <script type="text/javascript" src="js/dropify.min.js"></script>
       
-      <script src="js/jquery.dataTables.min.js" ></script>
-      <link href="css/jquery-ui.css" rel="Stylesheet">
-      </link>
-      <script src="js/jquery-ui.js" ></script>
-      <script type="text/javascript">
+      
+ <!--     <script type="text/javascript" src="js/jquery.min.js"></script>
+      <script src="js/materialize.min.js"></script>
+      <script type="text/javascript" src="js/dropify.min.js"></script> -->
+ 
+ <script type="text/javascript" src="js/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.2/js/materialize.min.js"></script>
+  <script type="text/javascript" src="js/dropify.min.js"></script>
+  <link href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" rel="Stylesheet"></link>
+ <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js" ></script> 
+     <script type="text/javascript">
          function setReportType(reportType){
           document.getElementById("reportType").value =  reportType;
          }
          
-            $('.datepicker').pickadate({
-                selectMonths: true, // Creates a dropdown to control month
-                selectYears: 15 // Creates a dropdown of 15 years to control year
-            });
-            $(document).ready(function() {
-                // Basic
-                $('.dropify').dropify();
-                
-                // Translated
+
+         $('.datepicker').pickadate({
+             selectMonths: true, // Creates a dropdown to control month
+             selectYears: 15 // Creates a dropdown of 15 years to control year
+         });
+         $(document).ready(function() {
+             // Basic
+             $('.dropify').dropify();
+             
+             // Translated
+         
+         });
+        
+          $(document).ready(function() {
+        	$('select').material_select();
+         
+            var fakedata = ['test1','test2','test3','test4','ietsanders'];
+			$("input.autocomplete").autocomplete({source:function(request, response) {
+	            $.ajax({
+	                type: "get",
+	          		url: "fetch-studentlist.do",
+	          		cache: false,
+	          		data: {"studentName":request.term},
+	                dataType: "json",
+	                success: function(data) {
+	                    response(data);
+	                }
+	            });
+	        },
+	        select: function( event, ui ) {
+	        	console.log(ui.item.value)
+	               this.value = ui.item.label;
+	               var id = ui.item.value;
+	               document.getElementById("studentId").value = id;
+	               submitForm();
+	           	return false;
+	          }, 
+	        min_length: 3,
+			autoFocus: true,
+			cacheLength: 1,
+			scroll: true,
+			highlight: false,
+	        delay: 300});
+         });
             
-            });
-           /*  $(document).ready(function() {
-          $('#example').DataTable( {
-          	 scrollY:        '50vh',
-               scrollCollapse: true,
-               paging:         false,
-               autoWidth: false
-          } );
-         } ); */
-           
-             $(document).ready(function() {
-           	  
-           	  
-           	  
-           	$('select').material_select();
-            
-               var fakedata = ['test1','test2','test3','test4','ietsanders'];
-         $("input.autocomplete").autocomplete({source:function(request, response) {
+             var fakedata = ['test1','test2','test3','test4','ietsanders'];
+        /* 	 $(".autocomplete").autocomplete({source:function(request, response) {
                 $.ajax({
                     type: "get",
               		url: "fetch-studentlist.do",
@@ -352,6 +382,7 @@
               		data: {"studentName":request.term},
                     dataType: "json",
                     success: function(data) {
+                    	console.log(data)
                         response(data);
                     }
                 });
@@ -362,7 +393,7 @@
                var id = ui.item.value;
                document.getElementById("studentId").value = id;
                submitForm();
-            return false;
+           		 return false;
               }, 
             min_length: 3,
          autoFocus: true,
@@ -370,7 +401,7 @@
          scroll: true,
          highlight: false,
             delay: 300});
-            });
+            }); */
              
              function submitForm(){
            	  $("#reportBean").submit();
