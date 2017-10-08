@@ -499,7 +499,7 @@ font-size: 12px;
 	display:none;
 }
 .ui-autocomplete {
-    max-height: 600px !important;
+    max-height: 200px !important;
     overflow-y: auto;   /* prevent horizontal scrollbar */
     overflow-x: hidden; /* add padding to account for vertical scrollbar */
     z-index:1000 !important;
