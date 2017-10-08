@@ -1,96 +1,151 @@
 package com.ms.bean;
 
-public class DayBookBean {
+import java.util.List;
 
-	private int id;
-	
-	private String accountName;
-	
-	private String desc;
-	
-	private int transactionType;
-	
-	private int paymentType;
-	
-	private int chequeNo;
-	
-	private int epayNo;
-	
-	private int amount;
-	
+import com.ms.dto.AccountDTO;
+import com.ms.dto.DayBookDTO;
+
+/**
+ * @author Jyotsna
+ *
+ */
+public class DayBookBean extends FormBean {
+
+	private Integer id;
+	private String userAction;
+	private Byte transactionType;
+	private Byte paymentType;
+	private String chequeEpayNo;
+	private String amount;
 	private String comments;
+	private List<AccountDTO> accountList;
+	private AccountBean accountBean;
+	private List<DayBookDTO> dayBookDTOList;
 	
-
-	public int getId() {
+	
+	/**
+	 * @return the id
+	 */
+	public Integer getId() {
 		return id;
 	}
-
-	public void setId(int id) {
+	/**
+	 * @param id the id to set
+	 */
+	public void setId(Integer id) {
 		this.id = id;
 	}
-
-	public String getAccountName() {
-		return accountName;
-	}
-
-	public void setAccountName(String accountName) {
-		this.accountName = accountName;
-	}
-
-	public String getDesc() {
-		return desc;
-	}
-
-	public void setDesc(String desc) {
-		this.desc = desc;
-	}
-
-	public int getTransactionType() {
-		return transactionType;
-	}
-
-	public void setTransactionType(int transactionType) {
-		this.transactionType = transactionType;
-	}
-
-	public int getPaymentType() {
-		return paymentType;
-	}
-
-	public void setPaymentType(int paymentType) {
-		this.paymentType = paymentType;
-	}
-
-	public int getChequeNo() {
-		return chequeNo;
-	}
-
-	public void setChequeNo(int chequeNo) {
-		this.chequeNo = chequeNo;
-	}
-
-	public int getEpayNo() {
-		return epayNo;
-	}
-
-	public void setEpayNo(int epayNo) {
-		this.epayNo = epayNo;
-	}
-
-	public int getAmount() {
-		return amount;
-	}
-
-	public void setAmount(int amount) {
-		this.amount = amount;
-	}
-
+	
+	
+	/**
+	 * @return the comments
+	 */
 	public String getComments() {
 		return comments;
 	}
-
+	/**
+	 * @param comments the comments to set
+	 */
 	public void setComments(String comments) {
 		this.comments = comments;
 	}
+	/**
+	 * @return the userAction
+	 */
+	public String getUserAction() {
+		return userAction;
+	}
+	/**
+	 * @param userAction the userAction to set
+	 */
+	public void setUserAction(String userAction) {
+		this.userAction = userAction;
+	}
+	/**
+	 * @return the accountBean
+	 */
+	public AccountBean getAccountBean() {
+		return accountBean;
+	}
+	/**
+	 * @param accountBean the accountBean to set
+	 */
+	public void setAccountBean(AccountBean accountBean) {
+		this.accountBean = accountBean;
+	}
+	/**
+	 * @return the transactionType
+	 */
+	public Byte getTransactionType() {
+		return transactionType;
+	}
+	/**
+	 * @param transactionType the transactionType to set
+	 */
+	public void setTransactionType(Byte transactionType) {
+		this.transactionType = transactionType;
+	}
+	/**
+	 * @return the paymentType
+	 */
+	public Byte getPaymentType() {
+		return paymentType;
+	}
+	/**
+	 * @param paymentType the paymentType to set
+	 */
+	public void setPaymentType(Byte paymentType) {
+		this.paymentType = paymentType;
+	}
+	/**
+	 * @return the chequeEpayNo
+	 */
+	public String getChequeEpayNo() {
+		return chequeEpayNo;
+	}
+	/**
+	 * @param chequeEpayNo the chequeEpayNo to set
+	 */
+	public void setChequeEpayNo(String chequeEpayNo) {
+		this.chequeEpayNo = chequeEpayNo;
+	}
+	/**
+	 * @return the amount
+	 */
+	public String getAmount() {
+		return amount;
+	}
+	/**
+	 * @param amount the amount to set
+	 */
+	public void setAmount(String amount) {
+		this.amount = amount;
+	}
+	/**
+	 * @return the dayBookDTOList
+	 */
+	public List<DayBookDTO> getDayBookDTOList() {
+		return dayBookDTOList;
+	}
+	/**
+	 * @param dayBookDTOList the dayBookDTOList to set
+	 */
+	public void setDayBookDTOList(List<DayBookDTO> dayBookDTOList) {
+		this.dayBookDTOList = dayBookDTOList;
+	}
+	/**
+	 * @return the accountList
+	 */
+	public List<AccountDTO> getAccountList() {
+		return accountList;
+	}
+	/**
+	 * @param accountList the accountList to set
+	 */
+	public void setAccountList(List<AccountDTO> accountList) {
+		this.accountList = accountList;
+	}
+	
+	
 	
 }

@@ -219,4 +219,10 @@
 	<bean id="abacusFeeDao" class="com.ms.dao.AbacusFeeDao">
 		<property name="entityManagerFactory" ref="entityManagerFactory" />
 	</bean>
+	<bean id="dayBookDao" class="com.ms.dao.DayBookDao">
+		<property name="entityManagerFactory" ref="entityManagerFactory" />
+	</bean>
+	<bean id="accountDao" class="com.ms.dao.AccountDao">
+		<property name="entityManagerFactory" ref="entityManagerFactory" />
+	</bean>
 </beans>

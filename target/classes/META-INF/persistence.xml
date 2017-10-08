@@ -17,6 +17,8 @@
 			<class>com.ms.entity.PaidFeeSummary</class> 
 			<class>com.ms.entity.AbacusRegEntity</class>
 			<class>com.ms.entity.AbacusFee</class>
+			<class>com.ms.entity.DayBook</class>
+			<class>com.ms.entity.Account</class>
 		<exclude-unlisted-classes />
 	</persistence-unit>
 </persistence>

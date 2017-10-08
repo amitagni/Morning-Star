@@ -40,6 +40,9 @@ public interface MSConstant {
 	 String DEFAULTIMAGEPATH = "img/u.png" ;
 	 String  ABACUS= "Registration Brain &lsquo;N&rsquo; Abacus";
 	 String  DAYBOOK= "DayBook";
+	 String  LEDGER= "Ledger";
+	 String  ACCOUNT_ACTION= "1";
+	 String  DAYBOOK_ACTION= "2";
 
 	 
 }
