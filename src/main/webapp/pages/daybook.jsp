@@ -10,9 +10,9 @@
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <title>Payment</title>
       <!-- CORE CSS-->
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/css/materialize.min.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-      <link rel="stylesheet" href="css/materialize.min.css">
+      <!-- <link rel="stylesheet" href="css/materialize.min.css"> -->
       
       <link rel="stylesheet" type="text/css" href="css/style.css">
       <link rel="shortcut icon" type="image/png" href="img/login.png" />
@@ -85,7 +85,7 @@
                                  <h6>Epay</h6>
                               </div>
                               <div class="input-field col s6 m6">
-                                  <form:input placeholder="Placeholder" path="chequeEpayNo" type="text" class="validate" requird="requird" />
+                                  <form:input placeholder="Placeholder" path="chequeEpayNo" type="text" class="validate" required="required" />
                                  <label for="chequeEpayNo">Epay No</label>
                               </div>
                            </div>
@@ -95,7 +95,7 @@
                                  <h6>Cheque number</h6>
                               </div>
                               <div class="input-field col s6 m6">
-                                 <form:input placeholder="Placeholder" path="chequeEpayNo" type="text" class="validate" requird="requird"/>
+                                 <form:input placeholder="Placeholder" path="chequeEpayNo" type="text" class="validate" required="required"/>
                                  <label for="chequeEpayNo">Cheque number</label>
                               </div>
                            </div>
@@ -105,7 +105,7 @@
                                  <h6>Amount</h6>
                               </div>
                               <div class="input-field col s6 m6">
-                                 <form:input placeholder="Placeholder" id="Amount" path="amount" type="number" class="validate" requird="requird"/>
+                                 <form:input placeholder="Placeholder" id="Amount" path="amount" type="number" class="validate" required="required"/>
                                  <label for="Amount">Amount</label>
                               </div>
                            </div>
@@ -121,7 +121,7 @@
                            </div>
                            <div class="row">
                               <div class="input-field col s12 center-align ">
-                                 <button class="btn waves-effect waves-light  submit center-btn" type="submit" name="action">Submit
+                                 <button class="btn waves-effect waves-light  submit center-btn" type="button" name="action" onclick="submitForm('dayBookBean')">Submit
                                  <i class="mdi-content-send right"></i>
                                  </button>
                                  <button class="btn waves-effect waves-light  submit" type="button" name="action">Reset
@@ -188,7 +188,7 @@
                   <h6>Account Name</h6>
                </div>
                <div class="input-field col s6 m6">
-                  <form:input path="accountBean.name"  type="text" class="validate" placeholder="Name" requird="requird"/>
+                  <form:input path="accountBean.name"  type="text" class="validate" placeholder="Name" required="required"/>
                   <label for="Amount">Account Name</label>
                </div>
             </div>
@@ -198,7 +198,7 @@
                   <h6>Desc</h6>
                </div>
                <div class="input-field col s6 m6">
-                  <form:input path="accountBean.description"  type="text" class="validate" placeholder="Description" requird="requird"/>
+                  <form:input path="accountBean.description"  type="text" class="validate" placeholder="Description" required="required"/>
                   <label for="Amount">Desc</label>
                </div>
             </div>
@@ -214,27 +214,54 @@
       </div>
       </form:form>
       
-      <script type="text/javascript" src="js/jquery.min.js"></script> 
-      
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.2/js/materialize.min.js"></script>
-      
-      <link href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" rel="Stylesheet"></link>
-<script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js" ></script>
-      
-       
+       <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+  <script type="text/javascript" src="js/autocomplate.js"></script>
+  <script src="js/jquery.validate.min.js"></script>
 <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js" ></script>
 
       <script type="text/javascript">
+      
+      
+      $.validator.setDefaults({
+  	    errorClass: 'invalid',
+  	    validClass: "valid",
+  	    errorPlacement: function (error, element) {
+  	        $(element)
+  	            .closest("form")
+  	            .find("label[for='" + element.attr("id") + "']")
+  	            .attr('data-error', error.text());
+  	    },
+  	    submitHandler: function (form) {
+  	        console.log('form ok');
+  	     form.submit();
+  	    }
+  	});
          $(document).ready(function(){
         	 
         	 $(document).ready(function() {
         		 
-        		 var fakedata = ['test1','test2','test3','test4','arpit'];
-        		 $("input.autocomplete").autocomplete({source:fakedata});
+        		 /* var fakedata = ['test1','test2','test3','test4','arpit'];
+        		 $("input.autocomplete").autocomplete({source:fakedata}); */
+        		 
+        		 
+        		 
+        		 $('input.autocomplete').autocomplete({
+        			    data: {
+        			      "Apple": null,
+        			      "Microsoft": null,
+        			      "Google": 'https://placehold.it/250x250'
+        			    },
+        			    limit: 20, // The max amount of results that can be shown at once. Default: Infinity.
+        			    onAutocomplete: function(val) {
+        			      // Callback function when value is autcompleted.
+        			    },
+        			    minLength: 1, // The minimum length of the input for the autocomplete to start. Default: 1.
+        			  });
 
                  $('select').material_select(); 
                 
-                
+                 
                  $('.modal').modal({
                      dismissible: true, // Modal can be dismissed by clicking outside of the modal
                     opacity: .5,
@@ -296,9 +323,9 @@
             	 document.getElementById("userAction").value = action;
             }
             
-            function submitForm(formId){
+           /*  function submitForm(formId){
           		 $("#"+formId).submit();
-          	}
+          	} */
             
        		function deleteEntry(id){
        		 var cnf =confirm("Do you really want to delete this entry?.");
