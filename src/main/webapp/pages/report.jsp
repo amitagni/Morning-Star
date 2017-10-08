@@ -15,7 +15,7 @@
       <link rel="stylesheet" type="text/css" href="css/dropify.min.css">
       <link rel="stylesheet" type="text/css" href="css/style.css">
       <link rel="shortcut icon" type="image/png" href="img/login.png" />
-      <link rel="stylesheet" href="css/materialize.min.css" />
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
       <link href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" rel="Stylesheet">
       <style type="text/css">
          .placeholder {
@@ -39,7 +39,7 @@
          will-change: left, right;
          }
          .tabs .tab a {
-         color: #0b5a92;
+         color: #0b5a92 !important;
          display: block;
          width: 100%;
          height: 100%;
@@ -104,18 +104,20 @@
       <%@ include file="../includes/header.jsp"%>
       <form:form modelAttribute="reportBean"  action="report.do" method="post" novalidate="novalidate" >
          <form:hidden path="reportType"/>
-         <form:input path="studentId" type="text" />
+         <form:input path="studentId" type="hidden" />
          <div class="container_b">
+         
             <div class="valign-wrapper row ">
                <div class="col s12 valign">
+               
                   <div class="card-panel search-c">
                      <!-- <h4 class="header2">Search</h4> -->
                      <div class="row">
                         <div class="row">
                            <div class="col s12 m8">
                               <ul class="tabs">
-                                 <li class="tab col s3"><a href="#Individual" onclick="setReportType('1')">Individual Student</a></li>
-                                 <li class="tab col s3"><a class="active" href="#Batch"  onclick="setReportType('2')">Class Wise </a></li>
+                                 <li class="tab col s3"><a class="active" href="#Individual" onclick="setReportType('1')">Individual Student</a></li>
+                                 <li class="tab col s3"><a  href="#Batch"  onclick="setReportType('2')">Class Wise </a></li>
                               </ul>
                            </div>
                            <div id="Individual" class="col s12 m12">
@@ -127,7 +129,8 @@
                                     <div class="row" id="batch1">
                                       <div class="col s3 m3 input-field" style="margin-left: 42px;">
                                           <i class="material-icons prefix" style="top: 11px;"> search</i>
-                                          <input type="text" id="autocomplete-input" class="autocomplete ui-autocomplete-input" ><span role="status" aria-live="polite" class="ui-helper-hidden-accessible"></span>
+                                          <input type="text" id="autocomplete-input" class="autocomplete" >
+                                          <span role="status" aria-live="polite" class="ui-helper-hidden-accessible"></span>
                                           <label for="autocomplete-input" class="">Search Account</label>
                                        </div> 
                                         
@@ -318,34 +321,24 @@
       <script src="js/materialize.min.js"></script>
       <script type="text/javascript" src="js/dropify.min.js"></script> -->
  
- <script type="text/javascript" src="js/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.2/js/materialize.min.js"></script>
-  <script type="text/javascript" src="js/dropify.min.js"></script>
-  <link href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" rel="Stylesheet"></link>
- <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js" ></script> 
-     <script type="text/javascript">
-         function setReportType(reportType){
-          document.getElementById("reportType").value =  reportType;
-         }
-         
-
-         $('.datepicker').pickadate({
-             selectMonths: true, // Creates a dropdown to control month
-             selectYears: 15 // Creates a dropdown of 15 years to control year
-         });
-         $(document).ready(function() {
-             // Basic
-             $('.dropify').dropify();
-             
-             // Translated
-         
-         });
-        
-          $(document).ready(function() {
-        	$('select').material_select();
-         
-            var fakedata = ['test1','test2','test3','test4','ietsanders'];
-			$("input.autocomplete").autocomplete({source:function(request, response) {
+ <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+  <script type="text/javascript" src="js/autocomplate.js"></script>
+ 
+      <script type="text/javascript">
+      $(document).ready(function() {
+          // Basic
+          
+          
+          // Translated
+      
+      });
+     
+       $(document).ready(function() {
+     	$('select').material_select();
+      
+         var fakedata = ['test1','test2','test3','test4','ietsanders'];
+			/* $("input.autocomplete").autocomplete({source:function(request, response) {
 	            $.ajax({
 	                type: "get",
 	          		url: "fetch-studentlist.do",
@@ -370,43 +363,57 @@
 			cacheLength: 1,
 			scroll: true,
 			highlight: false,
-	        delay: 300});
-         });
-            
-             var fakedata = ['test1','test2','test3','test4','ietsanders'];
-        /* 	 $(".autocomplete").autocomplete({source:function(request, response) {
-                $.ajax({
-                    type: "get",
-              		url: "fetch-studentlist.do",
-              		cache: false,
-              		data: {"studentName":request.term},
-                    dataType: "json",
-                    success: function(data) {
-                    	console.log(data)
-                        response(data);
-                    }
-                });
-            },
-            select: function( event, ui ) {
-               console.log(ui.item.value)
-               this.value = ui.item.label;
-               var id = ui.item.value;
-               document.getElementById("studentId").value = id;
-               submitForm();
-           		 return false;
-              }, 
-            min_length: 3,
-         autoFocus: true,
-         cacheLength: 1,
-         scroll: true,
-         highlight: false,
-            delay: 300});
-            }); */
-             
-             function submitForm(){
-           	  $("#reportBean").submit();
-             }
-           
+	        delay: 300}); */
+	        
+         $('input.autocomplete').autocomplete({
+        	    data: {
+        	      "Apple": null,
+        	      "Microsoft": null,
+        	      "Google": 'https://placehold.it/250x250'
+        	    },
+        	    limit: 20, // The max amount of results that can be shown at once. Default: Infinity.
+        	    onAutocomplete: function(val) {
+        	      // Callback function when value is autcompleted.
+        	    },
+        	    minLength: 1, // The minimum length of the input for the autocomplete to start. Default: 1.
+        	  });
+
+      });
+       
+         
+          var fakedata = ['test1','test2','test3','test4','ietsanders'];
+     /* 	 $(".autocomplete").autocomplete({source:function(request, response) {
+             $.ajax({
+                 type: "get",
+           		url: "fetch-studentlist.do",
+           		cache: false,
+           		data: {"studentName":request.term},
+                 dataType: "json",
+                 success: function(data) {
+                 	console.log(data)
+                     response(data);
+                 }
+             });
+         },
+         select: function( event, ui ) {
+            console.log(ui.item.value)
+            this.value = ui.item.label;
+            var id = ui.item.value;
+            document.getElementById("studentId").value = id;
+            submitForm();
+        		 return false;
+           }, 
+         min_length: 3,
+      autoFocus: true,
+      cacheLength: 1,
+      scroll: true,
+      highlight: false,
+         delay: 300});
+         }); */
+          
+          function submitForm(){
+        	  $("#reportBean").submit();
+          }           
            
       </script>
       <!--materialize js-->
