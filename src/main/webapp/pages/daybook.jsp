@@ -18,7 +18,7 @@
       <link rel="shortcut icon" type="image/png" href="img/login.png" />
    <body class="dashboard-body">
       <%@ include file="../includes/header.jsp"%>
-      <form:form  modelAttribute="dayBookBean"  action="daybook.do" method="post" class="formValidate" novalidate="novalidate">
+      <form:form  modelAttribute="dayBookBean"  action="daybook.do" method="post" name="dayBookBean" class="formValidate" novalidate="novalidate">
       <form:hidden  path="transactionType"/>
       <form:hidden path="paymentType"/>
       <div class="container_b">
@@ -53,7 +53,7 @@
                                  <a class="modal-trigger" href="#modal1" style="margin-top: 6px;"><i class="material-icons left" style="
                                     font-size: 35px;
                                     margin-left: -22px;" 
-                                    onclick="setAction('1')";>add_circle_outline</i></a>
+                                    onclick="setAction('1')">add_circle_outline</i></a>
                               </div>
                            </div>
                            <div class="row">
@@ -86,11 +86,11 @@
                                  <h6>Epay</h6>
                               </div>
                               <div class="input-field col s6 m6">
-<<<<<<< Updated upstream
-                                  <form:input placeholder="Placeholder" path="chequeEpayNo" type="text" class="validate" required="required" />
-=======
-                                  <form:input path="chequeEpayNo" type="text" class="validate" requird="requird" />
->>>>>>> Stashed changes
+
+                                  
+
+                                  <form:input path="chequeEpayNo" type="text" id="chequeEpayNo" placeholder="Epay No" requird="requird" />
+
                                  <label for="chequeEpayNo">Epay No</label>
                               </div>
                            </div>
@@ -100,11 +100,11 @@
                                  <h6>Cheque number</h6>
                               </div>
                               <div class="input-field col s6 m6">
-<<<<<<< Updated upstream
-                                 <form:input placeholder="Placeholder" path="chequeEpayNo" type="text" class="validate" required="required"/>
-=======
-                                 <form:input  path="chequeEpayNo" type="text" class="validate" requird="requird"/>
->>>>>>> Stashed changes
+
+                                
+
+                                 <form:input  path="chequeEpayNo" placeholder="Cheque number" id="chequeEpayNo" type="text"  requird="requird"/>
+
                                  <label for="chequeEpayNo">Cheque number</label>
                               </div>
                            </div>
@@ -114,12 +114,10 @@
                                  <h6>Amount</h6>
                               </div>
                               <div class="input-field col s6 m6">
-<<<<<<< Updated upstream
-                                 <form:input placeholder="Placeholder" id="Amount" path="amount" type="number" class="validate" required="required"/>
-=======
-                                 <form:input  id="Amount" path="amount" type="number" class="validate" requird="requird"/>
->>>>>>> Stashed changes
-                                 <label for="Amount">Amount</label>
+
+                                 <form:input placeholder="Amount" id="Amount" path="amount" type="number"  required="required"/>
+
+                                <label for="Amount">Amount</label>
                               </div>
                            </div>
                            <div class="row">
@@ -191,7 +189,7 @@
             </div>
          </div>
       </div>
-      </div>
+     
       <div id="modal1" class="modal">
          <div class="modal-content">
             <h4>Account Creation(A/C)</h4>
@@ -227,51 +225,51 @@
       </div>
       </form:form>
       
-<<<<<<< Updated upstream
+<!-- 
        <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
   <script type="text/javascript" src="js/autocomplate.js"></script>
   <script src="js/jquery.validate.min.js"></script>
-<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js" ></script>
-=======
-      <!-- <script type="text/javascript" src="js/jquery.min.js"></script> 
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.2/js/materialize.min.js"></script>
-      <link href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" rel="Stylesheet"></link>
-	  <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js" ></script>
-      <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js" ></script>  -->
->>>>>>> Stashed changes
-
-      
-        <script type="text/javascript" src="js/jquery.min.js"></script>
-       <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-       <script type="text/javascript" src="js/dropify.min.js"></script>
-       <link href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" rel="Stylesheet"></link>
-	   <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js" ></script>     
-      
+<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js" ></script>      
+	 -->     
+      <script type="text/javascript" src="js/jquery.min.js"></script>
+      <script src="js/materialize.min.js"></script>
+      <script type="text/javascript" src="js/dropify.min.js"></script>
+       <link href="css/jquery-ui.css" rel="Stylesheet"></link>
+<script src="js/jquery-ui.js" ></script>
+<script src="js/jquery.validate.min.js"></script>
+      <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js" ></script>
       
       
       <script type="text/javascript">
       
       
-      $.validator.setDefaults({
-  	    errorClass: 'invalid',
-  	    validClass: "valid",
-  	    errorPlacement: function (error, element) {
-  	        $(element)
-  	            .closest("form")
-  	            .find("label[for='" + element.attr("id") + "']")
-  	            .attr('data-error', error.text());
-  	    },
-  	    submitHandler: function (form) {
-  	        console.log('form ok');
-  	     form.submit();
-  	    }
-  	});
          $(document).ready(function(){
         	 
-        
+        	 $.validator.setDefaults({
+            	    errorClass: 'invalid',
+            	    validClass: "valid",
+            	    errorPlacement: function (error, element) {
+            	        $(element)
+            	            .closest("form")
+            	            .find("label[for='" + element.attr("id") + "']")
+            	            .attr('data-error', error.text());
+            	    },
+            	    submitHandler: function (form) {
+            	        console.log('form ok');
+            	     form.submit();
+            	    }
+            	});
+         	$(".formValidate").validate({
+        	    rules: {
+        	        dateField: {
+        	            date: true
+        	        }
+        	    }
+        	
+        	}); 
         		 
-<<<<<<< Updated upstream
+
         		 /* var fakedata = ['test1','test2','test3','test4','arpit'];
         		 $("input.autocomplete").autocomplete({source:fakedata}); */
         		 
@@ -298,7 +296,7 @@
                     opacity: .5,
                     }); 
                     
-=======
+
    		 var fakedata = ['test1','test2','test3','test4','arpit'];
    		 $("input.autocomplete").autocomplete({source:fakedata});
 
@@ -308,7 +306,7 @@
                opacity: .5,
            }); 
                
->>>>>>> Stashed changes
+
                
               
                 
@@ -365,9 +363,11 @@
             	 document.getElementById("userAction").value = action;
             }
             
-           /*  function submitForm(formId){
-          		 $("#"+formId).submit();
-          	} */
+             function submitForm(formId){
+            	
+            	    	 $("#"+formId).submit();
+            	
+          	  } 
             
        		function deleteEntry(id){
        		 var cnf =confirm("Do you really want to delete this entry?.");
