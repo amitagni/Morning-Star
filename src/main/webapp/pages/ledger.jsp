@@ -69,25 +69,42 @@
                         
                         
                           <div class="input-field col s12 m2">
-          <i class="material-icons prefix">search</i>
+          <!-- <i class="material-icons prefix">search</i>
           <input type="text" id="autocomplete-input" class="autocomplete">
-          <label for="autocomplete-input">Autocomplete</label>
+          <label for="autocomplete-input">Autocomplete</label> -->
+          <form:select class="error browser-default" path="id"  >
+                                		<form:options items="${ledgerBean.accountList}" itemValue="id"  itemLabel="accountName" />
+                          		</form:select> 
+                                
         </div>
 
                         
-                        <div class="col s12 m4" style="line-height: 6;">Transaction Type<input name="group1" type="radio" id="test1" />
-      <label for="test1">Credit</label>
-      <input name="group1" type="radio" id="test2" />
-      <label for="test2">Debit</label>
-       <input name="group1" type="radio" id="test3" />
-      <label for="test3">Both</label>
+                        <div class="col s12 m4" style="line-height: 6;">Transaction Type'
+                          <input name="group1" type="radio" id="test1" onclick="setTrType('1')" />
+					      <label for="test1">Credit</label>
+					      <input name="group1" type="radio" id="test2" onclick="setTrType('2')" />
+					      <label for="test2">Debit</label>
+					       <input name="group1" type="radio" id="test3" onclick="setTrType('3')" />
+					      <label for="test3">Both</label>
 
                         </div>
-                        <div class="col s12 m2 input-field "><i class="material-icons prefix">perm_contact_calendar</i><input type="text" class="datepicker"><label for="icon_prefix">From</label></div>
-                        <div class="col s12 m2 input-field "><i class="material-icons prefix">perm_contact_calendar</i><input type="text" class="datepicker1"><label for="icon_prefix">To</label></div>
-                        <div class="col s12 m2" style="
-    line-height: 5;
-"><a href="#" class="waves-effect waves-light btn">Go</a></div>
+                        <div class="col s12 m2 input-field ">
+                        	<i class="material-icons prefix">perm_contact_calendar</i>
+                        	 <label for="startDate" class="">From</label>
+                              <form:input path="startDate"  class="datepicker" />
+                              <div class="errorTxt2"></div>
+                        	<!-- <input type="text" class="datepicker"><label for="icon_prefix">From</label> -->
+                        </div>
+                        <div class="col s12 m2 input-field ">
+                        	<i class="material-icons prefix">perm_contact_calendar</i>
+                        	<label for="endDate" class="">To</label>
+                              <form:input path="endDate"  class="datepicker" />
+                              <div class="errorTxt2"></div>
+                        	<!-- <input type="text" class="datepicker1"><label for="icon_prefix">To</label> -->
+                        </div>
+                        <div class="col s12 m2" style="line-height: 5;">
+                        		<a href="javascript:submitForm('ledgerBean')" class="waves-effect waves-light btn">Go</a>
+                        </div>
 
 
 
@@ -177,7 +194,9 @@ $('#example').DataTable( {
 
   });
        
-         
+      function submitForm(formId){
+   		 $("#"+formId).submit();
+   	}     
          
          
         

@@ -36,16 +36,17 @@
                                  <h6>Account</h6>
                               </div>
                               <div class="col s6 m6 input-field" style="margin-left: 42px;">
-                                 <i class="material-icons prefix" style="top: 11px;"> search</i>
-                                    <input type="text" id="autocomplete-input" class="autocomplete">
-          
-                        
-                                   <!-- <span role="status" aria-live="polite" class="ui-helper-hidden-accessible"></span> -->
-                                <%-- <form:select class="error browser-default" path="accountBean.id" id="lastClass" >
-                                		<form:options items="${dayBookBean.accountList}" itemValue="id"  itemLabel="accountName"  />
-                          		</form:select> --%>
+                              <!--    
+                               <i class="material-icons prefix" style="top: 11px;"> search</i>
+                               <input type="text" id="autocomplete-input" class="autocomplete">
+                              -->
+                              
+                                <span role="status" aria-live="polite" class="ui-helper-hidden-accessible"></span>
+                                <form:select class="error browser-default" path="accountBean.id" id="lastClass" >
+                                		<form:options items="${dayBookBean.accountList}" itemValue="id"  itemLabel="accountName" />
+                          		</form:select> 
                                 
-                                 <label for="autocomplete-input" class="">Search Account</label>
+                              
                               </div>
                               <div class="col s6 m3">
                                  <br>
@@ -60,9 +61,9 @@
                                  <h6>Transaction Type</h6>
                               </div>
                               <div class="col s6 m9">
-                                 <input name="group1" type="radio" id="test12" onclick="setTrType('1')" />
+                                 <input name="group1" type="radio" id="test12"  value="1" onclick="setTrType('1')" />
                                  <label for="test12">Credit  </label>
-                                 <input name="group1" type="radio" id="test13" onclick="setTrType('2')" checked/>
+                                 <input name="group1" type="radio" id="test13" value="2" onclick="setTrType('2')" checked />
                                  <label for="test13">Debit</label>
                               </div>
                            </div>
@@ -71,7 +72,7 @@
                                  <h6>Payment Type</h6>
                               </div>
                               <div class="col s6 m9">
-                                 <input name="group1" type="radio" id="test1" value="1" onchange="checkbox(this)" onclick="setPyType('1')" checked/>
+                                 <input name="group1" type="radio" id="test1"   value="1" onchange="checkbox(this)" onclick="setPyType('1')" checked/>
                                  <label for="test1">Cash </label>
                                  <input name="group1" type="radio" id="test2" value="2" onchange="checkbox(this)" onclick="setPyType('2')" />
                                  <label for="test2">Epay</label>
@@ -85,7 +86,11 @@
                                  <h6>Epay</h6>
                               </div>
                               <div class="input-field col s6 m6">
+<<<<<<< Updated upstream
                                   <form:input placeholder="Placeholder" path="chequeEpayNo" type="text" class="validate" required="required" />
+=======
+                                  <form:input path="chequeEpayNo" type="text" class="validate" requird="requird" />
+>>>>>>> Stashed changes
                                  <label for="chequeEpayNo">Epay No</label>
                               </div>
                            </div>
@@ -95,7 +100,11 @@
                                  <h6>Cheque number</h6>
                               </div>
                               <div class="input-field col s6 m6">
+<<<<<<< Updated upstream
                                  <form:input placeholder="Placeholder" path="chequeEpayNo" type="text" class="validate" required="required"/>
+=======
+                                 <form:input  path="chequeEpayNo" type="text" class="validate" requird="requird"/>
+>>>>>>> Stashed changes
                                  <label for="chequeEpayNo">Cheque number</label>
                               </div>
                            </div>
@@ -105,7 +114,11 @@
                                  <h6>Amount</h6>
                               </div>
                               <div class="input-field col s6 m6">
+<<<<<<< Updated upstream
                                  <form:input placeholder="Placeholder" id="Amount" path="amount" type="number" class="validate" required="required"/>
+=======
+                                 <form:input  id="Amount" path="amount" type="number" class="validate" requird="requird"/>
+>>>>>>> Stashed changes
                                  <label for="Amount">Amount</label>
                               </div>
                            </div>
@@ -214,12 +227,29 @@
       </div>
       </form:form>
       
+<<<<<<< Updated upstream
        <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
   <script type="text/javascript" src="js/autocomplate.js"></script>
   <script src="js/jquery.validate.min.js"></script>
 <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js" ></script>
+=======
+      <!-- <script type="text/javascript" src="js/jquery.min.js"></script> 
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.2/js/materialize.min.js"></script>
+      <link href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" rel="Stylesheet"></link>
+	  <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js" ></script>
+      <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js" ></script>  -->
+>>>>>>> Stashed changes
 
+      
+        <script type="text/javascript" src="js/jquery.min.js"></script>
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+       <script type="text/javascript" src="js/dropify.min.js"></script>
+       <link href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" rel="Stylesheet"></link>
+	   <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js" ></script>     
+      
+      
+      
       <script type="text/javascript">
       
       
@@ -239,8 +269,9 @@
   	});
          $(document).ready(function(){
         	 
-        	 $(document).ready(function() {
+        
         		 
+<<<<<<< Updated upstream
         		 /* var fakedata = ['test1','test2','test3','test4','arpit'];
         		 $("input.autocomplete").autocomplete({source:fakedata}); */
         		 
@@ -267,8 +298,19 @@
                     opacity: .5,
                     }); 
                     
+=======
+   		 var fakedata = ['test1','test2','test3','test4','arpit'];
+   		 $("input.autocomplete").autocomplete({source:fakedata});
+
+            $('select').material_select(); 
+            $('.modal').modal({
+                dismissible: true, // Modal can be dismissed by clicking outside of the modal
+               opacity: .5,
+           }); 
                
-               });
+>>>>>>> Stashed changes
+               
+              
                 
          
           

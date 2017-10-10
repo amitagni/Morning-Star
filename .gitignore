@@ -17,3 +17,9 @@ target/classes/META-INF/persistence.xml
 .settings/org.eclipse.jdt.core.prefs
 *.class
 *.class
+*.class
+target/classes/com/ms/bean/Login.class
+*.class
+target/classes/com/ms/util/MSConstant.class
+*.class
+target/classes/com/ms/entity/User.class

@@ -48,16 +48,18 @@ public class ReportController {
 	@RequestMapping(value = "/report", method = {RequestMethod.POST, RequestMethod.GET  })
 	public ModelAndView report(@ModelAttribute("reportBean") @Validated ReportBean reportBean, BindingResult bindingResult, Model model,HttpServletRequest request) {
 		if (request.getMethod().equalsIgnoreCase(RequestMethod.GET.name())) {
-			reportBean.setReportType( ReportType.STUDENT.getCode().byteValue());
+			reportBean.setReportType(ReportType.STUDENT.getCode().byteValue());
 		}else{
 			List<Object> objectList = null;
 			if(reportBean.getReportType().byteValue() == ReportType.CLASSWISE.getCode().byteValue()){
+				reportBean.setReportType(ReportType.STUDENT.getCode().byteValue());
 				if(reportBean.getSelClass().byteValue() == -1)
 					objectList = reportService.fetchAllStudentFeeReport();
 				else
 				 objectList = reportService.fetchAllStudentFeeReport(String.valueOf(reportBean.getCurrentClass()));
 			}else if(reportBean.getReportType().byteValue() == ReportType.STUDENT.getCode().byteValue()){
 			  objectList = reportService.fetchStudentFeeReport(String.valueOf(reportBean.getStudentId()));
+			  reportBean.setReportType(ReportType.STUDENT.getCode().byteValue());
 			}
 			
 			if(objectList != null){

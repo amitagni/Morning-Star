@@ -2,6 +2,7 @@ package com.ms.bean;
 
 import java.util.List;
 
+import com.ms.dto.AccountDTO;
 import com.ms.dto.DayBookDTO;
 
 
@@ -12,6 +13,7 @@ public class LedgerBean extends FormBean {
     private String startDate;
     private String endDate;
 	private List<DayBookDTO> dayBookDTOList;
+	private List<AccountDTO> accountList;
 	
 	/**
 	 * @return the id
@@ -72,6 +74,18 @@ public class LedgerBean extends FormBean {
 	 */
 	public void setTransactionType(Byte transactionType) {
 		this.transactionType = transactionType;
+	}
+	/**
+	 * @return the accountList
+	 */
+	public List<AccountDTO> getAccountList() {
+		return accountList;
+	}
+	/**
+	 * @param accountList the accountList to set
+	 */
+	public void setAccountList(List<AccountDTO> accountList) {
+		this.accountList = accountList;
 	}
 	
 

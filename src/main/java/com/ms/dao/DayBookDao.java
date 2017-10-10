@@ -16,7 +16,7 @@ private static final long serialVersionUID = 1L;
 
 
 	public List<DayBook> findDayBookEntryByDate(Date date){
-		Query query = getEntityManager().createQuery("Select db from DayBook db where db.active = 1 and db.createdAt > "+date);
+		Query query = getEntityManager().createQuery("Select db from DayBook db where db.active = 1");
 		@SuppressWarnings("unchecked")
 		List<DayBook> list = query.getResultList();
 		if (list != null && list.size() > 0) {

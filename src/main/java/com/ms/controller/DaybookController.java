@@ -41,9 +41,9 @@ public class DaybookController {
 	public ModelAndView daybook(@ModelAttribute("dayBookBean") DayBookBean dayBookBean, BindingResult bindingResult, Model model, HttpServletRequest request) {
 		SessionUtil.setPage(MSConstant.DAYBOOK);
 		if (request.getMethod().equalsIgnoreCase(RequestMethod.GET.name())) {
-			dayBookBean.setAccountList(populateAccopuntList());
+			dayBookBean.setAccountList(populateAccoountList());
 			dayBookBean.setUserAction(MSConstant.DAYBOOK_ACTION);
-			//dayBookBean.setDayBookDTOList(populateCurrentDateDaybook());
+			dayBookBean.setDayBookDTOList(populateCurrentDateDaybook());
 			return new ModelAndView("daybook", "dayBookBean", dayBookBean);
 		} else {
 			try {
@@ -69,6 +69,7 @@ public class DaybookController {
 	public ModelAndView ledger(@ModelAttribute("ledgerBean") LedgerBean ledgerBean, BindingResult bindingResult, Model model, HttpServletRequest request) {
 		SessionUtil.setPage(MSConstant.LEDGER);
 		if (request.getMethod().equalsIgnoreCase(RequestMethod.GET.name())) {
+			ledgerBean.setAccountList(populateAccoountList());
 			return new ModelAndView("ledger", "ledgerBean", ledgerBean);
 		}else{
 			return new ModelAndView("ledger", "ledgerBean", ledgerBean);
@@ -78,7 +79,7 @@ public class DaybookController {
 	/**
 	 * @return
 	 */
-	private List<AccountDTO> populateAccopuntList() {
+	private List<AccountDTO> populateAccoountList() {
 		List<Account> accounts  = dayBookService.findAllAccounts();
 		List<AccountDTO> accountDTOList = new ArrayList<>();
 		if(accounts != null){
