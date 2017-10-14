@@ -28,8 +28,12 @@ font-size:8px !important;
     font-weight: bold;
     margin: 0px;
 }
-span,th,h6{
+span,h6{
 font-size: 7px!important;
+}
+th{
+font-size: 7px!important;
+font-size:bold;
 }
 .tex-morning{
 margin: 0px;
@@ -88,8 +92,8 @@ margin: 0px;
 								<thead style="border: none;">
 									<tr>
 										<th
-											style="word-wrap: break-word; border: none; font-size: 10px; font-weight: 400;">
-											<span style="font-size: 14px; font-weight: bold;">Month's:</span>
+											style="word-wrap: break-word; border: none; font-size: 10px; font-weight: bold;">
+											<span style="font-size: 14px; font-weight: bold;">Months:</span>
 											${feeFormBean.months }
 										</th>
 									</tr>
@@ -234,8 +238,8 @@ margin: 0px;
 								<thead style="border: none;">
 									<tr>
 										<th
-											style="word-wrap: break-word; border: none; font-size: 10px; font-weight: 400;">
-											<span style="font-size: 14px; font-weight: bold;">Month's:</span>
+											style="word-wrap: break-word; border: none; font-size: 10px; font-weight: bold;">
+											<span style="font-size: 14px; font-weight: bold;">Months:</span>
 											${feeFormBean.months }
 										</th>
 									</tr>
