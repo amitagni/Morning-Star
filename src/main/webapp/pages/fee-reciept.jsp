@@ -139,7 +139,7 @@ margin: 0px;
 									</c:forEach>
 									<c:if test="${feeFormBean.quarterlyFeeList.size() > 0  }">
 										<tr>
-											<td colspan="3"><h6>Exam Fee</h6></td>
+											<td colspan="4"><h6>Exam Fee</h6></td>
 										</tr>
 										<c:forEach items="${feeFormBean.quarterlyFeeList}"
 											var="feeDto" varStatus="status">
@@ -153,7 +153,7 @@ margin: 0px;
 									</c:if>
 									<c:if test="${feeFormBean.halfyearlyFeeList.size() > 0  }">
 										<tr>
-											<td colspan="3"><h6>Annual Function Fee</h6></td>
+											<td colspan="4"><h6>Annual Function Fee</h6></td>
 										</tr>
 										<c:forEach items="${feeFormBean.halfyearlyFeeList}"
 											var="feeDto" varStatus="status">
@@ -167,7 +167,7 @@ margin: 0px;
 									</c:if>
 									<c:if test="${feeFormBean.anualFeeList.size() > 0  }">
 										<tr>
-											<td colspan="3"><h6>Annual Fee</h6></td>
+											<td colspan="4"><h6>Annual Fee</h6></td>
 										</tr>
 										<c:forEach items="${feeFormBean.anualFeeList}" var="feeDto"
 											varStatus="status">
@@ -286,7 +286,7 @@ margin: 0px;
 									</c:forEach>
 									<c:if test="${feeFormBean.quarterlyFeeList.size() > 0  }">
 										<tr>
-											<td colspan="3"><h6>Exam Fee</h6></td>
+											<td colspan="4"><h6>Exam Fee</h6></td>
 										</tr>
 										<c:forEach items="${feeFormBean.quarterlyFeeList}"
 											var="feeDto" varStatus="status">
@@ -300,7 +300,7 @@ margin: 0px;
 									</c:if>
 									<c:if test="${feeFormBean.halfyearlyFeeList.size() > 0  }">
 										<tr>
-											<td colspan="3"><h6>Annual Function Fee</h6></td>
+											<td colspan="4"><h6>Annual Function Fee</h6></td>
 										</tr>
 										<c:forEach items="${feeFormBean.halfyearlyFeeList}"
 											var="feeDto" varStatus="status">
@@ -314,7 +314,7 @@ margin: 0px;
 									</c:if>
 									<c:if test="${feeFormBean.anualFeeList.size() > 0  }">
 										<tr>
-											<td colspan="3"><h6>Annual Fee</h6></td>
+											<td colspan="4"><h6>Annual Fee</h6></td>
 										</tr>
 										<c:forEach items="${feeFormBean.anualFeeList}" var="feeDto"
 											varStatus="status">
