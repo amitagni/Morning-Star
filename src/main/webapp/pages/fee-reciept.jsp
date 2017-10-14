@@ -4,398 +4,366 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
-   <head>
-      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <title>Fee Receipt </title>
-      <!-- CORE CSS-->
-      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-      
-      <link rel="stylesheet" type="text/css" href="css/dropify.min.css">
-      <link rel="stylesheet" type="text/css" href="css/style.css">
-      <link rel="shortcut icon" type="image/png" href="img/login.png" />
-       <link rel="stylesheet" type="text/css" media="print" href="css/print.css">
-      <link rel="stylesheet" href="css/materialize.min.css">
-	  <style>
-	 hr{
-		 color: #000;
-    width: 81%;
-    margin-left: 9px;
-    margin-top: 35px;
-	 }
-	  </style>
-   <body class="dashboard-body">
-      <%@ include file="../includes/header.jsp"%>
-      <div class="container_b">
-  	  <div class="valign-wrapper row row_form">
-         <div class="col s12 m12 card-margin card-panel valign">
-            <ul class="breadcrumb">
-               <li ><a href="javascript:void();">Enrollment</a>
-               </li>
-               <li ><a href="javascript:void();">Fee Details</a>
-               </li>
-               <li ><a href="javascript:void();">Payment</a>
-               </li>
-               <li class="active_list"><a href="javascript:void();">Receipt</a>
-               </li>
-            </ul>
-         </div>
-      </div>
-      </div>
-     <div class="row_form valign-wrapper">
-         <div class="col s12 m12 recipt-width">
-            <div class="card-panel card-main">
-        
-          <div class="col s12 m12 text-center logo-recipt">
-            <img src="img/login.png" alt="" class="responsive-img valign profile-image-login size-logo center ">
-          </div>
-      
-            <h3 class="text-center">Fee Receipt</h3>
-            <br>
-               
-               
-               
-<h6 class="h6-p">Student ID  -  ${feeFormBean.studentMSId }<span class="h6-p right">Month     - ${feeFormBean.months }</span></h6>
-<h6 class="h6-p">Name        - ${feeFormBean.studentName }</h6>
-<h6 class="h6-p">Class       - ${feeFormBean.studentClass }</h6>
-<br>
-<div class="row">
-                  <form:form class="formValidate" id="formValidate"  modelAttribute="feeFormBean"  action="fee.do"  novalidate="novalidate">
-                  
-                     <div class="row">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Fee Receipt</title>
 
-                        <!-- <div class="col s12 m12">
-                           <h5> Monthly Fee</h5>
-                        </div> -->
-                        <div class="col s12 m12">
-                          <c:forEach items="${feeFormBean.monthlyFeeList}" var="feeDto" varStatus="status">
-	                        <div class="col s3 m3 col-fee">
-	                           <label class="label-fee">${feeDto.name}</label>
-	                        </div>
-	
-	                         <div class="input-field col s3 m3">
-	                            <p>${feeDto.amount}</p>
-	          
-	                         </div>
-	                         <div class="input-field col s3 m3">
-	                             <p>${feeDto.discount}</p>
-	                         </div>
-	                         <div class="input-field col s3 m3">
-	                           <p>${feeDto.paidAmount}</p>
-	                         </div>
-                         </c:forEach>
-                         
-	                         <!-- <div class="col s12 m3 col-fee">
-	                           <label class="label-fee">M.F</label>
-	                        </div>
-	                        
-	                         <div class="input-field col s12 m3">
-	                            <p>1234</p>
-	          
-	                         </div>
-	                         <div class="input-field col s12 m3">
-	                            <p>1234</p>
-	          
-	                         </div>
-	                         <div class="input-field col s12 m3">
-	                           <p>1234</p>
-	          
-	                         </div>
-	                         <div class="col s12 m3 col-fee">
-	                           <label class="label-fee">Tution Fee</label>
-	                        </div>
-	                        
-	                         <div class="input-field col s12 m3">
-	                           <p>1234</p>
-	          
-	                         </div>
-	                         <div class="input-field col s12 m3">
-	                            <p>1234</p>
-	          
-	                         </div>
-	                         <div class="input-field col s12 m3">
-	                           <p>1234</p>
-	                         </div> -->
-	                         
-                         </div>
-                         <!-- <div class="col s12 m12">
-                           <h5>Quarterly Fee</h5>
-                        </div> -->
-                        <c:if test="${feeFormBean.quarterlyFeeList.size() > 0  }">
-						<div class="col s12 m13">
-						<h4>Exam Fee</h4>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+	rel="stylesheet">
+
+<link rel="stylesheet" href="css/materialize.min.css">
+<link rel="shortcut icon" type="image/png" href="images/login.png" />
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/print.css">
+<style>
+  @media print {
+body{
+font-size:8px !important;
+}
+.box-print>div>p {
+    font-size: 8px!important;
+    font-weight: bold;
+    margin: 0px;
+}
+span,th,h6{
+font-size: 7px!important;
+}
+.tex-morning{
+margin: 0px;
+    padding: 0px;}
+.card-pane{
+    margin: 0px;
+    padding: 0px !important;}
+
+.navbar-fixed {
+    display: none;
+}
+}
+  
+  </style>
+</head>
+<body class="dashboard-body">
+
+	<%@ include file="../includes/header.jsp"%>
+	<div class="container_b">
+		<div class="valign-wrapper row row_form"></div>
+	</div>
+	<div class="row_form valign-wrapper">
+
+		<div class="col s12 m12 recipt-width">
+			<div class="card-panel card-main">
+		
+					<!-- <p id="bg-text">adsad</p> -->
+					<div class="row">
+						<div class="col s3 m3">
+							<img src="img/login.png" alt=""
+								class="responsive-img valign profile-image-login size-logo center ">
+
 						</div>
-                        <div class="col s12 m12">
-						 <c:forEach items="${feeFormBean.quarterlyFeeList}" var="feeDto" varStatus="status">
-                        	<div class="col s3 m3 col-fee">
-	                           <label class="label-fee">${feeDto.name}</label>
-	                        </div>
-	                      <%-- <c:out value="${feeFormBean.quarterlyFeeList.size() > 0  }"></c:out> --%>
-		                       
-		                         <div class="input-field col s3 m3">
-		                            <p>${feeDto.amount}</p>
-		          
-		                         </div>
-		                         <div class="input-field col s3 m3">
-		                           <p>${feeDto.discount}</p>
-		          
-		                         </div>
-		                         <div class="input-field col s3 m3">
-		                            <p>${feeDto.paidAmount}</p>
-		                         </div>
-		                         
-		                    </c:forEach>     
-	                    
-                        
-                       <!--  <div class="input-field col s12 m2">
-                            <p class="text-center">AUG</p>
-                           
-                         </div>
-                         <div class="input-field col s12 m2">
-                            <p>1234</p>
-          
-                         </div>
-                         <div class="input-field col s12 m2">
-                            <p>1234</p>
-          
-                         </div>
-                         <div class="input-field col s12 m2">
-                            <p>1234</p>
-          
-                         </div>
-                         <div class="col s12 m3 col-fee">
-                          &nbsp;
-                        </div>
-                        <div class="input-field col s12 m2">
-                            <p class="text-center">SEP</p>
-                           
-                         </div>
-                         <div class="input-field col s12 m2">
-                            <p>1234</p>
-          
-                         </div>
-                         <div class="input-field col s12 m2">
-                            <p>1234</p>
-          
-                         </div>
-                         <div class="input-field col s12 m2">
-                            <p>1234</p>
-          
-                         </div>
-                         <div class="col s12 m3 col-fee">
-                          &nbsp;
-                        </div>
-                         <div class="input-field col s12 m2">
-                            <p class="text-center">OCT</p>
-                           
-                         </div>
-                         <div class="input-field col s12 m2">
-                            <p>1234</p>
-          
-                         </div>
-                         <div class="input-field col s12 m2"><p>1234</p>
-          
-                         </div>
-                         <div class="input-field col s12 m2">
-                            <p>1234</p>
-          
-                         </div> -->
-                         <!-- <div class="col s12 m12">
-                           <h5>Half yeraly Fee</h5>
-                        </div> -->
-                        </div>
-                         </c:if>  
-                        <c:if test="${feeFormBean.halfyearlyFeeList.size() > 0  }">
-						<div class="col s12 m13">
-						<h4>Anual Fee</h4>
+						<div class="col m9 s9 tex-morning">
+							<h4 class="tex-font">MORNING STAR CHILDREN'S SR. SEC.
+								ACADEMY</h4>
 						</div>
-						<div class="col s12 m12">
-						 <c:forEach items="${feeFormBean.halfyearlyFeeList}" var="feeDto" varStatus="status">
-                        	
-	                        <div class="col s3 m3 col-fee">
-	                           <label class="label-fee">${feeDto.name}</label>
-	                        </div>
-                        
-	                        
-	                        
-		                        
-		                        
-		                         <div class="input-field col s3 m3">
-		                            <p>${feeDto.amount}</p>
-		          
-		                         </div>
-		                         <div class="input-field col s3 m3">
-		                           <p>${feeDto.discount}</p>
-		          
-		                         </div>
-		                         <div class="input-field col s3 m3">
-		                            <p>${feeDto.paidAmount}</p>
-		                         </div>
-		                         
-		                    </c:forEach> 
-		                   </div>
-                       </c:if>
-                        
-                     <!--      <div class="input-field col s12 m2">
-                            <p class="red-done"><i class="material-icons font-size-icon">info_outline</i><span>DEC </span></p>
-                           
-                         </div>
+					</div>
+					<div class="row box-print">
+						<div class="col m6 s6 ">
+							<p>
+								Student ID <span>${feeFormBean.studentMSId }</span>
+							</p>
+							<p>
+								Name :<span>${feeFormBean.studentName }</span>
+							</p>
+							<p>
+								Class :<span>${feeFormBean.studentClass }</span>
+							</p>
 
-                         <div class="input-field col s12 m2">
-                            <p>1234</p>
-          
-                         </div>
-                         <div class="input-field col s12 m2">
-                            <p>1234</p>
-          
-                         </div>
-                         <div class="input-field col s12 m2">
-                            <p>1234</p>
-          
-                         </div>
-                          <div class="col m3"> &nbsp;</div>
-                          <div class="input-field col s12 m2">
-                             <p class="green-done"><i class="material-icons font-size-icon">done</i><span>FEB </span></p>
-                           
-                         </div>
-                         <div class="input-field col s12 m2">
-                            <p>1234</p>
-          
-                         </div>
-                         <div class="input-field col s12 m2">
-                            <p>1234</p>
-          
-                         </div>
-                         <div class="input-field col s12 m2">
-                            <p>1234</p>
-          
-                         </div> -->
-                         
-                         <!-- <div class="col s12 m12">
-                           <h5>Yearly Fee</h5>
-                        </div> -->
-                        <c:if test="${feeFormBean.anualFeeList.size() > 0  }">
-                       		 <div class="col s12 m12">
-                       
-                       
-                       
-	                        <c:forEach items="${feeFormBean.anualFeeList}" var="feeDto" varStatus="status">
-	                       
-		                        <div class="col s3 m3 col-fee">
-		                           <label class="label-fee">${feeDto.name}</label>
-		                        </div>
-		                        
-		                         <div class="input-field col s3 m3">
-		                            <p>${feeDto.amount}</p>
-		          
-		                         </div>
-		                         <div class="input-field col s3 m3">
-		                            <p>${feeDto.discount}</p>
-		          
-		                         </div>
-		                         <div class="input-field col s3 m3">
-		                           <p>${feeDto.paidAmount}</p>
-		          
-		                         </div>
-	                        </c:forEach> 
-		                       <!--   
-		                        <div class="col s12 m3 col-fee">
-		                           <label class="label-fee">Practical Fee</label>
-		                        </div>
-		                        
-		                         <div class="input-field col s12 m3">
-		                            <p>1234</p>
-		          
-		                         </div>
-		                         <div class="input-field col s12 m3">
-		                            <p>1234</p>
-		          
-		                         </div>
-		                         <div class="input-field col s12 m3">
-		                            <p>1234</p>
-		          
-		                         </div>
-		                         <div class="col s12 m3 col-fee">
-		                           <label class="label-fee">T.C Fee</label>
-		                        </div>
-		                        
-		                         <div class="input-field col s12 m3">
-		                           <p>1234</p>
-		          
-		                         </div>
-		                         <div class="input-field col s12 m3">
-		                           <p>1234</p>
-		          
-		                         </div>
-		                         <div class="input-field col s12 m3">
-		                           <p>1234</p>
-		          
-		                         </div>
-		                         <div class="col s12 m3 col-fee">
-		                           <label class="label-fee">Miscellaneous</label>
-		                        </div>
-		                        
-		                         <div class="input-field col s12 m3">
-		                            <p>1234</p>
-		          
-		                         </div>
-		                         <div class="input-field col s12 m3">
-		                            <p>1234</p>
-		          
-		                         </div>
-		                         <div class="input-field col s12 m3">
-		                           <p>1234</p>
-		          
-		                         </div> -->
-                        	 </div>
-                         </c:if>
-                         
-                          <div class="col s12 m12">
-						   <hr>
-                          <div class="col s3 m3 col-fee">
-						 
-                           <label class="label-fee">Total</label>
-                        </div>
+						</div>
 
-                        
-                         <div class="input-field col s3 m3">
-						 
-                            <p>${feeFormBean.totalAmt}</p>
-          
-                         </div>
-                         <div class="input-field col s3 m3">
-                          <p>${feeFormBean.totalDiscAmt}</p>
-          
-                         </div>
-                         <div class="input-field col s3 m3">
-						
-                            <p>${feeFormBean.totalPaidAmt}</p>
-          
-                         </div>
-                         </div>
-                          
-                        
-                        </div>
-                    
-                 	 </form:form>
-                   </div>
-                  <div class="col s12 m12 text-center"> <a onclick="printme()" class="btn waves-effect waves-light center">Print</a></div>
-                  
-               </div>
-           
-          </div>
-         </div>
-      <script type="text/javascript" src="js/jquery.min.js"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.2/js/materialize.min.js"></script>
-      
-      <script type="text/javascript">
+						<div class="col m6 s6 ">
+							<p>
+							<table style="table-layout: fixed; width: 100%">
+								<thead style="border: none;">
+									<tr>
+										<th
+											style="word-wrap: break-word; border: none; font-size: 10px; font-weight: 400;">
+											<span style="font-size: 14px; font-weight: bold;">Month's:</span>
+											${feeFormBean.months }
+										</th>
+									</tr>
+								</thead>
+							</table>
+							</p>
+							<p>
+							<table style="table-layout: fixed; width: 100%">
+								<thead style="border: none;">
+									<tr>
+										<th
+											style="word-wrap: break-word; border: none; font-size: 10px; font-weight: 400;">
+											<span style="font-size: 14px; font-weight: bold;">Receipt No. </span>
+											12314
+										</th>
+									</tr>
+								</thead>
+							</table>
+							</p>
 
-      function printme() {
-          window.print();
-      }
-        
-      </script>
-      <!--materialize js-->
-   </body>
-</html>
+						</div>
+					</div>
+					<form:form class="formValidate" id="formValidate"
+						modelAttribute="feeFormBean" action="fee.do"
+						novalidate="novalidate">
+						<div class="col m12 s12">
+							<table>
+								<thead>
+									<tr>
+										<th>Fee</th>
+										<th>Amount</th>
+										<th>Discount</th>
+										<th>paidAmount</th>
+									</tr>
+								</thead>
+
+								<tbody>
+									<c:forEach items="${feeFormBean.monthlyFeeList}" var="feeDto"
+										varStatus="status">
+										<tr>
+											<td>${feeDto.name}</td>
+											<td>${feeDto.amount}</td>
+											<td>${feeDto.discount}</td>
+											<td>${feeDto.paidAmount}</td>
+
+										</tr>
+									</c:forEach>
+									<c:if test="${feeFormBean.quarterlyFeeList.size() > 0  }">
+										<tr>
+											<td colspan="3"><h6>Exam Fee</h6></td>
+										</tr>
+										<c:forEach items="${feeFormBean.quarterlyFeeList}"
+											var="feeDto" varStatus="status">
+											<tr>
+												<td>${feeDto.name}</td>
+												<td>${feeDto.amount}</td>
+												<td>${feeDto.discount}</td>
+												<td>${feeDto.paidAmount}</td>
+											</tr>
+										</c:forEach>
+									</c:if>
+									<c:if test="${feeFormBean.halfyearlyFeeList.size() > 0  }">
+										<tr>
+											<td colspan="3"><h6>Annual Function Fee</h6></td>
+										</tr>
+										<c:forEach items="${feeFormBean.halfyearlyFeeList}"
+											var="feeDto" varStatus="status">
+											<tr>
+												<td>${feeDto.name}</td>
+												<td>${feeDto.amount}</td>
+												<td>${feeDto.discount}</td>
+												<td>${feeDto.paidAmount}</td>
+											</tr>
+										</c:forEach>
+									</c:if>
+									<c:if test="${feeFormBean.anualFeeList.size() > 0  }">
+										<tr>
+											<td colspan="3"><h6>Annual Fee</h6></td>
+										</tr>
+										<c:forEach items="${feeFormBean.anualFeeList}" var="feeDto"
+											varStatus="status">
+											<tr>
+												<td>${feeDto.name}</td>
+												<td>${feeDto.amount}</td>
+												<td>${feeDto.discount}</td>
+												<td>${feeDto.paidAmount}</td>
+											</tr>
+										</c:forEach>
+									</c:if>
+									<tr class="grand-t">
+										<td>Grand Total</td>
+										<td>${feeFormBean.totalAmt}</td>
+										<td>${feeFormBean.totalDiscAmt}</td>
+										<td>${feeFormBean.totalPaidAmt}</td>
+									</tr>
+								</tbody>
+							</table>
+							<br>
+
+							<div class="row">
+								<div class="col m6 s6">
+									<h6>Checker</h6>
+
+								</div>
+								<div class="col m6 s6">
+									<h6 class="right-align">Cashier</h6>
+
+								</div>
+								<div class="col s12 m12 text-center">
+									<a onclick="printme()"
+										class="btn waves-effect waves-light center">Print</a>
+								</div>
+							</div>
+
+						</div>
+					</form:form>
+		
+				<div id="one-r" style="margin-top: 30px;">
+					<div style="border-bottom: 1px dashed; margin: 10px 0px 20px;"></div>
+					<div class="col m9 s9 tex-morning">
+						<h4 class="tex-font text-center">MORNING STAR CHILDREN'S SR.
+							SEC. ACADEMY</h4>
+					</div>
+
+					<div class="row box-print">
+						<div class="col m6 s6 ">
+							<p>
+								Student ID <span>${feeFormBean.studentMSId }</span>
+							</p>
+							<p>
+								Name :<span>${feeFormBean.studentName }</span>
+							</p>
+							<p>
+								Class :<span>${feeFormBean.studentClass }</span>
+							</p>
+
+						</div>
+
+						<div class="col m6 s6 ">
+							<p>
+							<table style="table-layout: fixed; width: 100%">
+								<thead style="border: none;">
+									<tr>
+										<th
+											style="word-wrap: break-word; border: none; font-size: 10px; font-weight: 400;">
+											<span style="font-size: 14px; font-weight: bold;">Month's:</span>
+											${feeFormBean.months }
+										</th>
+									</tr>
+								</thead>
+							</table>
+							</p>
+							<p>
+							<table style="table-layout: fixed; width: 100%">
+								<thead style="border: none;">
+									<tr>
+										<th
+											style="word-wrap: break-word; border: none; font-size: 10px; font-weight: 400;">
+											<span style="font-size: 14px; font-weight: bold;">Receipt No. </span>
+											12314
+										</th>
+									</tr>
+								</thead>
+							</table>
+							</p>
+
+						</div>
+					</div>
+
+					<div class="col m12 s12">
+						<form:form class="formValidate" id="formValidate"
+							modelAttribute="feeFormBean" action="fee.do"
+							novalidate="novalidate">
+							<table>
+								<thead>
+									<tr>
+										<th>Fee</th>
+										<th>Amount</th>
+										<th>Discount</th>
+										<th>paidAmount</th>
+									</tr>
+								</thead>
+
+								<tbody>
+									<c:forEach items="${feeFormBean.monthlyFeeList}" var="feeDto"
+										varStatus="status">
+										<tr>
+											<td>${feeDto.name}</td>
+											<td>${feeDto.amount}</td>
+											<td>${feeDto.discount}</td>
+											<td>${feeDto.paidAmount}</td>
+
+										</tr>
+									</c:forEach>
+									<c:if test="${feeFormBean.quarterlyFeeList.size() > 0  }">
+										<tr>
+											<td colspan="3"><h6>Exam Fee</h6></td>
+										</tr>
+										<c:forEach items="${feeFormBean.quarterlyFeeList}"
+											var="feeDto" varStatus="status">
+											<tr>
+												<td>${feeDto.name}</td>
+												<td>${feeDto.amount}</td>
+												<td>${feeDto.discount}</td>
+												<td>${feeDto.paidAmount}</td>
+											</tr>
+										</c:forEach>
+									</c:if>
+									<c:if test="${feeFormBean.halfyearlyFeeList.size() > 0  }">
+										<tr>
+											<td colspan="3"><h6>Annual Function Fee</h6></td>
+										</tr>
+										<c:forEach items="${feeFormBean.halfyearlyFeeList}"
+											var="feeDto" varStatus="status">
+											<tr>
+												<td>${feeDto.name}</td>
+												<td>${feeDto.amount}</td>
+												<td>${feeDto.discount}</td>
+												<td>${feeDto.paidAmount}</td>
+											</tr>
+										</c:forEach>
+									</c:if>
+									<c:if test="${feeFormBean.anualFeeList.size() > 0  }">
+										<tr>
+											<td colspan="3"><h6>Annual Fee</h6></td>
+										</tr>
+										<c:forEach items="${feeFormBean.anualFeeList}" var="feeDto"
+											varStatus="status">
+											<tr>
+												<td>${feeDto.name}</td>
+												<td>${feeDto.amount}</td>
+												<td>${feeDto.discount}</td>
+												<td>${feeDto.paidAmount}</td>
+											</tr>
+										</c:forEach>
+									</c:if>
+									<tr class="grand-t">
+										<td>Grand Total</td>
+										<td>${feeFormBean.totalAmt}</td>
+										<td>${feeFormBean.totalDiscAmt}</td>
+										<td>${feeFormBean.totalPaidAmt}</td>
+									</tr>
+								</tbody>
+							</table>
+						</form:form>
+						<br>
+
+						<div class="row">
+							<div class="col m6 s6">
+								<h6>Checker</h6>
+
+							</div>
+							<div class="col m6 s6">
+								<h6 class="right-align">Cashier</h6>
+
+							</div>
+
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script src="js/materialize.min.js"></script>
+	<script src="js/jquery.validate.min.js"></script>
+	<script type="text/javascript">
+		function printme() {
+			window.print();
+
+		}
+	</script>
+
+</body>

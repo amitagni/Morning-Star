@@ -5,78 +5,190 @@
 <!DOCTYPE html>
 <html lang="en">
    <head>
-      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <title>Recipt Form</title>
-      <!-- CORE CSS-->
-      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-      <link rel="stylesheet" type="text/css" href="css/dropify.min.css">
-      <link rel="stylesheet" type="text/css" media="print" href="css/print.css">
-      <link rel="stylesheet" type="text/css" href="css/style.css">
-      <link rel="shortcut icon" type="image/png" href="img/login.png" />
-      <link rel="stylesheet" href="css/materialize.min.css">
+     
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+   
+ <link rel="stylesheet" href="css/materialize.min.css">
+  <link rel="shortcut icon" type="image/png" href="images/login.png"/>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/print.css">
+  
+  </head>
    <body class="dashboard-body">
+     
      <%@ include file="../includes/header.jsp"%>
       <div class="container_b">
       <div class="valign-wrapper row row_form">
-         <div class="col s12 m12 card-margin card-panel valign">
-            <ul class="breadcrumb">
-            <li ><a href="javascript:void();">Registration</a>
-               </li>
-               <li ><a href="javascript:void();">Payment</a>
-               </li>
-               <li><a class="active_list" href="javascript:void();">Receipt</a>
-               </li>
-            </ul>
-         </div>
+         
       </div>
       </div>
-      <div class="row_form valign-wrapper">
-         <div class="col s12 m12 recipt-width" style="width: 100%;">
+       <div class="row_form valign-wrapper">
+       
+          <div class="col s12 m12 recipt-width">
             <div class="card-panel card-main">
-        
-          <div class="col s12 m12 text-center logo-recipt">
+           <div><!-- <p id="bg-text">adsad</p> -->
+           <div class="row">
+                <div class="col s3 m3">
             <img src="img/login.png" alt="" class="responsive-img valign profile-image-login size-logo center ">
+            
           </div>
-      
-            <h4 class="text-center"><u>Registration Fee Receipt</u></h4>
-            <br>
-            <div class="row">
-            <div class="col s6 offset-s2">
-              <h5> Name    - ${name } </h5>  
-            <h5> Class     - ${stcls }</h5>
-            </div>
-            <div class="col s4">
-            
-            <h5><span class="date">Date  -  ${dt }</span></h5>
-            </div>
-            </div>
-            
-               <h5 class="text-center">Congratulations, Registration process has been
-Successfully Completed. !!!</h5>
-<br>
-<h5 class="text-center">This is notify  that sum of &#8377; <span><b>${amt}</b></span> has been deposited towards registration fee in cash</h5><BR>
-<h5 class="text-center">Your registration no is :<b>${id }</b></h5>
+          <div class="col m9 s9 tex-morning">
+         	 <h4 class="tex-font">MORNING STAR CHILDREN'S SR. SEC. ACADEMY</h4>
+         	 <p>Congratulations, Registration process has been Successfully Completed. !!!</p>
+         	 
+          </div>
+          </div>
+          <div class="row box-print">
+          <div class="col m6 s6 ">
+          <p>Name :<span>${name }</span></p>
+          <p>Class :<span>${stcls}</span></p> 
+          
+          </div>
+       
+          <div class="col m6 s6 ">
+          <p class="right-align">Date:<span>${dt }</span></p>
+          <p class="right-align" >Receipt Number :<span>${id }</span></p>
+          </div>
+          </div>
+          <div class="col m12 s12">
+           <table>
+        <thead>
+          <tr>
+              <th>Particulars</th>
+              <th>Amounts</th>
+          </tr>
+        </thead>
 
-<br>
-<h5 class="text-center">Plesase keep this registration no. safe with you as this will be used further in admission process</h5>
-<div class="input-field col s12 text-center">
-            <button onclick="printme()" class="btn waves-effect waves-light">Print</button>
+        <tbody>
+          <%-- <tr>
+            <td>Months</td>
+            <td>${abacusReceiptDTO.months}</td>
+            
+          </tr> --%>
+          <tr>
+            <td>Amount</td>
+            <td>${amt}</td>
+          </tr>
+          <%-- <c:if test="${not empty abacusReceiptDTO.regAmount}">
+	          <tr>
+	            <td>Registration Fee</td>
+	            <td>${abacusReceiptDTO.regAmount}</td>
+	          </tr>
+          </c:if> --%>
+          
+          <tr class="grand-t">
+            <td>Grand Total</td>
+            <td>${amt}</td>
+          </tr>
+    
+        </tbody>
+      </table>
+      <p>*Plesase keep this registration no. safe with you as this will be used further in admission process</p>
+      <br>
+      
+      <div class="row">
+      <div class="col m6 s6">
+          <h6>Checker</h6>
+        
+          </div>
+          <div class="col m6 s6">
+          <h6 class="right-align">Cashier</h6>
+        
+          </div>
+           <div class="col s12 m12 text-center"> <a onclick="printme()" class="btn waves-effect waves-light center">Print</a></div>
+      </div>
+      
           </div>
          </div>
+          <div id="one-r" >
+        <div style="border-bottom: 1px dashed;    margin: 10px 0px 20px;"></div>
+        <div class="col m9 s9 tex-morning"  style="margin-top: 30px;">
+         	 <h4 class="tex-font text-center">MORNING STAR CHILDREN'S SR. SEC. ACADEMY</h4>
+         	 <p>Congratulations, Registration process has been Successfully Completed. !!!</p>
+          </div>
+        
+          <div class="row box-print">
+          <div class="col m6 s6 ">
+            <p>Name :<span>${name }</span></p>
+           <p>Class :<span>${stcls}</span></p> 
+         
+          </div>
+       
+          <div class="col m6 s6 ">
+          <p class="right-align">Date:<span>${dt }</span></p>
+          <p class="right-align" >Receipt Number :<span>${id }</span></p>
+          
+          </div>
+          </div>
+          <div class="col m12 s12">
+           <table>
+        <thead>
+          <tr>
+              <th>Particulars</th>
+              <th>Amounts</th>
+          </tr>
+        </thead>
+
+         <tbody>
+         <%--  <tr>
+             <td>Months</td>
+            <td>${abacusReceiptDTO.months}</td>
+           
+          </tr> --%>
+          <tr>
+             <td>Amount</td>
+            <td>${amt}</td>
+          </tr>
+         <%--   <c:if test="${not empty abacusReceiptDTO.regAmount}">
+	          <tr>
+	            <td>Registration Fee</td>
+	            <td>${abacusReceiptDTO.regAmount}</td>
+	          </tr>
+          </c:if> --%>
+          
+          <tr class="grand-t">
+            <td>Grand Total</td>
+            <td>${amt}</td>
+          </tr>
+    
+        </tbody>
+      </table>
+      <p>*Plesase keep this registration no. safe with you as this will be used further in admission process</p>
+      <br>
+      
+      <div class="row">
+      <div class="col m6 s6">
+          <h6>Checker</h6>
+        
+          </div>
+          <div class="col m6 s6">
+          <h6 class="right-align">Cashier</h6>
+        
+          </div>
+           
       </div>
-      </div>
+      
+          </div>
+           </div>
+          </div>
+          </div>
+         </div>
+        
+     
       <script type="text/javascript" src="js/jquery.min.js"></script>
       <script src="js/materialize.min.js"></script>
-      
-      <script type="text/javascript">
-         
+      <script src="js/jquery.validate.min.js"></script>
+       <script type="text/javascript">
 
-
-function printme() {
-    window.print();
-}
+      function printme() { window.print();
+        
+      }
+        
       </script>
+      
    </body>
 </html>
