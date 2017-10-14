@@ -19,6 +19,10 @@
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/print.css">
 <style>
+#h6 {
+    display: none;
+    font-size: 12px;
+}
   @media print {
 body{
 font-size:8px !important;
@@ -27,6 +31,12 @@ font-size:8px !important;
     font-size: 8px!important;
     font-weight: bold;
     margin: 0px;
+}
+#h6 {
+       display: block !important;
+    font-size: 12px !important;
+    margin: 0px;
+
 }
 span,h6{
 font-size: 7px!important;
@@ -70,10 +80,12 @@ margin: 0px;
 						<div class="col m9 s9 tex-morning">
 							<h4 class="tex-font">MORNING STAR CHILDREN'S SR. SEC.
 								ACADEMY</h4>
+								
 						</div>
 					</div>
+					<h4 id="h6">Student Copy</h4>
 					<div class="row box-print">
-						<div class="col m6 s6 ">
+						<div class="col m4 s4 ">
 							<p>
 								Student ID <span>${feeFormBean.studentMSId }</span>
 							</p>
@@ -86,7 +98,7 @@ margin: 0px;
 
 						</div>
 
-						<div class="col m6 s6 ">
+						<div class="col m8 s8 ">
 							<p>
 							<table style="table-layout: fixed; width: 100%">
 								<thead style="border: none;">
@@ -216,10 +228,11 @@ margin: 0px;
 					<div class="col m9 s9 tex-morning">
 						<h4 class="tex-font text-center">MORNING STAR CHILDREN'S SR.
 							SEC. ACADEMY</h4>
+							
 					</div>
-
+					<h4 id="h6">School Copy</h4>
 					<div class="row box-print">
-						<div class="col m6 s6 ">
+						<div class="col m4 s4 ">
 							<p>
 								Student ID <span>${feeFormBean.studentMSId }</span>
 							</p>
@@ -232,14 +245,14 @@ margin: 0px;
 
 						</div>
 
-						<div class="col m6 s6 ">
+						<div class="col m8 s8">
 							<p>
 							<table style="table-layout: fixed; width: 100%">
 								<thead style="border: none;">
 									<tr>
 										<th
 											style="word-wrap: break-word; border: none; font-size: 10px; font-weight: bold;">
-											<span style="font-size: 14px; font-weight: bold;">Months:</span>
+											<span style="font-size: 14px; font-weight: bold; word-wrap: break-word;">Months:</span>
 											${feeFormBean.months }
 										</th>
 									</tr>

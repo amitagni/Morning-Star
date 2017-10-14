@@ -16,7 +16,20 @@
   <link rel="shortcut icon" type="image/png" href="images/login.png"/>
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/print.css">
+  <style>
+  #h6 {
+    display: none;
+    font-size: 12px;
+}
+ @media print { #h6 {
+       display: block !important;
+    font-size: 12px !important;
+    margin: 0px;
+
+}
+}
   
+  </style>
   </head>
    <body class="dashboard-body">
      
@@ -42,6 +55,7 @@
          	 
           </div>
           </div>
+          	<h4 id="h6">Student Copy</h4>
           <div class="row box-print">
           <div class="col m6 s6 ">
           <p>Name :<span>${name }</span></p>
@@ -105,12 +119,13 @@
           </div>
          </div>
           <div id="one-r" >
-        <div style="border-bottom: 1px dashed;    margin: 10px 0px 20px;"></div>
-        <div class="col m9 s9 tex-morning"  style="margin-top: 30px;">
-         	 <h4 class="tex-font text-center">MORNING STAR CHILDREN'S SR. SEC. ACADEMY</h4>
-         	 <p>Congratulations, Registration process has been Successfully Completed. !!!</p>
-          </div>
+          
+        <div style="border-bottom: 1px dashed;    margin: 80px 0px 20px;"></div>
         
+        <div class="col m9 s9 tex-morning"  style="margin-top: 70px;">
+         	 <h4 class="tex-font text-center">MORNING STAR CHILDREN'S SR. SEC. ACADEMY</h4>
+          </div>
+        <h4 id="h6">School Copy</h4>
           <div class="row box-print">
           <div class="col m6 s6 ">
             <p>Name :<span>${name }</span></p>
