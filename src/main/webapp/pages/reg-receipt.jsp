@@ -51,7 +51,7 @@
        
           <div class="col m6 s6 ">
           <p class="right-align">Date:<span>${dt }</span></p>
-          <p class="right-align" >Receipt Number :<span>${id }</span></p>
+          <p class="right-align" >Registration Number :<span>${id }</span></p>
           </div>
           </div>
           <div class="col m12 s12">
@@ -120,7 +120,7 @@
        
           <div class="col m6 s6 ">
           <p class="right-align">Date:<span>${dt }</span></p>
-          <p class="right-align" >Receipt Number :<span>${id }</span></p>
+          <p class="right-align" >Registration Number :<span>${id }</span></p>
           
           </div>
           </div>
