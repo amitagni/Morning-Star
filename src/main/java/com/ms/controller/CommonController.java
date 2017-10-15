@@ -147,6 +147,18 @@ public class CommonController {
         }
       
 		return studentDetailDTO;
-	}
+	}  
+	
+	@RequestMapping("/finance")  
+    public ModelAndView finance() {  
+		SessionUtil.setPage(MSConstant.FINANCE);
+        return new ModelAndView("finance");  
+    }
+	
+	@RequestMapping("/inventory")  
+    public ModelAndView inventory () {  
+		SessionUtil.setPage(MSConstant.INVENTORY);
+        return new ModelAndView("inventory");  
+    }
 
 }

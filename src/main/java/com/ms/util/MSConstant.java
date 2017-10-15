@@ -44,7 +44,7 @@ public interface MSConstant {
 	 String  ACCOUNT_ACTION= "1";
 	 String  DAYBOOK_ACTION= "2";
 	 String  FINANCE= "Finance";
-	 String INVENTORY="inventory";
+	 String INVENTORY="Inventory";
 
 	 
 }
