@@ -43,6 +43,8 @@ public interface MSConstant {
 	 String  LEDGER= "Ledger";
 	 String  ACCOUNT_ACTION= "1";
 	 String  DAYBOOK_ACTION= "2";
+	 String  FINANCE= "Finance";
+	 String INVENTORY="inventory";
 
 	 
 }
